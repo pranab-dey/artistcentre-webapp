@@ -1,0 +1,100 @@
+.containter {
+	padding: 15px;
+	border-radius: 15px;
+	background-color: var(--color-bg-navbar);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+	// padding-top: 15px;
+	// padding-right: 70px;
+	// padding-left: 70px;
+}
+
+.title {
+	color: var(--color-primary-accent);
+	font-family: Poppins;
+}
+.subTitle {
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 16px;
+	font-style: normal;
+	letter-spacing: 0.5px;
+}
+.hiphen {
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.genre {
+	color: var(--color-primary-accent);
+}
+.band {
+	font-weight: 300;
+}
+.locationIcon {
+	font-size: 28px;
+	margin-right: 5px;
+}
+.address {
+	font-family: 'Poppins';
+}
+.place {
+	color: var(--color-text-2);
+	font-size: 15px;
+}
+.road {
+	color: var(--color-grey);
+	font-size: 11px;
+	letter-spacing: 0.2px;
+	font-weight: 200;
+}
+.divider {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+	border-top: 1px solid var(--color-primary-accent);
+	opacity: 0.1;
+}
+.font {
+	font-size: 12px;
+	font-family: 'Roboto';
+	font-weight: 300;
+	color: var(--color-green);
+	letter-spacing: 0.2px;
+}
+.calenderIcon {
+	font-size: 20px;
+	margin-top: -1px;
+	margin-right: 5px;
+	color: var(--color-green);
+}
+
+.timeIcon {
+	font-size: 20px;
+	margin-top: -1px;
+	margin-right: 5px;
+	color: var(--color-green);
+}
+
+.playIcon {
+	// padding-left: 30px;
+	object-fit: contain;
+}
+.playIconContainer {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
+
+	span {
+		font-size: 12px;
+		color: var(--color-red);
+		margin-top: 5px;
+		font-family: Roboto;
+	}
+}
+
+.heartIcon {
+	justify-self: flex-end;
+	font-size: 10px;
+	color: var(--color-red);
+	margin-left: 4px;
+}

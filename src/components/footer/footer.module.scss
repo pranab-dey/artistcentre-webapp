@@ -1,0 +1,25 @@
+.container {
+	background-color: var(--color-primary-accent);
+	padding: 17px;
+	font-family: Roboto;
+	font-weight: 300;
+	letter-spacing: 0.2px;
+	font-size: 12px;
+	color: var(--color-secondary);
+}
+
+.div {
+	margin-left: 9px;
+	margin-right: 9px;
+	background-color: var(--color-primary-accent);
+}
+.footerEnd {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.iconGroup {
+	font-size: 15px;
+	gap: 12px;
+	display: flex;
+}

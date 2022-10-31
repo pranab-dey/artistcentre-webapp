@@ -1,0 +1,36 @@
+.imageTitle {
+	font-family: 'Poppins';
+	font-size: 16px;
+	color: var(--color-text);
+	font-style: normal;
+	font-weight: 600;
+	margin-top: 5px;
+}
+.subTitle {
+	mix-blend-mode: normal;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.1px;
+	color: var(--color-grey);
+	margin-bottom: 40px;
+	opacity: 0.8;
+}
+.groupTitle {
+	margin-bottom: 40px;
+	margin-top: 5px;
+	color: var(--color-primary-accent);
+	font-weight: 500;
+	font-family: 'Roboto';
+	font-size: 16px;
+	opacity: 0.9;
+}
+.venue {
+	margin-bottom: 50px;
+	margin-top: 5px;
+	color: var(--color-grey);
+	font-weight: 300;
+	letter-spacing: 0.2px;
+	font-family: 'Roboto';
+	font-size: 12px;
+}

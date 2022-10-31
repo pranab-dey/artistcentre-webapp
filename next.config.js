@@ -41,6 +41,7 @@ const nextConfig = {
 			'loremflickr.com',
 			'newevolutiondesigns.com',
 			'cloudflare-ipfs.com',
+			'picsum.photos',
 		],
 	},
 };

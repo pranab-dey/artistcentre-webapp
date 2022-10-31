@@ -1,0 +1,190 @@
+@import './colors.scss';
+
+:root {
+	--color-primary: #000;
+	--color-primary-accent: #{$app-primary};
+	--color-secondary: #fff;
+	--color-secondary-accent: #{$app-secondary};
+	--color-bg: #{$app-bg-light};
+	--color-bg-navbar: #{$app-bg-navbar-light};
+	--color-text: #{$app-text-black};
+	--color-text-2: #{$matt-black};
+	--color-grey: #{$grey};
+	--color-green: #{$green};
+	--color-red: #{$app-danger};
+}
+[data-theme='dark'] {
+	--color-primary: #fff;
+	--color-primary-accent: #{$app-primary};
+	--color-secondary: #fff;
+	--color-secondary-accent: #{$app-secondary};
+	--color-bg: #{$app-bg-dark};
+	--color-bg-navbar: #{$app-bg-navbar-dark};
+	--color-text: #{$app-text-white};
+	--color-text-2: #{$app-text-white};
+	--color-grey: #{$grey};
+	--color-green: #{$green};
+	--color-red: #{$app-danger};
+}
+
+// html {
+//     font-size: calc(15px + 0.390625vw);
+// }
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background-color: var(--color-bg);
+	color: var(--color-primary);
+	font-family: Poppins, Roboto, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	&:focus,
+	&:active {
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+
+/*********************************************/
+/*              BOOTSTRAP UTILITY CSS        */
+/*********************************************/
+
+.input,
+input.form-control {
+	line-height: 27px;
+	outline: none;
+	border-radius: 7px;
+	transition: all 0.3s;
+	box-shadow: none;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 1.5px 3px,
+		rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+}
+
+textarea:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+.uneditable-input:focus {
+	border-color: $app-primary;
+	outline: 0 none;
+}
+
+textarea {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	resize: none;
+	border-radius: 5px;
+	outline-width: 0;
+	margin-left: 10px;
+}
+
+textarea::-webkit-scrollbar {
+	width: 3px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+	border-radius: 15px;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	background-color: $app-primary;
+}
+
+.form-check-input:checked {
+	background-color: $app-primary;
+}
+
+.btn:focus {
+	outline: none;
+	outline-offset: none;
+	box-shadow: none;
+}
+
+.btn-facebook,
+.btn-google {
+	font-weight: 500;
+	font-size: 14px;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	letter-spacing: 0.5px;
+}
+
+/*********************************************/
+/*          CUSTOMIZED DEFAULTS         */
+/*********************************************/
+
+/* *** buttons ***  */
+$btn-border-radius: 15px;
+$input-btn-border-width: 2px;
+$btn-hover-bg-tint-amount: 25%;
+$btn-hover-bg-shade-amount: 40%;
+
+/* *** fonts ***  */
+$h6-font-size: '12px';
+
+/* *** forms ***  */
+$form-check-input-checked-border-color: $app-white;
+
+/* *** inputs ***  */
+$input-focus-box-shadow: $app-primary;
+$input-border-color: transparent;
+
+/* *** links ***  */
+$link-decoration: none;
+$link-color: $app-link;
+$link-shade-percentage: 35%;
+
+/** *** placeholder *** */
+$placeholder-opacity-max: 0.3;
+
+/** *** navbar *** */
+$nav-link-font-size: '14px';
+
+/** *** buttons *** */
+$btn-font-size: '16px';
+
+/*********************************************/
+/*      CUSTOM THEME COLOR MAPPING       */
+/*********************************************/
+
+$theme-colors: (
+	'primary': $app-primary,
+	'secondary': $app-secondary,
+	'success': $app-success,
+	'info': $app-info,
+	'danger': $app-danger,
+	'link': $app-link,
+	'facebook': $app-facebook,
+	'google': $app-google,
+	'subtitle': $app-subtitle,
+	'grey': $app-grey,
+	'transparent': $app-transparent,
+	'primaryLight': $app-bg-navbar-light,
+	'primaryDark': $app-bg-navbar-dark,
+	'light': $app-bg-light,
+	'dark': $app-bg-dark,
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+// @import '../node_modules/swiper/swiper.scss';

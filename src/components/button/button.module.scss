@@ -1,0 +1,28 @@
+.button {
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.button:hover {
+	// background-color: var(--color-bg) !important;
+	// border: 1px solid var(--color-primary-accent) !important;
+}
+
+.icons {
+	vertical-align: middle;
+	width: 20px;
+	height: auto;
+	padding-left: 4px;
+}
+
+.googleButtonText {
+	padding-left: 22px;
+}
+
+.facebookButtonText {
+	padding-left: 10px;
+}
+
+.icon__login {
+	color: red;
+}
