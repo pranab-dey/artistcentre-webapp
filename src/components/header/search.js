@@ -22,9 +22,17 @@ function Search() {
 		<div className={`${styles.search} mt-4`}>
 			<InputGroup className={`${styles.seachbar} `}>
 				<Form.Control placeholder='search' aria-label='search' />
-				<Button variant='primary' id='button-addon2'>
+				{/* <BsSearch className={styles.searchIcon} /> */}
+				{/* <Button
+					variant='transparent'
+					style={{
+						background: 'none',
+						position: 'absolute',
+						top: '0',
+						right: '-20',
+					}}>
 					<BsSearch />
-				</Button>
+				</Button> */}
 			</InputGroup>
 			<h6 className={styles.margin}>Select Date</h6>
 			<Image src='/assets/calendar-week.png' width={20} height={20} />

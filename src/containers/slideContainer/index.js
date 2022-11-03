@@ -1,12 +1,13 @@
 import { Slider } from 'components';
 
 export default function SlideContainer(props) {
-	const { type = 'feature', data = {} } = props;
+	const { type = 'feature', slideContent } = props;
+
 	return (
 		<div style={style}>
 			<h5 style={title}>{type}</h5>
 			<div style={slider}>
-				<Slider data={data} type={type} />
+				<Slider data={slideContent} type={type} />
 			</div>
 		</div>
 	);

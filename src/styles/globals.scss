@@ -12,6 +12,8 @@
 	--color-grey: #{$grey};
 	--color-green: #{$green};
 	--color-red: #{$app-danger};
+	--color-footer: #{$app-primary};
+	--color-icon: #{$app-secondary};
 }
 [data-theme='dark'] {
 	--color-primary: #fff;
@@ -25,6 +27,8 @@
 	--color-grey: #{$grey};
 	--color-green: #{$green};
 	--color-red: #{$app-danger};
+	--color-footer: #{$app-bg-navbar-dark};
+	--color-icon: #{$app-primary};
 }
 
 // html {

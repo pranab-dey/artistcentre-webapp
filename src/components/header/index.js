@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import { FiLogIn } from 'react-icons/fi';
+import { MdDarkMode } from 'react-icons/md';
 
 import { CustomButton } from 'components';
 
@@ -14,12 +15,13 @@ import Search from './search';
 
 import classes from './header.module.scss';
 
-function MainHeader() {
+function MainHeader(props) {
+	const { darkTheme, themeToggle } = props;
 	return (
 		<Container fluid className={`${classes.mainHeader}`}>
 			<Container fluid='md' className={classes.header}>
 				<Row className={classes.headerRow}>
-					<Col xs={3}>
+					<Col xs={3} md={3}>
 						<div className={`${classes.logo} mt-4`}>
 							<figure className={classes.figure}>
 								<Image
@@ -34,7 +36,7 @@ function MainHeader() {
 							</div>
 						</div>
 					</Col>
-					<Col xs={4}>
+					<Col xs={4} md={4}>
 						<Search />
 						{/* <Form className='d-flex mt-4'>
 							<Form.Control
@@ -46,8 +48,21 @@ function MainHeader() {
 							<Button variant='outline-success'>Search</Button>
 						</Form> */}
 					</Col>
-					<Col xs={5}>
+					<Col xs={5} md={5}>
 						<div className={`${classes.last} mt-4 `}>
+							{darkTheme !== undefined && (
+								<label>
+									<input
+										type='checkbox'
+										checked={darkTheme}
+										onChange={themeToggle}
+										style={{ display: 'none' }}
+									/>
+									<MdDarkMode
+										className={classes.themeToggle}
+									/>
+								</label>
+							)}
 							<CustomButton
 								btnText='Login'
 								variant='primary'

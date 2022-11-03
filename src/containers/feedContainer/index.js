@@ -1,25 +1,14 @@
 import Col from 'react-bootstrap/Col';
 import { Feed, CustomButton } from 'components';
 
-export default function FeedContainer() {
+export default function FeedContainer({ liveStreams }) {
 	return (
 		<div>
 			<span style={title}>Livestreams</span>
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
-			<Feed />
+			{liveStreams.map((liveStream) => (
+				<Feed event={liveStream} />
+			))}
+
 			<div style={{ paddingTop: '18px' }}>
 				<CustomButton
 					variant='secondary'

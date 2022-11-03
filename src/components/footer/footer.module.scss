@@ -1,11 +1,14 @@
 .container {
-	background-color: var(--color-primary-accent);
+	background-color: var(--color-footer);
 	padding: 17px;
 	font-family: Roboto;
 	font-weight: 300;
 	letter-spacing: 0.2px;
 	font-size: 12px;
 	color: var(--color-secondary);
+}
+.mainContainer {
+	// background-color: var(--color-footer);
 }
 
 .div {

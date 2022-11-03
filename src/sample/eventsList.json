@@ -1,0 +1,1108 @@
+{
+	"eventsList": {
+		"meta_data": {
+			"count": 12,
+			"page_size": 12,
+			"next": null,
+			"previous": null
+		},
+		"data": [
+			{
+				"id": 2106,
+				"is_favorite": false,
+				"event_name": " Joey Defrancesco Trio",
+				"lat_lng": {
+					"lat": 37.494677,
+					"lng": -122.4611701
+				},
+				"event_location": "Bach Dancing & Dynamite Society, 311 Mirada Rd., Half Moon Bay, CA650-726-4143, ",
+				"event_description": "Master organist, Joey DeFrancesco was raised in Philadelphia where the foundation of his musical roots in jazz, blues and other musical art forms were born. The four-time Grammy Award-nominee, with more than 30 recordings as a leader, has received countless Jazz Journalist Association awards, inducted into the inaugural Hammond Organ Hall of Fame in 2014 and the Philadelphia Music Walk of Fame in 2016 as well as topping the Critics Polls in DownBeat magazine eleven times over the past fifteen years and the Readers Polls every year since 2005. His new album, More Music, is “more” in every conceivable way offering up ten new originals, and the master organist, who has long supplemented his keyboard virtuosity with his skilled trumpet playing, brings out his full arsenal: organ, keyboard, piano, trumpet and, for the first time on record, tenor saxophone!...\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/1d9a0a9cb245abb48e2279c2e1c0e6bf.jpg",
+				"event_livestream_url": "https://bachddsoc.org/calendar/",
+				"ticket_price": " $45",
+				"start_date": "11/06/2022",
+				"start_time": "11:30 PM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 202,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Bach Dancing & Dynamite Society",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1795,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Joey DeFrancesco",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 839,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "organ, Hammond B3",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1796,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Lucas Brown",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1797,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "drums",
+						"artist_mobile": "",
+						"artist_name": "Anwar Marshall",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Joey Defrancesco Trio",
+						"group_biography": "Master organist, Joey DeFrancesco was raised in Philadelphia where the foundation of his musical roots in jazz, blues and other musical art forms were born. The four-time Grammy Award-nominee, with more than 30 recordings as a leader, has received countless Jazz Journalist Association awards, inducted into the inaugural Hammond Organ Hall of Fame in 2014 and the Philadelphia Music Walk of Fame in 2016 as well as topping the Critics Polls in DownBeat magazine eleven times over the past fifteen years and the Readers Polls every year since 2005. His new album, More Music, is “more” in every conceivable way offering up ten new originals, and the master organist, who has long supplemented his keyboard virtuosity with his skilled trumpet playing, brings out his full arsenal: organ, keyboard, piano, trumpet and, for the first time on record, tenor saxophone!...\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2193,
+				"is_favorite": false,
+				"event_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+				"lat_lng": {
+					"lat": 40.7842667,
+					"lng": -74.6968284
+				},
+				"event_location": "Transmedia Sound & Music, Chester, NJ, ",
+				"event_description": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/53bece840e252ec953a7e2d0e8ed4253.jpg",
+				"event_livestream_url": "https://andywasserman.com/piano/live-stream-concerts",
+				"ticket_price": "",
+				"start_date": "11/07/2022",
+				"start_time": "02:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 3,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Transmedia Sound & Music",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 18,
+						"artist_address": "1 Piermont Rd, Tenafly, NJ 07670",
+						"lat_lng": {
+							"lat": 40.9247746,
+							"lng": -73.96459089999999
+						},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Andy Wasserman",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+						"group_biography": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2108,
+				"is_favorite": false,
+				"event_name": " Django Festival Allstars",
+				"lat_lng": {
+					"lat": 37.494677,
+					"lng": -122.4611701
+				},
+				"event_location": "Bach Dancing & Dynamite Society, 311 Mirada Rd., Half Moon Bay, CA650-726-4143, ",
+				"event_description": "The Django Reinhardt Festival carries on the legacy of gypsy guitarist Django Reinhardt with top players from Europe combined with America’s great jazz stars to bring joy to the public with its swinging sound, virtuosity, romantic melodies, and camaraderie amongst musicians. The Django Reinhardt Festival was launched in 2000 and established a home at the legendary club, Birdland in New York City. 2022 will mark its 22nd anniversary, and it’s still going strong. The festival celebrates the music of legendary gypsy guitarist Django Reinhardt who teamed with famed jazz violinist Stephane Grappelli in the 30’s and 40’s to create the Quintet of the Hot club de France which went on to become one of the most important jazz partnerships in history....\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/75136aa2379b5299774c20feee5d6604.jpg",
+				"event_livestream_url": "https://bachddsoc.org/calendar/",
+				"ticket_price": " $55",
+				"start_date": "11/13/2022",
+				"start_time": "11:30 PM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 202,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Bach Dancing & Dynamite Society",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1799,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "guitar",
+						"artist_mobile": "",
+						"artist_name": "Samson Schmitt",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1800,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Ludovic Beier",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1801,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Pierre Blanchard",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1802,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Antonio Licusati",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1803,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "DouDou Cuillerier",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Django Festival Allstars",
+						"group_biography": "The Django Reinhardt Festival carries on the legacy of gypsy guitarist Django Reinhardt with top players from Europe combined with America’s great jazz stars to bring joy to the public with its swinging sound, virtuosity, romantic melodies, and camaraderie amongst musicians. The Django Reinhardt Festival was launched in 2000 and established a home at the legendary club, Birdland in New York City. 2022 will mark its 22nd anniversary, and it’s still going strong. The festival celebrates the music of legendary gypsy guitarist Django Reinhardt who teamed with famed jazz violinist Stephane Grappelli in the 30’s and 40’s to create the Quintet of the Hot club de France which went on to become one of the most important jazz partnerships in history....\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2195,
+				"is_favorite": false,
+				"event_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+				"lat_lng": {
+					"lat": 40.7842667,
+					"lng": -74.6968284
+				},
+				"event_location": "Transmedia Sound & Music, Chester, NJ, ",
+				"event_description": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/53bece840e252ec953a7e2d0e8ed4253.jpg",
+				"event_livestream_url": "https://andywasserman.com/piano/live-stream-concerts",
+				"ticket_price": "",
+				"start_date": "11/14/2022",
+				"start_time": "02:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 3,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Transmedia Sound & Music",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 18,
+						"artist_address": "1 Piermont Rd, Tenafly, NJ 07670",
+						"lat_lng": {
+							"lat": 40.9247746,
+							"lng": -73.96459089999999
+						},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Andy Wasserman",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+						"group_biography": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2109,
+				"is_favorite": false,
+				"event_name": " Tawanda With Dave Kikoski Trio",
+				"lat_lng": {
+					"lat": 39.28245510000001,
+					"lng": -76.5978652
+				},
+				"event_location": "Keystone Korner Baltimore, 1350 Lancaster Street, Baltimore, MD(410) 946-6726, ",
+				"event_description": "An official Resonance Records CD Release performance!\n\n\nThe first 30 ticket buyers will receive a FREE copy of Tawanda Suessbrich-Joaquim’s newest release, TAWANDA, which features Dave Kikoski on keyboards.\n\n\n\nTawanda Suessbrich-Joaquim\n\nJazz is one form of music that transcends most other genres and has done so throughout the ages. Its complexity, off beat rhythms, sophistication and constant desire to improvise and evolve itself courses through its precious origins. Those traditions run deep within the soul of award-winning vocalist Tawanda Suessbrich-Joaquim and there is no greater gift than seeing her sing her story in full flight....\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/1f3a116c32756e3ae4912ffcf2d7441f.jpg",
+				"event_livestream_url": "https://www.instantseats.com/?fuseaction=home.artist&VenueID=514&artistid=23684",
+				"ticket_price": " $25, 20, 10",
+				"start_date": "11/17/2022",
+				"start_time": "02:30 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 412,
+					"venue_address": "",
+					"lat_lng": {},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Keystone Korner Baltimore",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1804,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "voice / vocals",
+						"artist_mobile": "",
+						"artist_name": "Tawanda Suessbrich-Joaquim",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {},
+						"group_name": " Tawanda With Dave Kikoski Trio",
+						"group_biography": "An official Resonance Records CD Release performance!\n\n\nThe first 30 ticket buyers will receive a FREE copy of Tawanda Suessbrich-Joaquim’s newest release, TAWANDA, which features Dave Kikoski on keyboards.\n\n\n\nTawanda Suessbrich-Joaquim\n\nJazz is one form of music that transcends most other genres and has done so throughout the ages. Its complexity, off beat rhythms, sophistication and constant desire to improvise and evolve itself courses through its precious origins. Those traditions run deep within the soul of award-winning vocalist Tawanda Suessbrich-Joaquim and there is no greater gift than seeing her sing her story in full flight....\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2401,
+				"is_favorite": false,
+				"event_name": " Heather Ferguson - Lush Life",
+				"lat_lng": {
+					"lat": 48.4249191,
+					"lng": -123.3629913
+				},
+				"event_location": "Hermann's Jazz Club, 753 View Street, Victoria(250) 388-9166, ",
+				"event_description": "Called a “jazz sensation” by one writer, with another calling Heather Ferguson’s music, “lush, expertly performed, with an engaging setlist and…she will fill the room with her silky-smooth notes”.\n\nHeather’s journey to music was long and winding but the sultry-voiced singer based in Victoria, Canada is becoming known for her interpretations of great 20th century songs. Her debut album, Lush Life, shows her remarkable phrasing and storytelling and releases in November 2022. In it, she pays homage to great songs that still resonate with audiences decades after they hit the charts....\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/a385c94eb0911f2766fe91843fdcaf29.jpg",
+				"event_livestream_url": "https://hermannsjazz.com//show/566825/view",
+				"ticket_price": " $30",
+				"start_date": "11/19/2022",
+				"start_time": "03:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 265,
+					"venue_address": "",
+					"lat_lng": {},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Hermann's Jazz Club",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1994,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "voice / vocals",
+						"artist_mobile": "",
+						"artist_name": "Heather Ferguson",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1995,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "bass",
+						"artist_mobile": "",
+						"artist_name": "Joey Smith",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1996,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "drums",
+						"artist_mobile": "",
+						"artist_name": "Damian Graham",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1997,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Tony Genge",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1998,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "trumpet",
+						"artist_mobile": "",
+						"artist_name": "Miguelito Valdes",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1999,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "saxophone, tenor",
+						"artist_mobile": "",
+						"artist_name": "Barrie Sorensen",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {},
+						"group_name": " Heather Ferguson - Lush Life",
+						"group_biography": "Called a “jazz sensation” by one writer, with another calling Heather Ferguson’s music, “lush, expertly performed, with an engaging setlist and…she will fill the room with her silky-smooth notes”.\n\nHeather’s journey to music was long and winding but the sultry-voiced singer based in Victoria, Canada is becoming known for her interpretations of great 20th century songs. Her debut album, Lush Life, shows her remarkable phrasing and storytelling and releases in November 2022. In it, she pays homage to great songs that still resonate with audiences decades after they hit the charts....\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2196,
+				"is_favorite": false,
+				"event_name": " Heather Ferguson Lush Life",
+				"lat_lng": {
+					"lat": 48.4249191,
+					"lng": -123.3629913
+				},
+				"event_location": "Hermann's Jazz Club, 753 View Street, Victoria(250) 388-9166, ",
+				"event_description": "Three years in the making, Heather's album debut of great 20th century songs releases in November 2022 at Hermann's Jazz Club in Victoria, Canada\n\n",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/a385c94eb0911f2766fe91843fdcaf29.jpg",
+				"event_livestream_url": "https://www.youtube.com/c/HermannsJazzClubLive",
+				"ticket_price": " $30",
+				"start_date": "11/19/2022",
+				"start_time": "03:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 265,
+					"venue_address": "",
+					"lat_lng": {},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Hermann's Jazz Club",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1994,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "voice / vocals",
+						"artist_mobile": "",
+						"artist_name": "Heather Ferguson",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1995,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "bass",
+						"artist_mobile": "",
+						"artist_name": "Joey Smith",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1996,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "drums",
+						"artist_mobile": "",
+						"artist_name": "Damian Graham",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1997,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Tony Genge",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1998,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "trumpet",
+						"artist_mobile": "",
+						"artist_name": "Miguelito Valdes",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1999,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "saxophone, tenor",
+						"artist_mobile": "",
+						"artist_name": "Barrie Sorensen",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {},
+						"group_name": " Heather Ferguson Lush Life",
+						"group_biography": "Three years in the making, Heather's album debut of great 20th century songs releases in November 2022 at Hermann's Jazz Club in Victoria, Canada\n\n"
+					}
+				]
+			},
+			{
+				"id": 2505,
+				"is_favorite": false,
+				"event_name": "Ian Ethan Case ",
+				"lat_lng": {},
+				"event_location": "",
+				"event_description": "",
+				"event_image_url": "https://photos.bandsintown.com/thumb/13185755.jpeg",
+				"event_livestream_url": "",
+				"ticket_price": "",
+				"start_date": "11/19/2022",
+				"start_time": "08:00 PM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 476,
+					"venue_address": "",
+					"lat_lng": {},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Candyrat Concerts Presents: Ian Ethan Case - Earth Suite Trio \"Live From The Loft\" (Early Show)",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 2504,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Ian Ethan Case ",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {},
+						"group_name": "Ian Ethan Case ",
+						"group_biography": ""
+					}
+				]
+			},
+			{
+				"id": 2512,
+				"is_favorite": false,
+				"event_name": "Ian Ethan Case ",
+				"lat_lng": {},
+				"event_location": "",
+				"event_description": "",
+				"event_image_url": "https://photos.bandsintown.com/thumb/13185755.jpeg",
+				"event_livestream_url": "",
+				"ticket_price": "",
+				"start_date": "11/20/2022",
+				"start_time": "12:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 498,
+					"venue_address": "",
+					"lat_lng": {},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Candyrat Concerts Presents: Ian Ethan Case - Earth Suite Trio \"Live From The Loft\" (Late Show)",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 2504,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": null,
+						"artist_mobile": "",
+						"artist_name": "Ian Ethan Case ",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {},
+						"group_name": "Ian Ethan Case ",
+						"group_biography": ""
+					}
+				]
+			},
+			{
+				"id": 2197,
+				"is_favorite": false,
+				"event_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+				"lat_lng": {
+					"lat": 40.7842667,
+					"lng": -74.6968284
+				},
+				"event_location": "Transmedia Sound & Music, Chester, NJ, ",
+				"event_description": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/53bece840e252ec953a7e2d0e8ed4253.jpg",
+				"event_livestream_url": "https://andywasserman.com/piano/live-stream-concerts",
+				"ticket_price": "",
+				"start_date": "11/21/2022",
+				"start_time": "02:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 3,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Transmedia Sound & Music",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 18,
+						"artist_address": "1 Piermont Rd, Tenafly, NJ 07670",
+						"lat_lng": {
+							"lat": 40.9247746,
+							"lng": -73.96459089999999
+						},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Andy Wasserman",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+						"group_biography": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2200,
+				"is_favorite": false,
+				"event_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+				"lat_lng": {
+					"lat": 40.7842667,
+					"lng": -74.6968284
+				},
+				"event_location": "Transmedia Sound & Music, Chester, NJ, ",
+				"event_description": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/53bece840e252ec953a7e2d0e8ed4253.jpg",
+				"event_livestream_url": "https://andywasserman.com/piano/live-stream-concerts",
+				"ticket_price": "",
+				"start_date": "11/28/2022",
+				"start_time": "02:00 AM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 3,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Transmedia Sound & Music",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 18,
+						"artist_address": "1 Piermont Rd, Tenafly, NJ 07670",
+						"lat_lng": {
+							"lat": 40.9247746,
+							"lng": -73.96459089999999
+						},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Andy Wasserman",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Andy Wasserman: Infusion Jazz - Solo Piano",
+						"group_biography": "Tune in, join the upbeat vibes and let this LIVE Jammin’ music rejuvenate you! Watch musical artist Andy Wasserman’s Live Stream – this Sunday at 7:00pm Eastern/4:00 Pacific. Soak in the inspiring “Listening Experience” – a solo piano concert of fresh, brand-new, original compositions and improvisations performed on a beautiful 1924 Steinway grand piano – FREE: no registration, tickets or login required! If you miss the live stream broadcast, you can always view the concert later in a playlist archive of video-on-demand past performances located lower down on the same live stream video player page, available for free 24/7...\n\nread more "
+					}
+				]
+			},
+			{
+				"id": 2110,
+				"is_favorite": false,
+				"event_name": " Tiffany Austin",
+				"lat_lng": {
+					"lat": 37.494677,
+					"lng": -122.4611701
+				},
+				"event_location": "Bach Dancing & Dynamite Society, 311 Mirada Rd., Half Moon Bay, CA650-726-4143, ",
+				"event_description": "Vocalist, composer, educator and Juris Doctorate Tiffany Austin combines classic jazz tradition with a deep love for blues, spirituals and contemporary soul and a storyteller's knack for narrative. Nothing But Soul, Austin's debut album from 2015, earned raves for its bold recasting of Hoagy Carmichael standards including sterling reviews in Downbeat and on NPR’s “Fresh Air.” Her sophomore album, Unbroken (2018), was hailed by All About Jazz as a \"fully formed masterpiece.\" More recently Austin was named a Yerba Buena Gardens Festival Seeds Commissions Artist and became Director of the Healdsburg Freedom Jazz Choir. A graduate of UC Berkeley’s Boalt School of Law, Austin decided to forgo a career as a lawyer to focus on music, her true passion, and she’s been raising the bar ever since....\n\nread more ",
+				"event_image_url": "https://s3.amazonaws.com/allaboutjazz/media/medium/12516b2a5030ddf75afa03924249ee58.jpg",
+				"event_livestream_url": "https://bachddsoc.org/calendar/",
+				"ticket_price": " $45",
+				"start_date": "12/04/2022",
+				"start_time": "11:30 PM",
+				"event_type": {
+					"type_name": ""
+				},
+				"venue": {
+					"id": 202,
+					"venue_address": "55 Christopher St, New York, NY 10014",
+					"lat_lng": {
+						"lat": 40.733834,
+						"lng": -74.0022552
+					},
+					"venue_email": null,
+					"venue_social_media_fb_link": "",
+					"venue_social_media_yt_link": "",
+					"venue_social_media_insta_link": "",
+					"venue_genre": null,
+					"venue_image": null,
+					"venue_mobile": null,
+					"venue_name": "Bach Dancing & Dynamite Society",
+					"venue_web_address": ""
+				},
+				"artist": [
+					{
+						"id": 1805,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "voice / vocals",
+						"artist_mobile": "",
+						"artist_name": "Tiffany Austin",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 1806,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "saxophone, tenor",
+						"artist_mobile": "",
+						"artist_name": "James Mahone",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 597,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "piano",
+						"artist_mobile": "",
+						"artist_name": "Tammy Hall",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					},
+					{
+						"id": 548,
+						"artist_address": "",
+						"lat_lng": {},
+						"artist_biography": "",
+						"email": null,
+						"artist_social_media_fb_link": "",
+						"artist_social_media_insta_link": "",
+						"artist_social_media_yt_link": "",
+						"artist_genre": "",
+						"artist_image": null,
+						"artist_instrument": "bass, acoustic",
+						"artist_mobile": "",
+						"artist_name": "Marcus Shelby",
+						"artist_sub_genre": "",
+						"artist_web_address": ""
+					}
+				],
+				"group": [
+					{
+						"lat_lng": {
+							"lat": 40.733834,
+							"lng": -74.0022552
+						},
+						"group_name": " Tiffany Austin",
+						"group_biography": "Vocalist, composer, educator and Juris Doctorate Tiffany Austin combines classic jazz tradition with a deep love for blues, spirituals and contemporary soul and a storyteller's knack for narrative. Nothing But Soul, Austin's debut album from 2015, earned raves for its bold recasting of Hoagy Carmichael standards including sterling reviews in Downbeat and on NPR’s “Fresh Air.” Her sophomore album, Unbroken (2018), was hailed by All About Jazz as a \"fully formed masterpiece.\" More recently Austin was named a Yerba Buena Gardens Festival Seeds Commissions Artist and became Director of the Healdsburg Freedom Jazz Choir. A graduate of UC Berkeley’s Boalt School of Law, Austin decided to forgo a career as a lawyer to focus on music, her true passion, and she’s been raising the bar ever since....\n\nread more "
+					}
+				]
+			}
+		]
+	}
+}

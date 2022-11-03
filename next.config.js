@@ -42,6 +42,8 @@ const nextConfig = {
 			'newevolutiondesigns.com',
 			'cloudflare-ipfs.com',
 			'picsum.photos',
+			's3.amazonaws.com',
+			'photos.bandsintown.com',
 		],
 	},
 };

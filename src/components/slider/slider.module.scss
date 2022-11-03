@@ -1,6 +1,6 @@
 .imageTitle {
 	font-family: 'Poppins';
-	font-size: 16px;
+	font-size: 15px;
 	color: var(--color-text);
 	font-style: normal;
 	font-weight: 600;
@@ -15,9 +15,10 @@
 	color: var(--color-grey);
 	margin-bottom: 40px;
 	opacity: 0.8;
+	margin-top: 2px;
 }
 .groupTitle {
-	margin-bottom: 40px;
+	margin-bottom: 50px;
 	margin-top: 5px;
 	color: var(--color-primary-accent);
 	font-weight: 500;
@@ -26,7 +27,7 @@
 	opacity: 0.9;
 }
 .venue {
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	margin-top: 5px;
 	color: var(--color-grey);
 	font-weight: 300;

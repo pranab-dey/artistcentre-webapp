@@ -10,66 +10,79 @@ import { SlLocationPin } from 'react-icons/sl';
 import Image from 'next/image';
 import styles from './feed.module.scss';
 
-export default function Feed() {
+export default function Feed({ event }) {
 	return (
 		<Containter className={styles.containter}>
 			<div className={styles.layout}>
-				<Photo />
-				<Description />
-				<EventType />
+				<Photo src={event.event_image_url} />
+				<Description
+					eventTitle={event.event_name}
+					startTime={event.start_time}
+				/>
+				<EventType type={event.ticket_price} />
 			</div>
 			<Divider />
-			<Location />
+			<Location
+				venue={event.venue.venue_name}
+				startDate={event.start_date}
+			/>
 		</Containter>
 	);
 }
 
-const Photo = () => {
+const Photo = ({ src }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
-				src='https://picsum.photos/1920/1080?random=1'
-				width={95}
-				height={55}
-				alt='First slide'
+				src={src}
+				alt=''
+				title=''
+				width={400}
+				height={300}
+				layout='responsive'
+				objectFit='cover'
 				className={styles.image}
 			/>
 		</div>
 	);
 };
 
-const Location = () => {
+const Location = ({ venue, startDate }) => {
 	return (
 		<div className={styles.locationContainer}>
 			<SlLocationPin className={styles.locationIcon} />
 			<div className={styles.address}>
-				<div className={styles.place}>South East Park</div>
-				<span className={styles.hiphen}>-</span>
-				<div className={styles.date}>Aug 15, 2021</div>
+				<div className={styles.place}>{venue}</div>
+				<span className={styles.hiphen}> - </span>
+				<div className={styles.date}>{startDate}</div>
 			</div>
 		</div>
 	);
 };
 
-const Description = ({}) => {
+const Description = ({ eventTitle, startTime, endTime }) => {
 	return (
-		<div>
-			<span className={styles.desc}>Perfect X</span>
-			<div className='d-flex justify-content-center align-items-center'>
+		<div style={{ flex: 1 }}>
+			<span className={styles.desc}>{eventTitle}</span>
+			<div className='d-flex justify-content-flex-start align-items-center mt-1 m-1'>
 				<IoTimeOutline className={styles.timeIcon} />
 				<div className={styles.timeFont}>
-					<span>08:00 PM</span>
-					<span className={styles.hiphen}>-</span>
-					<span className={styles.time}>12:00 PM</span>
+					<span>{startTime}</span>
+					{endTime ? (
+						<>
+							<span className={styles.hiphen}>-</span>
+							<span className={styles.time}>12:00 PM</span>
+						</>
+					) : null}
 				</div>
 			</div>
 		</div>
 	);
 };
 
-const EventType = ({}) => {
+const EventType = ({ type }) => {
 	return (
-		<div className='d-flex'>
+		<div className='d-flex' style={{ marginLeft: 'auto' }}>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
@@ -80,6 +93,7 @@ const EventType = ({}) => {
 				/>
 				<span>Paid Event</span>
 			</div>
+
 			<AiOutlineHeart className={styles.heartIcon} />
 		</div>
 	);

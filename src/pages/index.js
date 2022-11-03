@@ -1,13 +1,10 @@
-// import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-
 import classes from 'styles/Home.module.scss';
+import { getEventsList } from 'helpers/api-util';
 
 import {
 	SlideContainer,
@@ -15,37 +12,6 @@ import {
 	FeedContainer,
 	VideoContainer,
 } from 'containers';
-// import Image from 'next/image';
-// import styles from 'styles/Home.module.scss';
-
-// export default function Home() {
-// 	const [darkTheme, setDarkTheme] = useState(undefined);
-// 	const handleToggle = (event) => {
-// 		setDarkTheme(event.target.checked);
-// 	};
-// 	const storeUserSetPreference = (pref) => {
-// 		localStorage.setItem('theme', pref);
-// 	};
-// 	useEffect(() => {
-// 		const root = document.documentElement;
-// 		const initialColorValue = root.style.getPropertyValue(
-// 			'--initial-color-mode'
-// 		);
-// 		setDarkTheme(initialColorValue === 'dark');
-// 	}, []);
-// 	useEffect(() => {
-// 		const root = document.documentElement;
-
-// 		if (darkTheme !== undefined) {
-// 			if (darkTheme) {
-// 				root.setAttribute('data-theme', 'dark');
-// 				storeUserSetPreference('dark');
-// 			} else {
-// 				root.removeAttribute('data-theme');
-// 				storeUserSetPreference('light');
-// 			}
-// 		}
-// 	}, [darkTheme]);
 
 // 	return (
 // 		<div className={styles.container}>
@@ -53,16 +19,7 @@ import {
 
 // 			<main className={styles.main}>
 // 				<div>
-// 					{darkTheme !== undefined && (
-// 						<label>
-// 							<input
-// 								type='checkbox'
-// 								checked={darkTheme}
-// 								onChange={handleToggle}
-// 							/>
-// 							Dark
-// 						</label>
-// 					)}
+
 // 					<h1>Hello there</h1>
 // 					<p className={styles.myTitle}>Pranab!</p>
 // 				</div>
@@ -74,6 +31,8 @@ import {
 // }
 
 export default function HomePage(props) {
+	const { eventsList, groupList, artistList, venueList } = props;
+
 	return (
 		<main className={classes.bgColor}>
 			<Head>
@@ -88,22 +47,60 @@ export default function HomePage(props) {
 					<Row>
 						<Col xs={12} md={9} className='mt-4 mb-5'>
 							<VideoContainer />
-							<DescriptionContainer />
-							<SlideContainer type={'Featured Livestreams'} />
-							<SlideContainer type={'Groups'} />
-							<SlideContainer type={'Artists'} />
-							<SlideContainer type={'Venues'} />
+							<DescriptionContainer
+								topEvent={eventsList.data[0]}
+							/>
+							<SlideContainer
+								type={'Featured Livestreams'}
+								slideContent={eventsList.data.slice(1, 6)}
+							/>
+							<SlideContainer
+								type={'Groups'}
+								slideContent={groupList.data}
+							/>
+							<SlideContainer
+								type={'Artists'}
+								slideContent={artistList.data}
+							/>
+							<SlideContainer
+								type={'Venues'}
+								slideContent={venueList.data}
+							/>
 						</Col>
-						<Col
-							// md={{ order: 'first', span: 3 }}
-							className='mt-3'
-							xs={12}
-							md={3}>
-							<FeedContainer />
+						<Col className='mt-3' xs={12} md={3}>
+							<FeedContainer
+								liveStreams={eventsList.data.slice(6)}
+							/>
 						</Col>
 					</Row>
 				</Container>
 			</div>
 		</main>
 	);
+}
+
+export async function getStaticProps() {
+	const allEventsUrl =
+		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/list/?type=home';
+	const allGroupsUrl =
+		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
+	const allArtistsUrl =
+		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
+	const allVenueListUrl =
+		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
+
+	const eventsList = await getEventsList(allEventsUrl);
+	const groupList = await getEventsList(allGroupsUrl);
+	const artistList = await getEventsList(allArtistsUrl);
+	const venueList = await getEventsList(allVenueListUrl);
+
+	return {
+		props: {
+			eventsList,
+			groupList,
+			artistList,
+			venueList,
+		},
+		revalidate: 10,
+	};
 }
