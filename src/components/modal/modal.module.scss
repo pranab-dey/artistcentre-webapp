@@ -11,6 +11,11 @@
 	align-self: center;
 	border: 1px solid rgb(206, 199, 199);
 }
+.fbicon {
+	color: var(--color-primary-accent);
+	font-size: 25px;
+	// color: red;
+}
 .modal {
 	background-color: var(--color-bg);
 	border-radius: 15px;

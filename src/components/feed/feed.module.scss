@@ -121,6 +121,9 @@
 	// object-fit: contain;
 	// box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
+.freeevent {
+	color: var(--color-green);
+}
 .imageContainer {
 	width: 90px;
 	// height: 75px;
@@ -133,6 +136,10 @@
 	// box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 	// 	box-shadow: rgba(0, 0, 0, 0.08) 0px 1.5px 3px,
 	// 		rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+}
+
+.paidevent {
+	color: var(--color-red);
 }
 
 .desc {
@@ -154,7 +161,6 @@
 
 	span {
 		font-size: 8px;
-		color: var(--color-red);
 		margin-top: 5px;
 		font-family: Roboto;
 	}

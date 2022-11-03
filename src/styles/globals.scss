@@ -24,7 +24,7 @@
 	--color-bg-navbar: #{$app-bg-navbar-dark};
 	--color-text: #{$app-text-white};
 	--color-text-2: #{$app-text-white};
-	--color-grey: #{$grey};
+	--color-grey: #{$darkgrey};
 	--color-green: #{$green};
 	--color-red: #{$app-danger};
 	--color-footer: #{$app-bg-navbar-dark};
@@ -67,7 +67,7 @@ a {
 input.form-control {
 	line-height: 27px;
 	outline: none;
-	border-radius: 15px;
+	border-radius: 5px;
 	transition: all 0.3s;
 	border-color: var(--color-secondary-accent);
 	// box-shadow: none;

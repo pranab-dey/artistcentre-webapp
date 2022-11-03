@@ -62,7 +62,7 @@ function LoginWithEmail() {
 						key={index}
 					/>
 				))}
-				<Col xs={12}>
+				<Col xs={12} style={{ padding: '0px 30px' }}>
 					<CustomButton
 						btnText='Sign In'
 						type='submit'

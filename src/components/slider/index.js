@@ -66,7 +66,7 @@ export default function Slider(props) {
 									i.artist_image ||
 									i.profile_picture ||
 									i.venue_image ||
-									'https://picsum.photos/1920/1080?random=1'
+									'/assets/no-image.jpeg'
 								}
 								width={'300px'}
 								height={'200px'}

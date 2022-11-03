@@ -9,6 +9,7 @@ import { LoginWithEmail } from 'containers';
 
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook } from 'react-icons/im';
+import { FiFacebook } from 'react-icons/fi';
 
 import styles from './modal.module.scss';
 
@@ -18,8 +19,7 @@ export default function AppModal(props) {
 			{...props}
 			size='md'
 			aria-labelledby='contained-modal-title-vcenter'
-			centered
-			dialogClassName='modal-90w'>
+			centered>
 			<Modal.Body className={styles.modal}>
 				<Container className='mt-3 mb-3'>
 					<Row>
@@ -73,7 +73,7 @@ const OauthLogInGroup = () => {
 					<FcGoogle className={styles.icon} />
 				</div>
 				<div className={styles.imgWrapper}>
-					<ImFacebook className={styles.icon} />
+					<FiFacebook className={styles.fbicon} />
 				</div>
 			</div>
 			<div>

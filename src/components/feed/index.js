@@ -91,7 +91,11 @@ const EventType = ({ type }) => {
 					alt='First slide'
 					className={styles.playIcon}
 				/>
-				<span>Paid Event</span>
+				{type ? (
+					<span className={styles.paidevent}>Paid Event</span>
+				) : (
+					<span className={styles.freeevent}>Free Event</span>
+				)}
 			</div>
 
 			<AiOutlineHeart className={styles.heartIcon} />

@@ -11,4 +11,5 @@ export default function DescriptionContainer({ topEvent }) {
 
 const padding = {
 	paddingBottom: '10px',
+	marginTop: '12px',
 };

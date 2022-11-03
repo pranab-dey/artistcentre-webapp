@@ -21,7 +21,11 @@ function CustomForm({ item, register, errors }) {
 	} = item;
 
 	return (
-		<Col xs={xs} md={md} key={item.key}>
+		<Col
+			xs={xs}
+			md={md}
+			key={item.key}
+			style={{ padding: '0px 30px 0px 30px' }}>
 			<Form.Group className='mb-2' controlId={controlId}>
 				{item.title && (
 					<Form.Label className={styles.title}>
