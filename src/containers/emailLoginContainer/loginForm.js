@@ -1,0 +1,30 @@
+export const loginForm = [
+	{
+		key: 'email',
+		controlId: 'formBasicEmail',
+		type: 'email',
+		placeholder: 'sample@email.com',
+		xs: 12,
+		md: 12,
+		title: 'Email',
+		autoFocus: true,
+	},
+	{
+		key: 'password',
+		controlId: 'formBasicPassword',
+		type: 'password',
+		placeholder: '',
+		xs: 12,
+		md: 12,
+		title: 'Password',
+		autoFocus: false,
+	},
+	// {
+	// 	key: 'rememberme',
+	// 	controlId: 'formBasicCheckbox',
+	// 	type: 'checkbox',
+	// 	label: 'Remember me',
+	// 	xs: 12,
+	// 	md: 12,
+	// },
+];

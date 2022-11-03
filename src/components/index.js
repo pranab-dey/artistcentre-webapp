@@ -4,3 +4,7 @@ export { default as CustomButton } from './button';
 export { default as Slider } from './slider';
 export { default as Description } from './description';
 export { default as Feed } from './feed';
+export { default as AppModal } from './modal';
+export { default as Caption } from './caption';
+export { default as Divider } from './divider';
+export { default as CustomForm } from './form';

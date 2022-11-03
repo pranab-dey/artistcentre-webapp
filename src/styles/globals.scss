@@ -67,11 +67,13 @@ a {
 input.form-control {
 	line-height: 27px;
 	outline: none;
-	border-radius: 7px;
+	border-radius: 15px;
 	transition: all 0.3s;
-	box-shadow: none;
-	box-shadow: rgba(0, 0, 0, 0.08) 0px 1.5px 3px,
-		rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
+	border-color: var(--color-secondary-accent);
+	// box-shadow: none;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+	// box-shadow: rgba(0, 0, 0, 0.08) 0px 1.5px 3px,
+	// 	rgba(0, 0, 0, 0.23) 0px 1.5px 3px;
 }
 
 textarea:focus,
@@ -90,7 +92,7 @@ input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
 .uneditable-input:focus {
-	border-color: $app-primary;
+	border-color: var(--color-primary-accent);
 	outline: 0 none;
 }
 

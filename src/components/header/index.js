@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import Button from 'react-bootstrap/Button';
@@ -9,14 +11,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import { FiLogIn } from 'react-icons/fi';
 import { MdDarkMode } from 'react-icons/md';
 
-import { CustomButton } from 'components';
+import { CustomButton, AppModal } from 'components';
 
 import Search from './search';
 
 import classes from './header.module.scss';
 
 function MainHeader(props) {
+	const [modalShow, setModalShow] = useState(false);
+
 	const { darkTheme, themeToggle } = props;
+
 	return (
 		<Container fluid className={`${classes.mainHeader}`}>
 			<Container fluid='md' className={classes.header}>
@@ -38,15 +43,6 @@ function MainHeader(props) {
 					</Col>
 					<Col xs={4} md={4}>
 						<Search />
-						{/* <Form className='d-flex mt-4'>
-							<Form.Control
-								type='search'
-								placeholder='Search'
-								className='me-2'
-								aria-label='Search'
-							/>
-							<Button variant='outline-success'>Search</Button>
-						</Form> */}
 					</Col>
 					<Col xs={5} md={5}>
 						<div className={`${classes.last} mt-4 `}>
@@ -74,7 +70,11 @@ function MainHeader(props) {
 									width: '120px',
 									fontSize: '14px',
 								}}
-								// onClick={LikeOnClick}
+								onClick={() => setModalShow(true)}
+							/>
+							<AppModal
+								show={modalShow}
+								onHide={() => setModalShow(false)}
 							/>
 						</div>
 					</Col>
