@@ -45,13 +45,6 @@ export default function GroupDetailContainer(props) {
 							height={700}
 							layout='responsive'
 							objectFit='cover'
-							style={
-								{
-									// paddingBottom: '25px',
-									// objectFit: 'cover',
-								}
-							}
-							// className={styles.image}
 						/>
 					</div>
 				</Col>

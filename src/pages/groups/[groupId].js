@@ -90,7 +90,7 @@ export default function GroupDetail(props) {
 }
 
 export async function getStaticProps(context) {
-	const groupId = context.params.groupId;
+	const groupId = parseInt(context.params.groupId);
 
 	const singleGroupUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group/${groupId}`;
 
