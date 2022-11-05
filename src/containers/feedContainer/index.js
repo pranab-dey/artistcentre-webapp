@@ -12,8 +12,8 @@ export default function FeedContainer({ liveStreams }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						height: '242vh',
-						paddingRight: '17px',
+						height: '232vh',
+						paddingRight: '4px',
 						boxSizing: 'content-box',
 					}}>
 					{/* {liveStreams.map((liveStream) => (

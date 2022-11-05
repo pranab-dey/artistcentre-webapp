@@ -45,7 +45,7 @@ export default function HomePage(props) {
 			<div>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className='mt-4 mb-5'>
+						<Col xs={12} md={9} className='mt-4 mb-1'>
 							<VideoContainer topEvent={eventsList.data[0]} />
 							<DescriptionContainer
 								topEvent={eventsList.data[0]}
