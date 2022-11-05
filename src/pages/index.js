@@ -13,23 +13,6 @@ import {
 	VideoContainer,
 } from 'containers';
 
-// 	return (
-// 		<div className={styles.container}>
-// 			<Head></Head>
-
-// 			<main className={styles.main}>
-// 				<div>
-
-// 					<h1>Hello there</h1>
-// 					<p className={styles.myTitle}>Pranab!</p>
-// 				</div>
-// 			</main>
-
-// 			<footer className={styles.footer}></footer>
-// 		</div>
-// 	);
-// }
-
 export default function HomePage(props) {
 	const { eventsList, groupList, artistList, venueList } = props;
 
