@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import classes from 'styles/Home.module.scss';
-import { getEventsList } from 'helpers/api-util';
+import { getData } from 'helpers/api-util';
 
 import {
 	SlideContainer,
@@ -36,7 +36,7 @@ export default function HomePage(props) {
 	return (
 		<main className={classes.bgColor}>
 			<Head>
-				<title>HomePage</title>
+				<title>ArtistStream</title>
 				<meta
 					name='description'
 					content='Find a lot of great events that allow you to evolve...'
@@ -45,7 +45,7 @@ export default function HomePage(props) {
 			<div>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className='mt-4 mb-1'>
+						<Col xs={12} md={9} className='mt-4 mb-5'>
 							<VideoContainer topEvent={eventsList.data[0]} />
 							<DescriptionContainer
 								topEvent={eventsList.data[0]}
@@ -70,6 +70,8 @@ export default function HomePage(props) {
 						<Col className='mt-3' xs={12} md={3}>
 							<FeedContainer
 								liveStreams={eventsList.data.slice(6)}
+								limit={14}
+								height={'232vh'}
 							/>
 						</Col>
 					</Row>
@@ -89,10 +91,10 @@ export async function getStaticProps() {
 	const allVenueListUrl =
 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
 
-	const eventsList = await getEventsList(allEventsUrl);
-	const groupList = await getEventsList(allGroupsUrl);
-	const artistList = await getEventsList(allArtistsUrl);
-	const venueList = await getEventsList(allVenueListUrl);
+	const eventsList = await getData(allEventsUrl);
+	const groupList = await getData(allGroupsUrl);
+	const artistList = await getData(allArtistsUrl);
+	const venueList = await getData(allVenueListUrl);
 
 	return {
 		props: {

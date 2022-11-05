@@ -2,7 +2,7 @@ import Col from 'react-bootstrap/Col';
 import { Feed, CustomButton } from 'components';
 import { useState } from 'react';
 
-export default function FeedContainer({ liveStreams }) {
+export default function FeedContainer({ liveStreams, height, limit }) {
 	const [loadMore, setLoadMore] = useState(false);
 
 	return (
@@ -12,26 +12,21 @@ export default function FeedContainer({ liveStreams }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						height: '232vh',
+						maxHeight: `${height}`,
 						paddingRight: '4px',
 						boxSizing: 'content-box',
 					}}>
-					{/* {liveStreams.map((liveStream) => (
-						<Feed event={liveStream} />
-					))}
-					{liveStreams.slice(0, 2).map((liveStream) => (
-						<Feed event={liveStream} />
-					))} */}
 					{liveStreams.map((liveStream) => (
 						<Feed event={liveStream} key={liveStream.id} />
 					))}
+
 					{loadMore &&
 						liveStreams.map((liveStream) => (
 							<Feed event={liveStream} />
 						))}
 				</div>
 			</div>
-			{liveStreams.length > 14 ? (
+			{liveStreams.length > limit ? (
 				<div>
 					<CustomButton
 						variant='secondary'

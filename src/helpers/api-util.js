@@ -16,7 +16,7 @@
 // 	return events;
 // }
 
-export async function getEventsList(url) {
+export async function getData(url) {
 	const response = await fetch(url);
 	const data = await response.json();
 

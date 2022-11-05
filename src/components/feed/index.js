@@ -17,14 +17,16 @@ export default function Feed({ event }) {
 				<Photo src={event.event_image_url} />
 				<Description
 					eventTitle={event.event_name}
-					startTime={event.start_time}
+					startTime={event.start_time ?? event.event_start_time}
 				/>
 				<EventType type={event.ticket_price} />
 			</div>
 			<Divider />
 			<Location
-				venue={event.venue.venue_name}
-				startDate={event.start_date}
+				venue={event.venue.venue_name ?? event.event_location}
+				startDate={
+					event.start_date ?? event.event_start_date.split('T')[0]
+				}
 			/>
 		</Containter>
 	);
@@ -53,7 +55,7 @@ const Location = ({ venue, startDate }) => {
 			<SlLocationPin className={styles.locationIcon} />
 			<div className={styles.address}>
 				<div className={styles.place}>{venue}</div>
-				<span className={styles.hiphen}> - </span>
+				{/* <span className={styles.hiphen}> - </span> */}
 				<div className={styles.date}>{startDate}</div>
 			</div>
 		</div>

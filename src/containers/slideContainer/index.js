@@ -25,8 +25,8 @@ const title = {
 	color: 'var(--color-text-2)',
 };
 const slider = {
-	display: 'flex',
-	justifyContent: 'space-between',
-	alignItems: 'center',
+	// display: 'flex',
+	// justifyContent: 'flex-start',
+	// alignItems: 'center',
 	marginTop: '10px',
 };

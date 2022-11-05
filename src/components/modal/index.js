@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row';
 import { LoginWithEmail } from 'containers';
 
 import { FcGoogle } from 'react-icons/fc';
-import { ImFacebook } from 'react-icons/im';
 import { FiFacebook } from 'react-icons/fi';
 
 import styles from './modal.module.scss';

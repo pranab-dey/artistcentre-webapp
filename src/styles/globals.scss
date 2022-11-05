@@ -14,6 +14,7 @@
 	--color-red: #{$app-danger};
 	--color-footer: #{$app-primary};
 	--color-icon: #{$app-secondary};
+	--color-bnw: #fff;
 }
 [data-theme='dark'] {
 	--color-primary: #fff;
@@ -29,6 +30,7 @@
 	--color-red: #{$app-danger};
 	--color-footer: #{$app-bg-navbar-dark};
 	--color-icon: #{$app-primary};
+	--color-bnw: #000;
 }
 
 // html {

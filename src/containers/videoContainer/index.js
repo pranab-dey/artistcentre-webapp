@@ -17,13 +17,5 @@ export default function VideoContainer(props) {
 				// className={styles.image}
 			/>
 		</div>
-		//className={styles.imageContainer}
-		// <div
-		// 	style={{
-		// 		height: '552px',
-
-		// 		backgroundColor: 'black',
-		// 		marginBottom: '17px',
-		// 	}}></div>
 	);
 }

@@ -1,43 +1,90 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
-import classes from './slider.module.scss';
+import { Pagination, EffectFade } from 'swiper';
+import styles from './slider.module.scss';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import Image from 'next/image';
-
-const conditionalImageFooter = (type, { artistName, title }) => {
-	switch (type) {
-		case 'Featured Livestreams':
-			return (
-				<div>
-					<div className={classes.imageTitle}>
-						<span>{title}</span>
-					</div>
-					<div className={classes.subTitle}>{artistName}</div>
-				</div>
-			);
-
-		case 'Groups':
-		case 'Artists':
-			return (
-				<div className=''>
-					<div className={classes.groupTitle}>
-						<span>{title}</span>
-					</div>
-				</div>
-			);
-
-		case 'Venues':
-			return <div className={classes.venue}>{title}</div>;
-
-		default:
-			return;
-	}
-};
+import { useRouter } from 'next/router';
 
 export default function Slider(props) {
-	const { type, data } = props;
+	const { type } = props;
+	const router = useRouter();
+
+	const conditionalImageFooter = (type, { artistName, title }) => {
+		switch (type) {
+			case 'Featured Livestreams':
+				return (
+					<div>
+						<div className={styles.imageTitle}>
+							<span>{title}</span>
+						</div>
+						<div className={styles.subTitle}>{artistName}</div>
+					</div>
+				);
+
+			case 'Groups':
+			case 'Artists':
+				return (
+					<div className=''>
+						<div className={styles.groupTitle}>
+							<span>{title}</span>
+						</div>
+					</div>
+				);
+
+			case 'Venues':
+				return <div className={styles.venue}>{title}</div>;
+
+			default:
+				return;
+		}
+	};
+	const buildSlides = (props) => {
+		const { type, data } = props;
+
+		return data?.map((slide) => {
+			return (
+				<SwiperSlide
+					key={slide.id}
+					className={styles.swiperContainer}
+					onClick={(e) => handleClick(e, slide.id)}>
+					<div>
+						<Image
+							src={
+								slide.event_image_url ||
+								slide.group_image_url ||
+								slide.artist_image ||
+								slide.profile_picture ||
+								slide.venue_image ||
+								'/assets/no-image.jpeg'
+							}
+							width={'300px'}
+							height={'200px'}
+							layout='responsive'
+							objectFit='cover'
+							alt={`image-slide-for-${slide.id}`}
+							className={styles.slideImage}
+						/>
+					</div>
+					{conditionalImageFooter(type, {
+						title:
+							slide.event_name ||
+							slide.group_name ||
+							slide.artist_name ||
+							slide.venue_name ||
+							'Unknown',
+						artistName: slide.artist?.[0].artist_name ?? '',
+					})}
+				</SwiperSlide>
+			);
+		});
+	};
+	const handleClick = (e, id) => {
+		e.preventDefault();
+		const url = `/${type.toLowerCase()}/${id}`;
+		router.push(url);
+	};
 
 	return (
 		<Swiper
@@ -47,47 +94,8 @@ export default function Slider(props) {
 				clickable: true,
 			}}
 			modules={[Pagination]}
-			className='mySwiper'>
-			{data?.map((i) => (
-				<SwiperSlide key={i.id}>
-					<div>
-						<div
-							style={{
-								borderRadius: '15px',
-								boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
-								width: '300px',
-								height: '200px',
-							}}
-							className='d-flex justify-content-space-around align-items-center'>
-							<Image
-								src={
-									i.event_image_url ||
-									i.group_image_url ||
-									i.artist_image ||
-									i.profile_picture ||
-									i.venue_image ||
-									'/assets/no-image.jpeg'
-								}
-								width={'300px'}
-								height={'200px'}
-								alt={`image-slide-for-${i.id}`}
-								style={{
-									borderRadius: '15px',
-								}}
-							/>
-						</div>
-						{conditionalImageFooter(type, {
-							title:
-								i.event_name ||
-								i.group_name ||
-								i.artist_name ||
-								i.venue_name ||
-								'Unknown',
-							artistName: i.artist?.[0].artist_name ?? '',
-						})}
-					</div>
-				</SwiperSlide>
-			))}
+			className='mySwiper swiper'>
+			{buildSlides(props)}
 		</Swiper>
 	);
 }
