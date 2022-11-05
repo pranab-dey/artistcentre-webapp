@@ -14,7 +14,6 @@ import { getData } from 'helpers/api-util';
 
 export default function GroupDetail(props) {
 	const { groupDetail } = props;
-	console.log(groupDetail);
 
 	if (!groupDetail) {
 		return (
@@ -90,8 +89,7 @@ export default function GroupDetail(props) {
 }
 
 export async function getStaticProps(context) {
-	const groupId = Number(context.params.groupId);
-	console.log(groupId);
+	const groupId = Number(context.params.id);
 
 	const singleGroupUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group/${groupId}`;
 
@@ -112,8 +110,9 @@ export async function getStaticPaths() {
 
 	const groupsList = await getData(allGroupsUrl);
 	const paths = groupsList.data.map((group) => ({
-		params: { groupId: toString(group.id) },
+		params: { id: group.id.toString() },
 	}));
+	console.log(paths);
 
 	return {
 		paths: paths,
