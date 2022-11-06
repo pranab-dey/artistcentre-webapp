@@ -11,8 +11,8 @@ import Image from 'next/image';
 import styles from './feed.module.scss';
 
 const normalise = (date) => {
-	if (date.includes('T')) return date.split('T')[0];
-	return date;
+	if (date?.includes('T')) return date.split('T')[0];
+	return date ?? '';
 };
 
 export default function Feed({ event }) {
