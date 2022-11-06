@@ -19,7 +19,7 @@ export default function VenueDetail(props) {
 		);
 	}
 
-	console.log(venueDetail);
+	// console.log(venueDetail);
 
 	return (
 		<>

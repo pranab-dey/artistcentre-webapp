@@ -1,8 +1,6 @@
 import Containter from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { GrLocation } from 'react-icons/gr';
-import { CiCalendarDate } from 'react-icons/ci';
+import { useRouter } from 'next/router';
+
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { SlLocationPin } from 'react-icons/sl';
@@ -16,8 +14,15 @@ const normalise = (date) => {
 };
 
 export default function Feed({ event }) {
+	const router = useRouter();
+
 	return (
-		<Containter className={styles.containter}>
+		<Containter
+			className={styles.containter}
+			onClick={(e) => {
+				e.preventDefault();
+				router.push(`/events/${event.id}`);
+			}}>
 			<div className={styles.layout}>
 				<Photo src={event.event_image_url} />
 				<Description

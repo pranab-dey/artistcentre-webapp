@@ -25,7 +25,7 @@ export default function GroupDetail(props) {
 		);
 	}
 
-	console.log(eventDetail);
+	// console.log(eventDetail);
 
 	return (
 		<>
