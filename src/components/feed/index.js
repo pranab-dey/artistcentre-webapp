@@ -10,6 +10,11 @@ import { SlLocationPin } from 'react-icons/sl';
 import Image from 'next/image';
 import styles from './feed.module.scss';
 
+const normalise = (date) => {
+	if (date.includes('T')) return date.split('T')[0];
+	return date;
+};
+
 export default function Feed({ event }) {
 	return (
 		<Containter className={styles.containter}>
@@ -25,7 +30,7 @@ export default function Feed({ event }) {
 			<Location
 				venue={event.venue.venue_name ?? event.event_location}
 				startDate={
-					event.start_date ?? event.event_start_date.split('T')[0]
+					event.start_date ?? normalise(event.event_start_date)
 				}
 			/>
 		</Containter>
