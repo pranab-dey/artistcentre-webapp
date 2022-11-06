@@ -9,9 +9,9 @@ import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 import { getData } from 'helpers/api-util';
 
 export default function GroupDetail(props) {
-	const { groupDetail } = props;
+	const { artistDetail } = props;
 
-	if (!groupDetail) {
+	if (!artistDetail) {
 		return (
 			<div className='center'>
 				<p>Loading...</p>
@@ -19,13 +19,15 @@ export default function GroupDetail(props) {
 		);
 	}
 
+	// console.log(artistDetail);
+
 	return (
 		<>
 			<Head>
-				<title>{groupDetail.group_name.trim()}</title>
+				<title>{artistDetail.artist_name?.trim()}</title>
 				<meta
 					name='description'
-					content={groupDetail.group_biography}
+					content={artistDetail?.artist_biography}
 				/>
 			</Head>
 
@@ -34,13 +36,13 @@ export default function GroupDetail(props) {
 					<Row>
 						<Col xs={12} md={9} className=''>
 							<DetailContainer
-								detail={groupDetail}
-								type={'Group'}
+								detail={artistDetail}
+								type={'Artist'}
 							/>
 						</Col>
 						<Col xs={12} md={3} className='mt-3'>
 							<FeedContainer
-								liveStreams={groupDetail.group_event}
+								liveStreams={artistDetail.artist_event}
 								height={'62vh'}
 								limit={3}
 							/>
@@ -49,8 +51,8 @@ export default function GroupDetail(props) {
 					<Row>
 						<Col xs={12} md={9} className='mt-0 mb-4'>
 							<SlideContainer
-								type={'Artists'}
-								slideContent={groupDetail.group_artist}
+								type={'Groups'}
+								slideContent={artistDetail.artist_group}
 							/>
 						</Col>
 						<Col xs={12} md={3} className='mb-3'>
@@ -72,7 +74,7 @@ export default function GroupDetail(props) {
 						<Col xs={12} md={12} className='mb-5'>
 							<SlideContainer
 								type={'Venues'}
-								slideContent={groupDetail.group_venue}
+								slideContent={artistDetail.artist_venue}
 							/>
 						</Col>
 					</Row>
@@ -83,12 +85,12 @@ export default function GroupDetail(props) {
 }
 
 export async function getStaticPaths() {
-	const allGroupsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
-	const groupsList = await getData(allGroupsUrl);
+	const allArtistsUrl =
+		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
+	const artistsList = await getData(allArtistsUrl);
 
-	const paths = groupsList.data.map((group) => ({
-		params: { id: group.id.toString() },
+	const paths = artistsList.data.map((artist) => ({
+		params: { id: artist.id.toString() },
 	}));
 
 	return {
@@ -97,18 +99,18 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps(context) {
-	const groupId = Number(context.params.id);
+export const getStaticProps = async (context) => {
+	const artistId = Number(context.params.id);
 
-	const singleGroupUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group/${groupId}`;
+	const singleArtistUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/${artistId}/`;
 
-	const result = await fetch(singleGroupUrl);
-	const groupDetail = await result.json();
+	const result = await fetch(singleArtistUrl);
+	const artistDetail = await result.json();
 
 	return {
 		props: {
-			groupDetail,
+			artistDetail,
 		},
 		revalidate: 3600,
 	};
-}
+};

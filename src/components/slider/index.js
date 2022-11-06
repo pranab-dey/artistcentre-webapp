@@ -17,7 +17,12 @@ export default function Slider(props) {
 				return (
 					<div>
 						<div className={styles.imageTitle}>
-							<span>{title}</span>
+							<span
+								style={{
+									textAlign: 'justify',
+								}}>
+								{title}
+							</span>
 						</div>
 						<div className={styles.subTitle}>{artistName}</div>
 					</div>
@@ -28,13 +33,26 @@ export default function Slider(props) {
 				return (
 					<div className=''>
 						<div className={styles.groupTitle}>
-							<span>{title}</span>
+							<span
+								style={{
+									textAlign: 'justify',
+								}}>
+								{title}
+							</span>
 						</div>
 					</div>
 				);
 
 			case 'Venues':
-				return <div className={styles.venue}>{title}</div>;
+				return (
+					<div
+						className={styles.venue}
+						style={{
+							textAlign: 'justify',
+						}}>
+						{title}
+					</div>
+				);
 
 			default:
 				return;
