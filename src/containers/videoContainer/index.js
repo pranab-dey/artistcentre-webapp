@@ -13,7 +13,11 @@ export default function VideoContainer(props) {
 				height={'85'}
 				layout='responsive'
 				objectFit='cover'
-				style={{ paddingBottom: '25px' }}
+				style={{
+					boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
+					paddingBottom: '25px',
+					borderRadius: '5px',
+				}}
 				// className={styles.image}
 			/>
 		</div>

@@ -1,7 +1,6 @@
 import styles from './detail.module.scss';
 import { GrLocation } from 'react-icons/gr';
 import { MdOutlineWifiCalling3, MdWeb } from 'react-icons/md';
-import { FiFacebook } from 'react-icons/fi';
 import { TfiFacebook } from 'react-icons/tfi';
 
 import { BsYoutube } from 'react-icons/bs';

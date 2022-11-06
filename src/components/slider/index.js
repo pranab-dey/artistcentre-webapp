@@ -82,8 +82,12 @@ export default function Slider(props) {
 	};
 	const handleClick = (e, id) => {
 		e.preventDefault();
-		const url = `/${type.toLowerCase()}/${id}`;
-		router.push(url);
+		if (type.toLowerCase().includes('featured'))
+			router.push(`/events/${id}`);
+		else {
+			const url = `/${type.toLowerCase()}/${id}`;
+			router.push(url);
+		}
 	};
 
 	return (

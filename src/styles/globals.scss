@@ -15,6 +15,7 @@
 	--color-footer: #{$app-primary};
 	--color-icon: #{$app-secondary};
 	--color-bnw: #fff;
+	--color-bnw-revert: #{$matt-black};
 }
 [data-theme='dark'] {
 	--color-primary: #fff;
@@ -31,6 +32,7 @@
 	--color-footer: #{$app-bg-navbar-dark};
 	--color-icon: #{$app-primary};
 	--color-bnw: #000;
+	--color-bnw-revert: #fff;
 }
 
 // html {
