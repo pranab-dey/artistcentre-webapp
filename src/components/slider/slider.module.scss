@@ -28,6 +28,12 @@
 	font-style: normal;
 	font-weight: 600;
 	margin-top: 5px;
+
+	overflow: hidden;
+	max-width: 300px;
+	white-space: nowrap; /* don't break the line */
+	text-overflow: ellipsis;
+	text-align: justify;
 }
 .subTitle {
 	mix-blend-mode: normal;
@@ -48,6 +54,11 @@
 	font-family: 'Roboto';
 	font-size: 15px;
 	opacity: 0.9;
+	overflow: hidden;
+	max-width: 300px;
+	white-space: nowrap; /* don't break the line */
+	text-overflow: ellipsis;
+	text-align: justify;
 }
 .venue {
 	margin-bottom: 50px;
@@ -57,4 +68,9 @@
 	letter-spacing: 0.2px;
 	font-family: 'Roboto';
 	font-size: 12px;
+	overflow: hidden;
+	max-width: 300px;
+	white-space: nowrap; /* don't break the line */
+	text-overflow: ellipsis;
+	text-align: justify;
 }

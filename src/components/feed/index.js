@@ -89,7 +89,9 @@ const Description = ({ eventTitle, startTime, endTime }) => {
 
 const EventType = ({ type }) => {
 	return (
-		<div className='d-flex' style={{ marginLeft: 'auto' }}>
+		<div
+			className='d-flex align-items-center'
+			style={{ marginLeft: 'auto' }}>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
