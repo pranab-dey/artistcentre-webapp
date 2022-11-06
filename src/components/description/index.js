@@ -16,14 +16,12 @@ export default function Description({ topEvent }) {
 	// 	.replace(/,\s*$/, '');
 
 	const eventType = !!topEvent.ticket_price;
+	console.log(eventType);
 
 	return (
 		<Containter className={styles.containter}>
 			<Row>
-				<Col
-					className='d-flex flex-column justify-content-flex-start align-items-flex-start px-4'
-					md={9}
-					xs={9}>
+				<Col className='px-4' md={10} xs={9}>
 					<Title
 						eventTitle={topEvent.event_name}
 						artistName={topEvent.artist[0].artist_name}
@@ -34,7 +32,7 @@ export default function Description({ topEvent }) {
 						eventAddressTail={topEvent.venue.venue_address}
 					/>
 				</Col>
-				<Col md={3} xs={3} style={{ marginLeft: '0px' }}>
+				<Col md={2} xs={3}>
 					<EventType type={eventType} />
 				</Col>
 			</Row>
@@ -117,10 +115,8 @@ const Divider = () => {
 };
 
 const EventType = ({ type }) => {
-	return type ? (
-		<div
-			className='d-flex justify-content-flex-end'
-			style={{ marginLeft: '100px' }}>
+	return (
+		<div className='d-flex justify-content-flex-end'>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
@@ -129,8 +125,12 @@ const EventType = ({ type }) => {
 					alt='First slide'
 					className={styles.playIcon}
 				/>
-				<span>Paid Event</span>
+				{type ? (
+					<span className={styles.paidevent}>Paid Event</span>
+				) : (
+					<span className={styles.freeevent}>Free Event</span>
+				)}
 			</div>
 		</div>
-	) : null;
+	);
 };
