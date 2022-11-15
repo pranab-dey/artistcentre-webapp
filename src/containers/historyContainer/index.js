@@ -7,38 +7,50 @@ import Col from 'react-bootstrap/Col';
 
 import styles from 'styles/Detail.module.scss';
 
-export default function HistoryContainer({ type, detail }) {
+export default function HistoryContainer({ type, detail, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
 
 	return (
 		<Container className={styles.historyMain}>
-			{/* <Row> */}
-			{/* <Col xs={12} md={12}> */}
 			<span style={title}>{type}</span>
-			{/* </Col> */}
-			{/* </Row> */}
-			{/* <Row > */}
-			{/* <Col xs={12} md={12}> */}
-			<div className='mt-3'>
-				<span style={subtitle}>Livestreams</span>
-			</div>
-			{/* </Col> */}
-			{/* <Row> */}
-			{/* <Col xs={12} md={12} style={{ border: '1px solid red' }}> */}
+
+			{type === 'History' ? (
+				<div className='mt-3'>
+					<span style={subtitle}>Livestreams</span>
+				</div>
+			) : null}
+
 			<div style={container}>
-				{detail.map((liveStream) => (
-					<NotificationCard
-						event={liveStream.event}
-						key={liveStream.id}
-					/>
-				))}
+				{detail.length ? (
+					detail.map((liveStream) => (
+						<NotificationCard
+							event={liveStream.event}
+							key={liveStream.id}
+							type={type}
+						/>
+					))
+				) : (
+					<span style={notFound}>No {type} Found</span>
+				)}
+				{loadMore &&
+					detail.map((liveStream) => (
+						<NotificationCard
+							event={liveStream.event}
+							key={liveStream.id}
+						/>
+					))}
+				{detail.length > limit ? (
+					<div style={buttonrad}>
+						<CustomButton
+							variant='secondary'
+							btnText='Load More'
+							customStyle={button}
+							onClick={(e) => setLoadMore(true)}
+						/>
+					</div>
+				) : null}
 			</div>
-			{/* </Col> */}
-			{/* </Row> */}
-			{/* {loadMore &&
-						detail.map((liveStream) => <Feed event={liveStream} />)} */}
-			{/* </Row> */}
 		</Container>
 	);
 }
@@ -58,27 +70,32 @@ const subtitle = {
 };
 
 const container = {
+	marginTop: '10px',
 	overflowY: 'scroll',
-	minHeight: `61vh`,
+	minHeight: `64vh`,
+	maxHeight: `75vh`,
 	boxSizing: 'content-box',
 };
+const button = {
+	color: 'var(--color-primary-accent)',
+	fontFamily: 'Poppins',
+	fontWeight: 'bold',
+	fontSize: 'small',
+	borderRadius: '12px',
+	border: '1px solid var(--color-primary-accent)',
+	width: '45%',
+};
 
-{
-	/* {detail.length > 6 ? (
-				<div>
-					<CustomButton
-						variant='secondary'
-						btnText='Load More'
-						customStyle={{
-							color: 'var(--color-primary-accent)',
-							fontFamily: 'Poppins',
-							fontWeight: 'bold',
-							fontSize: 'small',
-							borderRadius: '12px',
-							border: '1px solid var(--color-primary-accent)',
-						}}
-						onClick={(e) => setLoadMore(true)}
-					/>
-				</div>
-			) : null} */
-}
+const buttonrad = {
+	display: 'flex',
+	justifyContent: 'center',
+	marginTop: '15px',
+};
+
+const notFound = {
+	fontFamily: 'Poppins',
+	fontSize: '12px',
+	fontWeight: 'normal',
+	color: 'red',
+	textAlign: 'center',
+};

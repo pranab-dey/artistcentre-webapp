@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { SlLocationPin } from 'react-icons/sl';
+import { MdOutlineCancel } from 'react-icons/md';
 import { BiTrash } from 'react-icons/bi';
 
 import Image from 'next/image';
@@ -14,10 +15,9 @@ const normalise = (date) => {
 	return date ?? '';
 };
 
-export default function NotificationCard({ event }) {
+export default function NotificationCard({ event, type }) {
 	const router = useRouter();
-	console.log('event', event);
-
+	console.log(type);
 	return (
 		<Containter
 			fluid
@@ -27,7 +27,10 @@ export default function NotificationCard({ event }) {
 				router.push(`/events/${event.id}`);
 			}}>
 			<div className={styles.layout}>
-				<Photo src={event.event_image_url ?? '/assets/no-image.jpeg'} />
+				<Photo
+					src={event.event_image_url ?? '/assets/no-image.jpeg'}
+					id={event.id}
+				/>
 				<div className={styles.group}>
 					<div className={styles.upper}>
 						<Description
@@ -35,8 +38,14 @@ export default function NotificationCard({ event }) {
 							startTime={
 								event.start_time ?? event.event_start_time
 							}
+							type={type}
+							artistName={event.artist[0].artist_name}
+							genre={event.artist[0].artist_genre}
 						/>
-						<EventType type={event.ticket_price} />
+						<EventType
+							type={event.ticket_price}
+							componentType={type}
+						/>
 					</div>
 					<Divider />
 					<div className={styles.lower}>
@@ -49,7 +58,9 @@ export default function NotificationCard({ event }) {
 								normalise(event.event_start_date)
 							}
 						/>
-						<BiTrash className={styles.trashIcon} />
+						{type === 'History' && (
+							<BiTrash className={styles.trashIcon} />
+						)}
 					</div>
 				</div>
 			</div>
@@ -57,7 +68,7 @@ export default function NotificationCard({ event }) {
 	);
 }
 
-const Photo = ({ src }) => {
+const Photo = ({ src, id }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
@@ -66,22 +77,10 @@ const Photo = ({ src }) => {
 				height={'200px'}
 				layout='responsive'
 				objectFit='cover'
-				alt={`image-slide-for-}`}
+				alt={`image-for-${id}`}
 				style={{ borderRadius: '10px' }}
 			/>
 		</div>
-		// <div className={styles.imageContainer}>
-		// 	<Image
-		// 		src={src}
-		// 		alt=''
-		// 		title=''
-		// 		width={400}
-		// 		height={300}
-		// 		layout='responsive'
-		// 		objectFit='cover'
-		// 		className={styles.image}
-		// 	/>
-		// </div>
 	);
 };
 
@@ -98,47 +97,75 @@ const Location = ({ venue, startDate }) => {
 	);
 };
 
-const Description = ({ eventTitle, startTime, endTime }) => {
+const Description = ({
+	eventTitle,
+	startTime,
+	endTime,
+	type,
+	artistName = 'v',
+	genre,
+}) => {
 	return (
 		<div style={{ flex: 1 }}>
 			<span className={styles.desc}>{eventTitle}</span>
 			<div className='d-flex justify-content-flex-start align-items-center mt-1 m-1'>
-				<IoTimeOutline className={styles.timeIcon} />
-				<div className={styles.timeFont}>
-					<span>{startTime}</span>
-					{endTime ? (
-						<>
-							<span className={styles.hiphen}>-</span>
-							<span className={styles.time}>12:00 PM</span>
-						</>
-					) : null}
-				</div>
+				{type === 'Notifications' ? (
+					<div className={styles.artistdetails}>
+						{artistName && <span>{artistName}</span>}
+						{genre && (
+							<>
+								<span>|</span>
+								<span>Genre - {genre}</span>
+							</>
+						)}
+					</div>
+				) : (
+					<>
+						<IoTimeOutline className={styles.timeIcon} />
+						<div className={styles.timeFont}>
+							<span>{startTime}</span>
+							{endTime ? (
+								<>
+									<span className={styles.hiphen}>-</span>
+									<span className={styles.time}>
+										{endTime}
+									</span>
+								</>
+							) : null}
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);
 };
 
-const EventType = ({ type }) => {
+const EventType = ({ type, componentType }) => {
 	return (
 		<div
 			className='d-flex align-items-center'
 			style={{ marginLeft: 'auto' }}>
-			<div className={styles.playIconContainer}>
-				<Image
-					src='/assets/playIcon.png'
-					width={'50%'}
-					height={'50%'}
-					alt='First slide'
-					className={styles.playIcon}
-				/>
-				{type ? (
-					<span className={styles.paidevent}>Paid Event</span>
-				) : (
-					<span className={styles.freeevent}>Free Event</span>
-				)}
-			</div>
-
-			<AiOutlineHeart className={styles.heartIcon} />
+			{componentType === 'Notifications' ? (
+				<MdOutlineCancel className={styles.cancelIcon} />
+			) : (
+				<>
+					<div className={styles.playIconContainer}>
+						<Image
+							src='/assets/playIcon.png'
+							width={'50%'}
+							height={'50%'}
+							alt='First slide'
+							className={styles.playIcon}
+						/>
+						{type ? (
+							<span className={styles.paidevent}>Paid Event</span>
+						) : (
+							<span className={styles.freeevent}>Free Event</span>
+						)}
+					</div>
+					<AiOutlineHeart className={styles.heartIcon} />
+				</>
+			)}
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 
 import classes from 'styles/Detail.module.scss';
 import { HistoryContainer } from 'containers';
+import { userHistoryUrl } from 'constant/apiResources';
 
 // import { getData } from 'helpers/api-util';
 
@@ -26,7 +27,7 @@ export default function GroupDetail(props) {
 		try {
 			const response = await axios({
 				method: 'GET',
-				url: `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/events_history/`,
+				url: userHistoryUrl,
 				headers: {
 					Authorization: `Bearer ${session}`,
 					'Content-Type': 'application/json',
@@ -64,7 +65,11 @@ export default function GroupDetail(props) {
 				<Container fluid='sm'>
 					<Row>
 						<Col xs={12} md={12} className=''>
-							<HistoryContainer detail={data} type={'History'} />
+							<HistoryContainer
+								detail={data}
+								type={'History'}
+								limit={4}
+							/>
 						</Col>
 					</Row>
 				</Container>
@@ -72,17 +77,3 @@ export default function GroupDetail(props) {
 		</>
 	);
 }
-
-// export const getStaticProps = async (context) => {
-// 	const userHistoryUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/events_history/`;
-
-// 	const result = await fetch(userHistoryUrl);
-// 	const historyDetail = await result.json();
-
-// 	return {
-// 		props: {
-// 			historyDetail,
-// 		},
-// 		revalidate: 3600,
-// 	};
-// };

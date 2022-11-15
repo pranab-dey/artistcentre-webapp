@@ -183,8 +183,26 @@
 	color: var(--color-red);
 	margin-left: 7px;
 }
+.cancelIcon {
+	font-size: 20px;
+	color: var(--color-primary-accent);
+	margin-bottom: 55px;
+}
 .time {
 	margin-right: 8px;
+}
+.artistdetails {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 12px;
+	font-family: 'Roboto';
+	gap: 5px;
+	color: var(--color-grey);
+	font-weight: 300;
+	letter-spacing: 0.6px;
+	margin-left: 2px;
+	line-height: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -193,7 +211,6 @@
 	}
 	.address {
 		font-size: 5px;
-		border: '1px solid red';
 	}
 	.imageContainer {
 		width: 150px;
@@ -205,6 +222,10 @@
 	.timeIcon,
 	.heartIcon {
 		font-size: 12px;
+	}
+	.cancelIcon {
+		font-size: 15px;
+		margin-bottom: 39px;
 	}
 	.trashIcon {
 		font-size: 15px;
@@ -222,5 +243,12 @@
 	.place,
 	.date {
 		font-size: xx-small;
+	}
+	.artistdetails {
+		gap: 5px;
+		font-size: 10px;
+	}
+	.locationContainer {
+		margin: 8px 0px;
 	}
 }
