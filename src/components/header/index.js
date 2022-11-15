@@ -70,10 +70,10 @@ function MainHeader(props) {
 									width: '120px',
 									fontSize: '14px',
 								}}
-								onClick={() => setModalShow(true)}
+								onClick={() => setModalShow((prev) => !prev)}
 							/>
 							<AppModal
-								show={modalShow}
+								modalShow={modalShow}
 								onHide={() => setModalShow(false)}
 							/>
 						</div>

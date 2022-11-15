@@ -1,12 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-function Caption({ text, linkText, href = '/' }) {
+function Caption({ text, linkText, href = '/', clickHandler }) {
 	const router = useRouter();
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		router.push(href);
+		clickHandler?.();
+		// router.push(href);
 	};
 
 	return (

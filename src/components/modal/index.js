@@ -1,7 +1,5 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'next/image';
-
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,12 +11,15 @@ import { FiFacebook } from 'react-icons/fi';
 import styles from './modal.module.scss';
 
 export default function AppModal(props) {
+	const { modalShow, onHide } = props;
+
 	return (
 		<Modal
-			{...props}
 			size='md'
+			show={modalShow}
 			aria-labelledby='contained-modal-title-vcenter'
-			centered>
+			centered
+			onHide={onHide}>
 			<Modal.Body className={styles.modal}>
 				<Container className='mt-3 mb-3'>
 					<Row>
@@ -33,7 +34,7 @@ export default function AppModal(props) {
 					</Row>
 					<Row>
 						<Col xs={12} md={12}>
-							<LoginWithEmail />
+							<LoginWithEmail hideModal={onHide} />
 						</Col>
 					</Row>
 				</Container>

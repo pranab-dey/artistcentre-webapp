@@ -7,6 +7,15 @@ const headers = async () => {
 			source: '/(.*)',
 			headers: [
 				{
+					key: 'Access-Control-Allow-Origin',
+					value: '*',
+				},
+				{
+					key: 'Access-Control-Allow-Credentials',
+					value: 'true',
+				},
+
+				{
 					key: 'X-Content-Type-Options',
 					value: 'nosniff',
 				},

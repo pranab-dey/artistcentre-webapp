@@ -73,15 +73,16 @@
 	margin-right: 5px;
 	color: var(--color-green);
 }
-.paidevent {
+.paid {
 	color: var(--color-red);
 }
-.freeevent {
+.free {
 	// color: blue;
-	// color: var(--color-green);
+	color: var(--color-green);
 }
 .playIcon {
 	// padding-left: 30px;
+
 	object-fit: contain;
 }
 .playIconContainer {
@@ -92,7 +93,6 @@
 
 	span {
 		font-size: 12px;
-		color: var(--color-red);
 		margin-top: 5px;
 		font-family: Roboto;
 	}

@@ -9,3 +9,4 @@ export { default as Caption } from './caption';
 export { default as Divider } from './divider';
 export { default as CustomForm } from './form';
 export { default as Detail } from './detail';
+export { default as NotificationCard } from './notificationCard';

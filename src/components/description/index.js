@@ -16,7 +16,6 @@ export default function Description({ topEvent }) {
 	// 	.replace(/,\s*$/, '');
 
 	const eventType = !!topEvent.ticket_price;
-	console.log(eventType);
 
 	return (
 		<Containter className={styles.containter}>
@@ -126,9 +125,9 @@ const EventType = ({ type }) => {
 					className={styles.playIcon}
 				/>
 				{type ? (
-					<span className={styles.paidevent}>Paid Event</span>
+					<span className={styles.paid}>Paid Event</span>
 				) : (
-					<span className={styles.freeevent}>Free Event</span>
+					<span className={styles.free}>Free Event</span>
 				)}
 			</div>
 		</div>

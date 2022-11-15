@@ -3,28 +3,36 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useForm } from 'react-hook-form';
-import { TbBrandTelegram } from 'react-icons/tb';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 import { Caption, CustomButton, CustomForm, Divider } from 'components';
 
 import { loginForm } from './loginForm';
+import { registerForm } from './registerForm';
 
 // import { useAuth } from 'context/auth';
 
 import { validationSchema } from './validationSchema';
+import { registerUrl, loginUrl } from 'constant/apiResources';
 
-function LoginWithEmail() {
+function LoginWithEmail(props) {
+	const { hideModal } = props;
 	const router = useRouter();
 	// const { login } = useAuth();
 
 	const initState = {
 		email: '',
 		password: '',
-		rememberme: false,
 	};
 	const [initialValues, setInitialValues] = useState(initState);
+	const [isLogin, setIsLogin] = useState(true);
+
+	const handleClick = (e) => {
+		setIsLogin((prevState) => !prevState);
+		setInitialValues(null);
+	};
 
 	const {
 		register,
@@ -39,8 +47,21 @@ function LoginWithEmail() {
 
 	const onSubmit = async (values) => {
 		try {
-			// await login(values);
-			// router.push('/newsfeed');
+			console.log(values);
+			if (isLogin) {
+				const { data } = await axios.post(loginUrl, values, {
+					headers: {},
+				});
+
+				localStorage.setItem('user', JSON.stringify(data));
+
+				hideModal();
+			} else {
+				const resJson = await axios.post(registerUrl, values);
+
+				setIsLogin((prevState) => !prevState);
+			}
+			// router.replace('/');
 		} catch (err) {
 			console.log({ err });
 		}
@@ -54,19 +75,27 @@ function LoginWithEmail() {
 	return (
 		<Form onSubmit={handleSubmit(onSubmit, onError)}>
 			<Row>
-				{loginForm.map((item, index) => (
-					<CustomForm
-						item={item}
-						register={register}
-						errors={errors}
-						key={index}
-					/>
-				))}
+				{isLogin
+					? loginForm.map((item, index) => (
+							<CustomForm
+								item={item}
+								register={register}
+								errors={errors}
+								key={index}
+							/>
+					  ))
+					: registerForm.map((item, index) => (
+							<CustomForm
+								item={item}
+								register={register}
+								errors={errors}
+								key={index}
+							/>
+					  ))}
 				<Col xs={12} style={{ padding: '0px 30px' }}>
 					<CustomButton
-						btnText='Sign In'
+						btnText={isLogin ? 'Sign in' : 'Sign up'}
 						type='submit'
-						// icon={TbBrandTelegram}
 						customStyle={{
 							marginTop: '15px',
 							fontWeight: '500',
@@ -76,9 +105,13 @@ function LoginWithEmail() {
 				</Col>
 				<Col xs={12}>
 					<Caption
-						text="Don't have an acoount?"
-						linkText='Register!'
-						href='/forgot-password'
+						text={
+							isLogin
+								? "Don't have an account?"
+								: 'Already have an account?'
+						}
+						linkText={isLogin ? 'Register!' : 'Sign in'}
+						clickHandler={handleClick}
 					/>
 				</Col>
 				<Col xs={12}>
