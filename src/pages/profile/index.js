@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
@@ -19,7 +19,7 @@ export default function Profile(props) {
 		getUserProfile();
 	}, []);
 
-	const getUserProfile = async () => {
+	const getUserProfile = useCallback(async () => {
 		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
 		console.log(session);
 		setLoading(true);
@@ -40,7 +40,28 @@ export default function Profile(props) {
 			setLoading(false);
 			console.log(error);
 		}
-	};
+	}, []);
+
+	const updateUserData = useCallback(async (payload) => {
+		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
+		setLoading(true);
+		try {
+			const response = await axios({
+				method: 'PUT',
+				data: payload,
+				url: userProfileUrl,
+				headers: {
+					Authorization: `Bearer ${session}`,
+					'Content-Type': 'application/json',
+				},
+			});
+			console.log(response);
+			setLoading(false);
+		} catch (error) {
+			setLoading(false);
+			console.log(error);
+		}
+	});
 
 	if (!data) {
 		return (
@@ -65,6 +86,7 @@ export default function Profile(props) {
 						<Col xs={12} md={12} className=''>
 							<ProfileContainer
 								profile={data}
+								updateUserData={updateUserData}
 								type={'Settings'}
 							/>
 						</Col>

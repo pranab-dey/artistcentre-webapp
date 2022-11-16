@@ -1,19 +1,26 @@
 import { FaToggleOn, FaToggleOff } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styles from './settings.module.scss';
 
-export default function settings({ notiStatus }) {
+export default function settings({ notiStatus, handleProfileEditSubmit }) {
 	const [isNotiStatus, setNotiStatus] = useState(notiStatus);
-	const handleClick = (e) => {
-		e.preventDefault();
-		setNotiStatus((prev) => !prev);
-	};
+
+	const handleClick = useCallback(
+		(e) => {
+			e.preventDefault();
+			setNotiStatus((prev) => !prev);
+			handleProfileEditSubmit({
+				is_notification_allowed: !isNotiStatus,
+			});
+		},
+		[isNotiStatus]
+	);
 
 	return (
 		<div className={styles.container}>
 			<span className={styles.title}>Change Picture</span>
 			<div className={styles.customInput}>
-				<input type='file' />
+				<input type='file' accept='image/*' />
 			</div>
 			<div className={styles.divider}></div>
 			<div className={styles.notification}>

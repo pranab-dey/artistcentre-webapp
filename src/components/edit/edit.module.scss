@@ -53,6 +53,7 @@
 }
 .input {
 	border: none;
+	width: 100%;
 }
 .numberinput {
 	width: 80px;
@@ -64,13 +65,13 @@
 		width: 100%;
 	}
 	.phoneBoxOne {
-		width: 50%;
+		width: 30%;
 	}
 	.mobileContainer {
 		gap: 3px;
-		width: 67%;
+		width: 100%;
 	}
 	.mobileIcon {
-		font-size: 25px;
+		font-size: 17px;
 	}
 }
