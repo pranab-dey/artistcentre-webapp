@@ -7,3 +7,4 @@ export { default as DetailContainer } from './detailContainer';
 export { default as ArtistContainer } from './artistContainer';
 export { default as AdditionalStreamsContainer } from './additionalStreamsContainer';
 export { default as HistoryContainer } from './historyContainer';
+export { default as ProfileContainer } from './profileContainer';

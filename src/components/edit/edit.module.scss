@@ -1,0 +1,76 @@
+.container {
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+	margin: 20px 0px;
+	padding: 20px 15px;
+	border-radius: 15px;
+}
+.title {
+	// width: 83%;
+	margin-bottom: 12px;
+	font-size: 17px;
+	font-family: 'Roboto';
+	font-weight: 300;
+	color: var(--color-primary-accent);
+}
+
+.phoneBoxOne {
+	text-align: center;
+	padding: 5px 10px;
+	background-color: var(--color-bnw);
+	border: 1px solid rgba(131, 131, 131, 1);
+	border-radius: 7px;
+}
+.phoneBoxTwo {
+	text-align: center;
+	padding: 5px 10px;
+	background-color: var(--color-bnw);
+	border: 1px solid rgba(131, 131, 131, 1);
+	border-radius: 7px;
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.mobileContainer {
+	display: flex;
+	gap: 15px;
+}
+.inputBox {
+	// width: 83%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
+	background-color: var(--color-bnw);
+	border: 1px solid rgba(131, 131, 131, 1);
+	border-radius: 7px;
+	margin: 13px 0px;
+}
+.mobileIcon,
+.editIcon {
+	color: var(--color-primary-accent);
+}
+.input {
+	border: none;
+}
+.numberinput {
+	width: 80px;
+	border: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.phoneBoxTwo {
+		width: 100%;
+	}
+	.phoneBoxOne {
+		width: 50%;
+	}
+	.mobileContainer {
+		gap: 3px;
+		width: 67%;
+	}
+	.mobileIcon {
+		font-size: 25px;
+	}
+}

@@ -10,3 +10,6 @@ export { default as Divider } from './divider';
 export { default as CustomForm } from './form';
 export { default as Detail } from './detail';
 export { default as NotificationCard } from './notificationCard';
+export { default as DisplayPicture } from './dp';
+export { default as Settings } from './settings';
+export { default as EditProfile } from './edit';
