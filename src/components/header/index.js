@@ -23,28 +23,32 @@ function MainHeader(props) {
 	const { darkTheme, themeToggle } = props;
 
 	return (
-		<Container fluid className={`${classes.mainHeader}`}>
-			<Container fluid='md' className={classes.header}>
+		<Container fluid='xs' className={`${classes.mainHeader}`}>
+			<Container className={classes.header}>
 				<Row className={classes.headerRow}>
-					<Col xs={3} md={3}>
+					<Col xs={5} md={3}>
 						<div className={`${classes.logo} mt-4`}>
-							<figure className={classes.figure}>
+							<div className={classes.figure}>
 								<Image
-									width='100%'
-									height='100%'
 									src={'/assets/logo.png'}
-									alt={'logo'}
+									alt=''
+									title=''
+									width={100}
+									height={100}
+									layout='responsive'
+									objectFit='cover'
+									className={classes.image}
 								/>
-							</figure>
+							</div>
 							<div className={`${classes.logoText}`}>
 								<span>ArtistStream</span>
 							</div>
 						</div>
 					</Col>
-					<Col xs={4} md={4}>
+					<Col xs={1} md={4}>
 						<Search />
 					</Col>
-					<Col xs={5} md={5}>
+					<Col xs={6} md={5}>
 						<div className={`${classes.last} mt-4 `}>
 							{darkTheme !== undefined && (
 								<label>

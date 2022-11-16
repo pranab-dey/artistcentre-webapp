@@ -10,8 +10,8 @@ import styles from './footer.module.scss';
 
 export default function Footer() {
 	return (
-		<Container fluid className={`${styles.container} p-4`}>
-			<Container className={styles.container}>
+		<Container fluid='xs' className={`${styles.container} p-4`}>
+			<Container className={styles.mainContainer}>
 				<div className={styles.footerStart}>
 					<span>About</span>
 					<span className={styles.div}>|</span>
