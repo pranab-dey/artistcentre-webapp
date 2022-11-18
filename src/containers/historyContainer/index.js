@@ -15,7 +15,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 		<Container className={styles.historyMain}>
 			<span style={title}>{type}</span>
 
-			{type === 'History' ? (
+			{type === 'History' && detail.length ? (
 				<div className='mt-3'>
 					<span style={subtitle}>Livestreams</span>
 				</div>
