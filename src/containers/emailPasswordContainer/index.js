@@ -18,7 +18,7 @@ import { validationSchema } from './validationSchema';
 import { registerUrl, loginUrl } from 'constant/apiResources';
 
 function LoginWithEmail(props) {
-	const { hideModal } = props;
+	const { hideModal, setSession } = props;
 	const router = useRouter();
 	// const { login } = useAuth();
 
@@ -52,7 +52,6 @@ function LoginWithEmail(props) {
 				const { data } = await axios.post(loginUrl, values, {
 					headers: {},
 				});
-
 				localStorage.setItem('user', JSON.stringify(data));
 
 				hideModal();
@@ -65,7 +64,9 @@ function LoginWithEmail(props) {
 		} catch (err) {
 			console.log({ err });
 		}
+
 		setInitialValues(null);
+		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
 	};
 
 	const onError = (error) => {

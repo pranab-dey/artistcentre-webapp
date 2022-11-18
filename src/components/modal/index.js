@@ -11,7 +11,7 @@ import { FiFacebook } from 'react-icons/fi';
 import styles from './modal.module.scss';
 
 export default function AppModal(props) {
-	const { modalShow, onHide } = props;
+	const { modalShow, onHide, setSession } = props;
 
 	return (
 		<Modal
@@ -34,7 +34,10 @@ export default function AppModal(props) {
 					</Row>
 					<Row>
 						<Col xs={12} md={12}>
-							<LoginWithEmail hideModal={onHide} />
+							<LoginWithEmail
+								hideModal={onHide}
+								setSession={setSession}
+							/>
 						</Col>
 					</Row>
 				</Container>

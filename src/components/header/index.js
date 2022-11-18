@@ -85,6 +85,7 @@ function MainHeader(props) {
 							<AppModal
 								modalShow={modalShow}
 								onHide={() => setModalShow(false)}
+								setSession={setSession}
 							/>
 						</div>
 					</Col>
