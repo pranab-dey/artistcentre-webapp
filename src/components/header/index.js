@@ -5,17 +5,23 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FiLogIn } from 'react-icons/fi';
 import { MdDarkMode } from 'react-icons/md';
+import { BsPerson } from 'react-icons/bs';
+import { IoMdNotificationsOutline } from 'react-icons/io';
 
 import { CustomButton, AppModal } from 'components';
 import Search from './search';
+import Dropdown from './dropdown';
+import { useRouter } from 'next/router';
 
 import classes from './header.module.scss';
+import { Router } from 'next/router';
 
 function MainHeader(props) {
 	const [modalShow, setModalShow] = useState(false);
 	const [session, setSession] = useState('');
 
 	const { darkTheme, themeToggle } = props;
+	const router = useRouter();
 
 	useEffect(() => {
 		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
@@ -63,7 +69,30 @@ function MainHeader(props) {
 								</label>
 							)}
 							{session ? (
-								<span></span>
+								<>
+									<div className={classes.profileContainer}>
+										<div className={classes.iconWrapper}>
+											<IoMdNotificationsOutline
+												className={classes.personIcon}
+												onClick={() =>
+													router.push(
+														'/notifications'
+													)
+												}
+											/>
+										</div>
+
+										<div className={classes.iconWrapper}>
+											<BsPerson
+												className={classes.personIcon}
+											/>
+										</div>
+										<div className={classes.profile}>
+											<Title />
+											<Dropdown setSession={setSession} />
+										</div>
+									</div>
+								</>
 							) : (
 								<CustomButton
 									btnText='Login'
@@ -94,5 +123,13 @@ function MainHeader(props) {
 		</Container>
 	);
 }
+
+const Title = () => {
+	return (
+		<div style={{ fontSize: '14px', fontFamily: 'Poppins' }}>
+			<span>Mr.</span>
+		</div>
+	);
+};
 
 export default MainHeader;
