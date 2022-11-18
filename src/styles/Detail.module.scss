@@ -12,6 +12,14 @@
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.searchMain {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	max-height: 77.7vh;
+	min-height: 71vh;
+	overflow: scroll;
+}
+
 .settingsMain {
 	background-color: var(--color-bnw);
 	padding: 30px;
@@ -19,6 +27,12 @@
 	margin-bottom: 20px;
 	border-radius: 10px;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.noresults {
+	color: rgba(255, 0, 0, 0.823);
+	padding: 20px;
+	text-align: start;
 }
 
 @media only screen and (max-width: 600px) {

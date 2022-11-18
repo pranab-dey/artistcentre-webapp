@@ -1,26 +1,25 @@
-import { useState } from 'react';
-
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Navbar from 'react-bootstrap/Navbar';
 import { FiLogIn } from 'react-icons/fi';
 import { MdDarkMode } from 'react-icons/md';
 
 import { CustomButton, AppModal } from 'components';
-
 import Search from './search';
 
 import classes from './header.module.scss';
 
 function MainHeader(props) {
 	const [modalShow, setModalShow] = useState(false);
+	const [session, setSession] = useState('');
 
 	const { darkTheme, themeToggle } = props;
+
+	useEffect(() => {
+		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
+	}, [session]);
 
 	return (
 		<Container fluid='xs' className={`${classes.mainHeader}`}>
@@ -45,10 +44,10 @@ function MainHeader(props) {
 							</div>
 						</div>
 					</Col>
-					<Col xs={1} md={4}>
+					<Col xs={5} md={4}>
 						<Search />
 					</Col>
-					<Col xs={6} md={5}>
+					<Col xs={2} md={5}>
 						<div className={`${classes.last} mt-4 `}>
 							{darkTheme !== undefined && (
 								<label>
@@ -63,19 +62,26 @@ function MainHeader(props) {
 									/>
 								</label>
 							)}
-							<CustomButton
-								btnText='Login'
-								variant='primary'
-								type='button'
-								icon={FiLogIn}
-								customStyle={{
-									fontWeight: '500',
-									fontFamily: 'Poppins, Roboto, sans-serif',
-									width: '120px',
-									fontSize: '14px',
-								}}
-								onClick={() => setModalShow((prev) => !prev)}
-							/>
+							{session ? (
+								<span></span>
+							) : (
+								<CustomButton
+									btnText='Login'
+									variant='primary'
+									type='button'
+									icon={FiLogIn}
+									customStyle={{
+										fontWeight: '500',
+										fontFamily:
+											'Poppins, Roboto, sans-serif',
+										width: '120px',
+										fontSize: '14px',
+									}}
+									onClick={() =>
+										setModalShow((prev) => !prev)
+									}
+								/>
+							)}
 							<AppModal
 								modalShow={modalShow}
 								onHide={() => setModalShow(false)}

@@ -15,8 +15,8 @@ export default function EditProfile(props) {
 	const initialData = {
 		first_name: data.first_name ?? undefined,
 		email: data.email ?? undefined,
-		mobileV1: data.artist_mobile ?? undefined,
-		mobileV2: data.artist_mobile ?? undefined,
+		mobileV1: data.artist_mobile?.slice(0, 4) ?? undefined,
+		mobileV2: data.artist_mobile?.slice(4) ?? undefined,
 	};
 	const [userEditedData, setUserEditedData] = useState(initialData);
 

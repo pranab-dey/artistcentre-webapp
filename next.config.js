@@ -53,6 +53,7 @@ const nextConfig = {
 			'picsum.photos',
 			's3.amazonaws.com',
 			'photos.bandsintown.com',
+			'assets.prod.bandsintown.com',
 		],
 	},
 };

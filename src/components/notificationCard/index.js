@@ -39,8 +39,8 @@ export default function NotificationCard({ event, type }) {
 								event.start_time ?? event.event_start_time
 							}
 							type={type}
-							artistName={event.artist[0].artist_name}
-							genre={event.artist[0].artist_genre}
+							artistName={event.artist[0]?.artist_name}
+							genre={event.artist[0]?.artist_genre}
 						/>
 						<EventType
 							type={event.ticket_price}
@@ -72,7 +72,7 @@ const Photo = ({ src, id }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
-				src={src}
+				src={src || '/assets/no-image.jpeg'}
 				width={'300px'}
 				height={'200px'}
 				layout='responsive'
@@ -87,7 +87,9 @@ const Photo = ({ src, id }) => {
 const Location = ({ venue, startDate }) => {
 	return (
 		<div className={styles.locationContainer}>
-			<SlLocationPin className={styles.locationIcon} />
+			{(venue || startDate) && (
+				<SlLocationPin className={styles.locationIcon} />
+			)}
 			<div className={styles.address}>
 				<div className={styles.place}>{venue}</div>
 				{/* <span className={styles.hiphen}> - </span> */}
@@ -121,7 +123,9 @@ const Description = ({
 					</div>
 				) : (
 					<>
-						<IoTimeOutline className={styles.timeIcon} />
+						{startTime && (
+							<IoTimeOutline className={styles.timeIcon} />
+						)}
 						<div className={styles.timeFont}>
 							<span>{startTime}</span>
 							{endTime ? (
@@ -145,7 +149,7 @@ const EventType = ({ type, componentType }) => {
 		<div
 			className='d-flex align-items-center'
 			style={{ marginLeft: 'auto' }}>
-			{componentType === 'Notifications' ? (
+			{['Notifications'].includes(componentType) ? (
 				<MdOutlineCancel className={styles.cancelIcon} />
 			) : (
 				<>
@@ -163,7 +167,17 @@ const EventType = ({ type, componentType }) => {
 							<span className={styles.freeevent}>Free Event</span>
 						)}
 					</div>
-					<AiOutlineHeart className={styles.heartIcon} />
+					{['Search'].includes(componentType) ? (
+						<div className=''>
+							<MdOutlineCancel
+								className={styles.searchcancelIcon}
+							/>
+						</div>
+					) : (
+						<div>
+							<AiOutlineHeart className={styles.heartIcon} />
+						</div>
+					)}
 				</>
 			)}
 		</div>
