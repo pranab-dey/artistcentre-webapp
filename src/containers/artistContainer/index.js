@@ -10,7 +10,9 @@ export default function ArtistContainer(props) {
 		<Container style={container}>
 			<Row>
 				<Col md={12} xs={12}>
-					<ArtistImage src={topEvent.event_image_url} />
+					<ArtistImage
+						eventImageSrc={topEvent?.event_image_url ?? null}
+					/>
 				</Col>
 				<Col md={12} xs={12}>
 					<Title group={topEvent.group[0]} />
@@ -23,11 +25,11 @@ export default function ArtistContainer(props) {
 	);
 }
 
-const ArtistImage = ({ src }) => {
+const ArtistImage = ({ eventImageSrc }) => {
 	return (
 		<div style={imgContainer}>
 			<Image
-				src={src || '/assets/no-image.jpeg'}
+				src={eventImageSrc || '/assets/no-image.jpeg'}
 				alt=''
 				title=''
 				width={'140'}
@@ -38,6 +40,7 @@ const ArtistImage = ({ src }) => {
 					boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
 					paddingBottom: '25px',
 					borderRadius: '15px',
+					border: '1px solid red',
 				}}
 			/>
 		</div>
@@ -63,7 +66,8 @@ const container = {
 	borderRadius: '15px',
 	boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
 	backgroundColor: 'var(--color-bnw)',
-	maxHeight: '100vh',
+	maxHeight: '61vh',
+	minHeight: '61vh',
 	overflow: 'scroll',
 };
 const imgContainer = {};

@@ -20,6 +20,15 @@
 	background-color: var(--color-bg);
 	border-radius: 15px;
 }
+.modalHeight {
+	// height: 700px;
+	max-height: 700px !important;
+}
+
+.customModal {
+	width: 414px;
+	max-width: 414px !important;
+}
 .buttonGroup {
 	display: flex;
 	justify-content: center;
@@ -80,4 +89,10 @@
 	font-weight: normal;
 	margin-bottom: 15px;
 	color: var(--color-primary-accent);
+}
+
+@media only screen and (max-width: 600px) {
+	.customModal {
+		width: 396px !important;
+	}
 }

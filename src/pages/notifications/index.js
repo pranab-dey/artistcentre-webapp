@@ -9,6 +9,8 @@ import classes from 'styles/Detail.module.scss';
 import { HistoryContainer } from 'containers';
 import { userNotificationUrl } from 'constant/apiResources';
 
+import styles from 'styles/Detail.module.scss';
+
 export default function Notification(props) {
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(false);
@@ -35,19 +37,17 @@ export default function Notification(props) {
 			setLoading(false);
 		} catch (error) {
 			setLoading(false);
-			console.log(error);
+			console.error(error);
 		}
 	};
 
 	if (!data) {
 		return (
-			<div className='center'>
-				<p>Loading...</p>
-			</div>
+			<Container className={styles.searchMain}>
+				<p className={{}}>Loading...</p>
+			</Container>
 		);
 	}
-
-	console.log(data);
 
 	return (
 		<>

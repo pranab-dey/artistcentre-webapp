@@ -1,5 +1,6 @@
 .mainHeader {
 	height: 90px;
+	// min-width: 1520px;
 	background-color: var(--color-bg-navbar);
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 	align-items: center;
@@ -16,6 +17,7 @@
 }
 .logo {
 	font-family: 'Poppins';
+	cursor: pointer;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -23,7 +25,7 @@
 }
 
 .figure {
-	width: 45px;
+	width: 48px;
 	display: block;
 	border-radius: 15px;
 }
@@ -39,7 +41,7 @@
 	margin-top: 10px;
 	margin-left: 11px;
 	color: var(--color-primary-accent);
-	font-weight: 500;
+	font-weight: 800;
 	font-family: 'Poppins';
 	font-size: 18px;
 }
@@ -69,13 +71,14 @@
 }
 .searchInputWrapper {
 	flex: 1;
+	max-width: 310px;
 	display: flex;
 	gap: 5px;
 	justify-content: flex-start;
 	align-items: center;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 	border: 2px solid #dddddd;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 .searchInput {
 	width: 260px;
@@ -83,7 +86,7 @@
 	border: none;
 	position: relative;
 	font-size: 15px;
-	border-radius: 5px;
+	border-radius: 10px;
 
 	&:focus {
 		// padding: 0px !important;
@@ -177,7 +180,7 @@
 		margin: 5px;
 	}
 	.figure {
-		width: 80px;
+		width: 40px;
 	}
 
 	.logoText {

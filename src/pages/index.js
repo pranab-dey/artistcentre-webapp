@@ -28,11 +28,20 @@ export default function HomePage(props) {
 			<div>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className='mt-4 mb-5'>
+						<Col xs={12} md={9} className='mt-4'>
 							<VideoContainer topEvent={eventsList.data[0]} />
 							<DescriptionContainer
 								topEvent={eventsList.data[0]}
 							/>
+						</Col>
+						<Col className='mt-3' xs={12} md={3}>
+							<FeedContainer
+								liveStreams={eventsList.data.slice(6)}
+								limit={14}
+								height={'232vh'}
+							/>
+						</Col>
+						<Col xs={12} md={9} className='mb-5'>
 							<SlideContainer
 								type={'Featured Livestreams'}
 								slideContent={eventsList.data.slice(1, 6)}
@@ -48,13 +57,6 @@ export default function HomePage(props) {
 							<SlideContainer
 								type={'Venues'}
 								slideContent={venueList.data}
-							/>
-						</Col>
-						<Col className='mt-3' xs={12} md={3}>
-							<FeedContainer
-								liveStreams={eventsList.data.slice(6)}
-								limit={14}
-								height={'232vh'}
 							/>
 						</Col>
 					</Row>

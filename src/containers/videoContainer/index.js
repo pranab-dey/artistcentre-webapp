@@ -6,7 +6,7 @@ export default function VideoContainer(props) {
 	return (
 		<div style={{ width: '100%' }}>
 			<Image
-				src={topEvent.event_image_url ?? '/assets/no-image.jpeg'}
+				src={topEvent.event_image_url || '/assets/no-image.jpeg'}
 				alt=''
 				title=''
 				width={'140'}
@@ -18,7 +18,6 @@ export default function VideoContainer(props) {
 					paddingBottom: '25px',
 					borderRadius: '5px',
 				}}
-				// className={styles.image}
 			/>
 		</div>
 	);

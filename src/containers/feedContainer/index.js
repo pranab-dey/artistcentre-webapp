@@ -8,7 +8,7 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 
 	return (
 		<div>
-			<span style={title}>Livestreams</span>
+			{liveStreams.length ? <span style={title}>Livestreams</span> : null}
 			<div style={{ overflow: 'hidden' }}>
 				<div
 					style={{

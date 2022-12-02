@@ -25,8 +25,6 @@ export default function Search(props) {
 	const { searchText } = router.query;
 
 	useEffect(() => {
-		console.log(search, results);
-
 		const getSearchData = async () => {
 			await search({
 				search: searchText,
@@ -64,13 +62,13 @@ export default function Search(props) {
 					<Row>
 						<Col
 							className=''
-							xs={{ span: 12, order: 2 }}
+							xs={{ span: 12, order: 1 }}
 							md={{ span: 8, order: 1 }}>
 							<SearchContainer detail={results} limit={4} />
 						</Col>
 						<Col
-							xs={{ span: 12, order: 1 }}
-							md={{ span: 4, order: 2 }}>
+							xs={{ span: 12, order: 2 }}
+							md={{ span: 4, order: 1 }}>
 							<SearchLivestreamContainer detail={results} />
 						</Col>
 					</Row>

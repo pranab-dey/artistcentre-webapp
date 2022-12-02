@@ -19,19 +19,19 @@ export default function Description({ topEvent }) {
 
 	return (
 		<Containter className={styles.containter}>
-			<Row>
-				<Col className='px-4' md={10} xs={9}>
+			<Row className='p-2'>
+				<Col className='px-4' md={11} xs={9}>
 					<Title
 						eventTitle={topEvent.event_name}
-						artistName={topEvent.artist[0].artist_name}
-						artistGenre={topEvent.artist[0].artist_genre}
+						artistName={topEvent.artist[0]?.artist_name}
+						artistGenre={topEvent.artist[0]?.artist_genre}
 					/>
 					<Location
 						eventAddressHead={topEvent.venue.venue_name}
 						eventAddressTail={topEvent.venue.venue_address}
 					/>
 				</Col>
-				<Col md={2} xs={3}>
+				<Col md={1} xs={3}>
 					<EventType type={eventType} />
 				</Col>
 			</Row>
@@ -67,13 +67,17 @@ const Title = ({ eventTitle, artistName, artistGenre }) => {
 
 const Location = ({ eventAddressHead, eventAddressTail }) => {
 	return (
-		<div className='d-flex justify-content-flex-start align-items-center mt-2 mb-3'>
-			<GrLocation className={styles.locationIcon} />
-			<div className={styles.address}>
-				<div className={styles.place}>{eventAddressHead}</div>
-				<div className={styles.road}>{eventAddressTail}</div>
-			</div>
-		</div>
+		<>
+			{eventAddressHead || eventAddressTail ? (
+				<div className='d-flex justify-content-flex-start align-items-center mt-2 mb-3'>
+					<GrLocation className={styles.locationIcon} />
+					<div className={styles.address}>
+						<div className={styles.place}>{eventAddressHead}</div>
+						<div className={styles.road}>{eventAddressTail}</div>
+					</div>
+				</div>
+			) : null}
+		</>
 	);
 };
 

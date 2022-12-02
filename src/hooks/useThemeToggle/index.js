@@ -4,7 +4,6 @@ const useThemeToggle = () => {
 	const [darkTheme, setDarkTheme] = useState(undefined);
 
 	useEffect(() => {
-		console.log('theme-1st use Effect');
 		const root = document.documentElement;
 		const initialColorValue = root.style.getPropertyValue(
 			'--initial-color-mode'
@@ -14,7 +13,6 @@ const useThemeToggle = () => {
 
 	useEffect(() => {
 		const root = document.documentElement;
-		console.log('theme-2nd use Effect');
 
 		if (darkTheme !== undefined) {
 			if (darkTheme) {

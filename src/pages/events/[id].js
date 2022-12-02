@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import classes from 'styles/Detail.module.scss';
+
 import {
 	DescriptionContainer,
 	AdditionalStreamsContainer,
@@ -19,13 +20,11 @@ export default function GroupDetail(props) {
 
 	if (!eventDetail) {
 		return (
-			<div className='center'>
-				<p>Loading...</p>
-			</div>
+			<Container className={classes.searchMain}>
+				<p className={{}}>Loading...</p>
+			</Container>
 		);
 	}
-
-	// console.log(eventDetail);
 
 	return (
 		<>
@@ -40,11 +39,11 @@ export default function GroupDetail(props) {
 			<main className={classes.bgColor}>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className='mt-3'>
+						<Col xs={12} md={8} className='mt-3'>
 							<VideoContainer topEvent={eventDetail} />
 							<DescriptionContainer topEvent={eventDetail} />
 						</Col>
-						<Col xs={12} md={3} className='mt-3'>
+						<Col xs={12} md={4} className='mt-3'>
 							<ArtistContainer topEvent={eventDetail} />
 							<AdditionalStreamsContainer
 								topEvent={eventDetail}

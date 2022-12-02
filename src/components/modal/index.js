@@ -19,9 +19,11 @@ export default function AppModal(props) {
 			show={modalShow}
 			aria-labelledby='contained-modal-title-vcenter'
 			centered
-			onHide={onHide}>
+			onHide={onHide}
+			dialogClassName={styles.customModal}
+			contentClassName={styles.modalHeight}>
 			<Modal.Body className={styles.modal}>
-				<Container className='mt-3 mb-3'>
+				<Container fluid='xs' className='mt-3 mb-3'>
 					<Row>
 						<Col xs={12} md={12}>
 							<LoginHeader />

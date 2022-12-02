@@ -7,19 +7,18 @@ import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 
 import { getData } from 'helpers/api-util';
+import styles from 'styles/Detail.module.scss';
 
 export default function VenueDetail(props) {
 	const { venueDetail } = props;
 
 	if (!venueDetail) {
 		return (
-			<div className='center'>
-				<p>Loading...</p>
-			</div>
+			<Container className={styles.searchMain}>
+				<p className={{}}>Loading...</p>
+			</Container>
 		);
 	}
-
-	// console.log(venueDetail);
 
 	return (
 		<>
@@ -34,13 +33,13 @@ export default function VenueDetail(props) {
 			<main className={classes.bgColor}>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className=''>
+						<Col xs={12} md={8} className=''>
 							<DetailContainer
 								detail={venueDetail}
 								type={'Venue'}
 							/>
 						</Col>
-						<Col xs={12} md={3} className='mt-3'>
+						<Col xs={12} md={4} className='mt-3'>
 							<FeedContainer
 								liveStreams={venueDetail.events}
 								height={'62vh'}
@@ -49,13 +48,13 @@ export default function VenueDetail(props) {
 						</Col>
 					</Row>
 					<Row>
-						<Col xs={12} md={9} className='mt-0 mb-4'>
+						<Col xs={12} md={8} className='mt-0 mb-4'>
 							<SlideContainer
 								type={'Groups'}
 								slideContent={venueDetail.groups}
 							/>
 						</Col>
-						<Col xs={12} md={3} className='mb-3 mt-2'>
+						<Col xs={12} md={4} className='mb-3 mt-2'>
 							<div
 								style={{
 									backgroundColor: 'White',

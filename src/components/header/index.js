@@ -32,7 +32,9 @@ function MainHeader(props) {
 			<Container className={classes.header}>
 				<Row className={classes.headerRow}>
 					<Col xs={5} md={3}>
-						<div className={`${classes.logo} mt-4`}>
+						<div
+							className={`${classes.logo} mt-4`}
+							onClick={() => router.push('/')}>
 							<div className={classes.figure}>
 								<Image
 									src={'/assets/logo.png'}

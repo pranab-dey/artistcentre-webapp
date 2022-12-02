@@ -1,11 +1,14 @@
 import Containter from 'react-bootstrap/Container';
 import { useRouter } from 'next/router';
-
+import { useState } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { SlLocationPin } from 'react-icons/sl';
-
+import { BsFillHeartFill } from 'react-icons/bs';
 import Image from 'next/image';
+import { favUrl } from 'constant/apiResources';
+import axiosInstance from 'constant/axios';
+
 import styles from './feed.module.scss';
 
 const normalise = (date) => {
@@ -15,12 +18,28 @@ const normalise = (date) => {
 
 export default function Feed({ event }) {
 	const router = useRouter();
+	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
+
+	const handleHeartClick = async (event) => {
+		const payload = { event_id: event.id };
+		setUserFav((prev) => !prev);
+		try {
+			if (userFav) {
+				const resp = await axiosInstance.delete(favUrl, payload);
+			} else {
+				const resp = await axiosInstance.post(favUrl, payload);
+			}
+		} catch (e) {
+			console.error(e);
+		}
+	};
 
 	return (
 		<Containter
 			className={styles.containter}
 			onClick={(e) => {
 				e.preventDefault();
+				e.stopPropagation();
 				router.push(`/events/${event.id}`);
 			}}>
 			<div className={styles.layout}>
@@ -29,7 +48,12 @@ export default function Feed({ event }) {
 					eventTitle={event.event_name}
 					startTime={event.start_time ?? event.event_start_time}
 				/>
-				<EventType type={event.ticket_price} />
+				<EventType
+					type={event.ticket_price}
+					event={event}
+					userFav={userFav}
+					handleHeartClick={handleHeartClick}
+				/>
 			</div>
 			<Divider />
 			<Location
@@ -64,9 +88,9 @@ const Location = ({ venue, startDate }) => {
 		<div className={styles.locationContainer}>
 			<SlLocationPin className={styles.locationIcon} />
 			<div className={styles.address}>
-				<div className={styles.place}>{venue}</div>
+				{venue && <div className={styles.place}>{venue} - </div>}
 				{/* <span className={styles.hiphen}> - </span> */}
-				<div className={styles.date}>{startDate}</div>
+				<div className={styles.date}> {startDate}</div>
 			</div>
 		</div>
 	);
@@ -74,7 +98,7 @@ const Location = ({ venue, startDate }) => {
 
 const Description = ({ eventTitle, startTime, endTime }) => {
 	return (
-		<div style={{ flex: 1 }}>
+		<div style={{ flex: '1' }}>
 			<span className={styles.desc}>{eventTitle}</span>
 			<div className='d-flex justify-content-flex-start align-items-center mt-1 m-1'>
 				<IoTimeOutline className={styles.timeIcon} />
@@ -92,16 +116,17 @@ const Description = ({ eventTitle, startTime, endTime }) => {
 	);
 };
 
-const EventType = ({ type }) => {
+const EventType = ({ type, event, userFav, handleHeartClick }) => {
 	return (
 		<div
-			className='d-flex align-items-center'
-			style={{ marginLeft: 'auto' }}>
+			className='d-flex '
+			// style={{ marginLeft: 'auto' }}
+		>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
-					width={'40%'}
-					height={'30%'}
+					width={'100'}
+					height={'100'}
 					alt='First slide'
 					className={styles.playIcon}
 				/>
@@ -112,7 +137,36 @@ const EventType = ({ type }) => {
 				)}
 			</div>
 
-			<AiOutlineHeart className={styles.heartIcon} />
+			{isFavourite(event, userFav, handleHeartClick)}
+		</div>
+	);
+};
+
+const isFavourite = (event, userFav, handleHeartClick) => {
+	if (userFav)
+		return (
+			<div>
+				<BsFillHeartFill
+					className={styles.heartIcon}
+					onClick={async (e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						await handleHeartClick(event);
+					}}
+				/>
+			</div>
+		);
+
+	return (
+		<div>
+			<AiOutlineHeart
+				className={styles.heartIcon}
+				onClick={async (e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					await handleHeartClick(event);
+				}}
+			/>
 		</div>
 	);
 };

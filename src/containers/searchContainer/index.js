@@ -18,7 +18,7 @@ export default function SearchContainer({ type, detail, limit }) {
 			<div style={container}>
 				{detail.length &&
 					detail
-						.slice(3)
+						.slice(3, 7)
 						.map((liveStream, index) => (
 							<NotificationCard
 								event={liveStream}
@@ -28,22 +28,29 @@ export default function SearchContainer({ type, detail, limit }) {
 						))}
 
 				{loadMore &&
-					detail.map((liveStream) => (
-						<NotificationCard
-							event={liveStream.event}
-							key={liveStream.id}
-							type={'Search'}
-						/>
-					))}
+					detail
+						.slice(7)
+						?.map((liveStream, index) => (
+							<NotificationCard
+								event={liveStream}
+								key={index}
+								type={'Search'}
+							/>
+						))}
 
-				{detail.length > limit ? (
+				{detail.length > 7 && !loadMore ? (
 					<div style={buttonrad}>
-						<CustomButton
-							variant='secondary'
-							btnText='Load More'
-							customStyle={button}
-							onClick={(e) => setLoadMore(true)}
-						/>
+						<div
+							style={{
+								minWidth: '363px',
+							}}>
+							<CustomButton
+								variant='secondary'
+								btnText='Load More'
+								customStyle={button}
+								onClick={(e) => setLoadMore(true)}
+							/>
+						</div>
 					</div>
 				) : null}
 			</div>
@@ -69,9 +76,9 @@ const subtitle = {
 const container = {
 	marginTop: '10px',
 	overflowY: 'scroll',
-	minHeight: `64vh`,
-	maxHeight: `75vh`,
-	boxSizing: 'content-box',
+	// minHeight: `64vh`,
+	// maxHeight: `75vh`,
+	// boxSizing: 'content-box',
 };
 const button = {
 	color: 'var(--color-primary-accent)',
@@ -80,7 +87,7 @@ const button = {
 	fontSize: 'small',
 	borderRadius: '12px',
 	border: '1px solid var(--color-primary-accent)',
-	width: '45%',
+	// width: '45%',
 };
 
 const buttonrad = {

@@ -4,12 +4,11 @@ import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import classes from 'styles/Detail.module.scss';
 import { ProfileContainer } from 'containers';
 import { userProfileUrl } from 'constant/apiResources';
 
-// import { getData } from 'helpers/api-util';
+import styles from 'styles/Detail.module.scss';
 
 export default function Profile(props) {
 	const [data, setData] = useState();
@@ -21,7 +20,6 @@ export default function Profile(props) {
 
 	const getUserProfile = useCallback(async () => {
 		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
-		console.log(session);
 		setLoading(true);
 		try {
 			const response = await axios({
@@ -32,13 +30,13 @@ export default function Profile(props) {
 					'Content-Type': 'application/json',
 				},
 			});
-			console.log(response);
+			// console.log(response);
 			const { data } = response;
 			setData(data);
 			setLoading(false);
 		} catch (error) {
 			setLoading(false);
-			console.log(error);
+			console.error(error);
 		}
 	}, []);
 
@@ -55,23 +53,22 @@ export default function Profile(props) {
 					'Content-Type': 'application/json',
 				},
 			});
-			console.log(response);
+			// console.log(response.data);
+			setData(response.data);
 			setLoading(false);
 		} catch (error) {
 			setLoading(false);
-			console.log(error);
+			console.error(error);
 		}
 	});
 
 	if (!data) {
 		return (
-			<div className='center'>
-				<p>Loading...</p>
-			</div>
+			<Container className={styles.searchMain}>
+				<p className={{}}>Loading...</p>
+			</Container>
 		);
 	}
-
-	console.log(data);
 
 	return (
 		<>

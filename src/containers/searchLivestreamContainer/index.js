@@ -3,9 +3,12 @@ import Container from 'react-bootstrap/Container';
 import styles from 'styles/Detail.module.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useRouter } from 'next/router';
 
 export default function SearchLivestreamContainer(props) {
 	const { detail = [] } = props;
+	const router = useRouter();
+	// console.log(props);
 
 	return (
 		<>
@@ -19,7 +22,12 @@ export default function SearchLivestreamContainer(props) {
 					<Col>
 						{detail.slice(0, 3).map((liveStream, id) => {
 							return (
-								<div key={id}>
+								<div
+									style={{ cursor: 'pointer' }}
+									key={id}
+									onClick={() =>
+										router.push(`/events/${liveStream.id}`)
+									}>
 									<ArtistImage
 										src={liveStream.event_image_url}
 									/>
@@ -68,7 +76,7 @@ const Title = ({ eventName }) => {
 const Description = ({ artistName }) => {
 	return (
 		<div style={descriptionContainer}>
-			<span>{artistName.artist_name}</span>
+			<span>{artistName?.artist_name}</span>
 		</div>
 	);
 };

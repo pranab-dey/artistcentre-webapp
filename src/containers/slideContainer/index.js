@@ -4,12 +4,16 @@ export default function SlideContainer(props) {
 	const { type = 'feature', slideContent } = props;
 
 	return (
-		<div style={style}>
-			<h5 style={title}>{type}</h5>
-			<div style={slider}>
-				<Slider data={slideContent} type={type} />
-			</div>
-		</div>
+		<>
+			{slideContent.length ? (
+				<div style={style}>
+					<h5 style={title}>{type}</h5>
+					<div style={slider}>
+						<Slider data={slideContent} type={type} />
+					</div>
+				</div>
+			) : null}
+		</>
 	);
 }
 

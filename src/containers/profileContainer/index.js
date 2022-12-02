@@ -13,8 +13,6 @@ export default function ProfileContainer({ profile, type, updateUserData }) {
 	const [loadMore, setLoadMore] = useState(false);
 
 	const handleProfileEditSubmit = useCallback((payload) => {
-		console.log('handleProfileEditSubmit');
-		console.log({ payload });
 		if (payload.mobileV1 || payload.mobileV2)
 			payload.artist_mobile =
 				payload.mobileV1 + payload.mobileV2 ?? undefined;

@@ -202,6 +202,14 @@ $theme-colors: (
 	'dark': $app-bg-dark,
 );
 
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1520px,
+);
+
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 // @import '../node_modules/swiper/swiper.scss';

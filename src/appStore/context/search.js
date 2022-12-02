@@ -19,7 +19,6 @@ export default function SearchProvider({ children }) {
 	const search = useCallback(async (payload) => {
 		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
 
-		console.log('called');
 		setSearchLoading(true);
 		try {
 			const response = await axios({
@@ -31,7 +30,7 @@ export default function SearchProvider({ children }) {
 					'Content-Type': 'application/json',
 				},
 			});
-			console.log(response);
+			// console.log(response);
 
 			setResults(response.data.data);
 			setSearchLoading(false);

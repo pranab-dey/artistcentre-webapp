@@ -35,9 +35,7 @@ export default function DisplayPicture(props) {
 			) : null}
 
 			{data.artist_mobile ? (
-				<span className={styles.number}>
-					{data.artist_mobile}09876543321
-				</span>
+				<span className={styles.number}>{data.artist_mobile}</span>
 			) : null}
 		</div>
 	);
