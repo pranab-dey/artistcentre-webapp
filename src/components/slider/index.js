@@ -49,7 +49,7 @@ export default function Slider(props) {
 					key={slide.id}
 					className={styles.swiperContainer}
 					onClick={(e) => handleClick(e, slide.id)}>
-					<div>
+					<div className={styles.imgWrapper}>
 						<Image
 							src={
 								slide.event_image_url ||
@@ -59,8 +59,8 @@ export default function Slider(props) {
 								slide.venue_image ||
 								'/assets/no-image.jpeg'
 							}
-							width={'300px'}
-							height={'200px'}
+							width={'300'}
+							height={'200'}
 							layout='responsive'
 							objectFit='cover'
 							alt={`image-slide-for-${slide.id}`}
@@ -93,7 +93,7 @@ export default function Slider(props) {
 	return (
 		<Swiper
 			slidesPerView={3}
-			spaceBetween={30}
+			spaceBetween={60}
 			pagination={{
 				clickable: true,
 			}}

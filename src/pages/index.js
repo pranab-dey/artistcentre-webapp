@@ -28,20 +28,29 @@ export default function HomePage(props) {
 			<div>
 				<Container fluid='sm'>
 					<Row>
-						<Col xs={12} md={9} className='mt-4'>
+						<Col
+							xs={12}
+							md={9}
+							className={`mt-4 ${classes.mainImageContainer}`}>
 							<VideoContainer topEvent={eventsList.data[0]} />
 							<DescriptionContainer
 								topEvent={eventsList.data[0]}
 							/>
 						</Col>
-						<Col className='mt-3' xs={12} md={3}>
+						<Col
+							className={`mt-3 ${classes.mainFeedContainer}`}
+							xs={12}
+							md={3}>
 							<FeedContainer
 								liveStreams={eventsList.data.slice(6)}
-								limit={14}
-								height={'232vh'}
+								limit={4}
+								height={'79vh'}
 							/>
 						</Col>
-						<Col xs={12} md={9} className='mb-5'>
+						<Col
+							xs={12}
+							md={9}
+							className={`mb-5 ${classes.mainImageContainer}`}>
 							<SlideContainer
 								type={'Featured Livestreams'}
 								slideContent={eventsList.data.slice(1, 6)}

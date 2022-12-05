@@ -2,6 +2,15 @@
 	padding: 0 2rem;
 }
 
+.mainImageContainer {
+	max-width: 1040px;
+}
+.mainFeedContainer {
+	width: 480px;
+	// max-width: 580px !important;
+	// border: 1px solid red;
+}
+
 .bgColor {
 	background-color: var(--color-bg);
 }

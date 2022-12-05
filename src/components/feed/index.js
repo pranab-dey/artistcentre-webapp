@@ -89,12 +89,13 @@ const Location = ({ venue, startDate }) => {
 			<SlLocationPin className={styles.locationIcon} />
 			<div className={styles.address}>
 				{venue && <div className={styles.place}>{venue} - </div>}
-				{/* <span className={styles.hiphen}> - </span> */}
 				<div className={styles.date}> {startDate}</div>
 			</div>
 		</div>
 	);
 };
+
+/* <span className={styles.hiphen}> - </span> */
 
 const Description = ({ eventTitle, startTime, endTime }) => {
 	return (

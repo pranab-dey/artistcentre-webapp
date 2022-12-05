@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function FeedContainer({ liveStreams, height, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
+	console.log(liveStreams);
 
 	return (
 		<div>
@@ -13,22 +14,22 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						maxHeight: `${height}`,
+						maxHeight: `${loadMore ? `89vh` : `${height}`}`,
 						paddingRight: '4px',
 						boxSizing: 'content-box',
 					}}>
-					{liveStreams.map((liveStream) => (
+					{liveStreams.slice(0, limit).map((liveStream) => (
 						<Feed event={liveStream} key={liveStream.id} />
 					))}
 
 					{loadMore &&
-						liveStreams.map((liveStream) => (
-							<Feed event={liveStream} />
-						))}
+						liveStreams
+							.slice(limit)
+							.map((liveStream) => <Feed event={liveStream} />)}
 				</div>
 			</div>
-			{liveStreams.length > limit ? (
-				<div>
+			{liveStreams.length > limit && !loadMore ? (
+				<div className='mt-2'>
 					<CustomButton
 						variant='secondary'
 						btnText='Load More'
