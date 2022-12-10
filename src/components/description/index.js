@@ -123,7 +123,7 @@ const Divider = () => {
 
 const EventType = ({ type }) => {
 	return (
-		<div className='d-flex justify-content-flex-end'>
+		<div className=''>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
