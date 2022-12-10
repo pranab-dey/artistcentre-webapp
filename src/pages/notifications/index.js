@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 
 import classes from 'styles/Detail.module.scss';
 import { HistoryContainer } from 'containers';
+import { AsyncSpinner } from 'components';
+
 import { userNotificationUrl } from 'constant/apiResources';
 
 import styles from 'styles/Detail.module.scss';
@@ -43,9 +45,10 @@ export default function Notification(props) {
 
 	if (!data) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			<AsyncSpinner />
+			// <Container className={styles.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
 		);
 	}
 

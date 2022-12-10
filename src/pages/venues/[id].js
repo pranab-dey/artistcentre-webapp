@@ -2,9 +2,11 @@ import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useEffect } from 'react';
 
 import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
+import { AsyncSpinner } from 'components';
 
 import { getData } from 'helpers/api-util';
 import styles from 'styles/Detail.module.scss';
@@ -14,9 +16,10 @@ export default function VenueDetail(props) {
 
 	if (!venueDetail) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			<AsyncSpinner />
+			// <Container className={styles.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
 		);
 	}
 

@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import classes from 'styles/Detail.module.scss';
 import { HistoryContainer } from 'containers';
 import { userHistoryUrl } from 'constant/apiResources';
+import { AsyncSpinner } from 'components';
 
 import styles from 'styles/Detail.module.scss';
 
@@ -42,9 +43,10 @@ export default function GroupDetail(props) {
 
 	if (!data) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			<AsyncSpinner />
+			// <Container className={styles.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
 		);
 	}
 

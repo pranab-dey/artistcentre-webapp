@@ -12,6 +12,7 @@ import {
 	SlideContainer,
 	ArtistContainer,
 } from 'containers';
+import { AsyncSpinner } from 'components';
 
 import { getData } from 'helpers/api-util';
 
@@ -20,9 +21,10 @@ export default function GroupDetail(props) {
 
 	if (!eventDetail) {
 		return (
-			<Container className={classes.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			// <Container className={classes.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
+			<AsyncSpinner />
 		);
 	}
 

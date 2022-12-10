@@ -7,6 +7,8 @@ import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 
 import { getData } from 'helpers/api-util';
+import { AsyncSpinner } from 'components';
+
 import styles from 'styles/Detail.module.scss';
 
 export default function GroupDetail(props) {
@@ -14,9 +16,10 @@ export default function GroupDetail(props) {
 
 	if (!groupDetail) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			<AsyncSpinner />
+			// <Container className={styles.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
 		);
 	}
 

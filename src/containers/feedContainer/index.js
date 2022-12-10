@@ -5,7 +5,6 @@ import { useState } from 'react';
 export default function FeedContainer({ liveStreams, height, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
-	console.log(liveStreams);
 
 	return (
 		<div>

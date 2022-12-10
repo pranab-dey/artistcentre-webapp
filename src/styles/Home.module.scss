@@ -7,8 +7,6 @@
 }
 .mainFeedContainer {
 	width: 480px;
-	// max-width: 580px !important;
-	// border: 1px solid red;
 }
 
 .bgColor {
@@ -142,5 +140,14 @@
 	}
 	.logo img {
 		filter: invert(1);
+	}
+}
+
+@media only screen and (max-width: 1440px) {
+	.mainFeedContainer {
+		width: 425px;
+	}
+	.mainImageContainer {
+		max-width: 1015px;
 	}
 }

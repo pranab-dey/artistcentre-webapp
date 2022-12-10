@@ -1,6 +1,6 @@
 import Containter from 'react-bootstrap/Container';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { SlLocationPin } from 'react-icons/sl';
@@ -20,6 +20,11 @@ export default function Feed({ event }) {
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
 
+	useEffect(() => {
+		const user = { token: '123' };
+		localStorage.setItem('user', JSON.stringify(user));
+	}, []);
+
 	const handleHeartClick = async (event) => {
 		const payload = { event_id: event.id };
 		setUserFav((prev) => !prev);
@@ -33,7 +38,8 @@ export default function Feed({ event }) {
 			console.error(e);
 		}
 	};
-
+	// const user = localStorage.getItem('user');
+	// const user = JSON.parse(localstorage.getItem('user'))?.token || '';
 	return (
 		<Containter
 			className={styles.containter}
@@ -119,10 +125,7 @@ const Description = ({ eventTitle, startTime, endTime }) => {
 
 const EventType = ({ type, event, userFav, handleHeartClick }) => {
 	return (
-		<div
-			className='d-flex '
-			// style={{ marginLeft: 'auto' }}
-		>
+		<div className='d-flex '>
 			<div className={styles.playIconContainer}>
 				<Image
 					src='/assets/playIcon.png'
@@ -138,7 +141,7 @@ const EventType = ({ type, event, userFav, handleHeartClick }) => {
 				)}
 			</div>
 
-			{isFavourite(event, userFav, handleHeartClick)}
+			{/* {user ? isFavourite(event, userFav, handleHeartClick) : null} */}
 		</div>
 	);
 };

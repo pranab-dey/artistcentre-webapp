@@ -6,10 +6,12 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { IoTimeOutline } from 'react-icons/io5';
 import { AiOutlineHeart } from 'react-icons/ai';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styles from './description.module.scss';
 
 export default function Description({ topEvent }) {
+	const router = useRouter();
 	// const addressHead = topEvent.event_location.split(',')[0].trim();
 	// const addressTitle = topEvent.event_location
 	// 	.split(addressHead + ',')[1]
@@ -18,7 +20,9 @@ export default function Description({ topEvent }) {
 	const eventType = !!topEvent.ticket_price;
 
 	return (
-		<Containter className={styles.containter}>
+		<Containter
+			className={styles.containter}
+			onClick={() => router.push(`/events/${topEvent.id}`)}>
 			<Row className='p-2'>
 				<Col className='px-4' md={11} xs={9}>
 					<Title

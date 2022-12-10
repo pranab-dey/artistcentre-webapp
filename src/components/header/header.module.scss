@@ -156,28 +156,41 @@
 	.profileContainer {
 		gap: 2px;
 	}
+	.calendarElement {
+		// left: 0;
+		// right: 0;
+		// top: 0;
+		transform: translateX(-4%);
+	}
 	.search {
-		// padding: 1px;
-		// margin-top: 5px;
-		display: none;
+		// padding: 7px;
+		max-width: 80px;
+		font-size: large;
+		// margin-top: 15px;
+		// display: none;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 5px;
 		// border: 1px solid red;
 	}
 
 	.searchInput {
-		display: none;
+		// display: none;
 		// box-shadow: none;
 		width: 100%;
 	}
 	.searchInputWrapper {
 		// box-shadow: none;
 		border: none;
-		display: none;
+		// border: 1px solid green;
+		max-width: 55px;
+		// display: none;
 		// border-radius: 50px;
 	}
 	.searchIcon {
 		// margin-top: 7px;
-		font-size: 18px;
-		margin: 5px;
+		font-size: 30px;
+		// margin: 5px;
 	}
 	.figure {
 		width: 40px;
@@ -190,11 +203,14 @@
 		display: none;
 	}
 	.calenderIcon {
-		width: 14px;
+		width: 18px;
+		padding: 2px;
+		// border-radius: 50%;
+		cursor: pointer;
 	}
 
 	.themeToggle {
-		font-size: 27px;
+		font-size: 23px;
 
 		text-align: center;
 		cursor: pointer;

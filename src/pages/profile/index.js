@@ -9,6 +9,7 @@ import { ProfileContainer } from 'containers';
 import { userProfileUrl } from 'constant/apiResources';
 
 import styles from 'styles/Detail.module.scss';
+import { AsyncSpinner } from 'components';
 
 export default function Profile(props) {
 	const [data, setData] = useState();
@@ -64,9 +65,10 @@ export default function Profile(props) {
 
 	if (!data) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={{}}>Loading...</p>
-			</Container>
+			// <Container className={styles.searchMain}>
+			// 	<p className={{}}>Loading...</p>
+			// </Container>
+			<AsyncSpinner />
 		);
 	}
 

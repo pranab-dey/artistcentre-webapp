@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 
 import classes from 'styles/Detail.module.scss';
 import { SearchContainer, SearchLivestreamContainer } from 'containers';
+import { AsyncSpinner } from 'components';
+
 import { useSearch } from 'appStore/context/search';
 import { useRouter } from 'next/router';
 
@@ -22,17 +24,18 @@ export default function Search(props) {
 	} = useSearch();
 
 	const router = useRouter();
-	const { searchText } = router.query;
+	const { searchText, event_date } = router.query;
 
 	useEffect(() => {
 		const getSearchData = async () => {
 			await search({
-				search: searchText,
+				search: searchText ?? undefined,
 				search_type: 'event',
+				event_date: event_date ?? undefined,
 			});
 		};
-		if (searchText) getSearchData();
-	}, [searchText]);
+		if (searchText || event_date) getSearchData();
+	}, [searchText, event_date]);
 
 	if (!results.length && !searchLoading) {
 		return (
@@ -44,11 +47,14 @@ export default function Search(props) {
 
 	if (searchLoading) {
 		return (
-			<Container className={styles.searchMain}>
-				<p className={styles.noresults}>Loading...</p>
-			</Container>
+			<AsyncSpinner />
+			// <Container className={styles.searchMain}>
+			// 	<p className={styles.noresults}>Loading...</p>
+			// </Container>
 		);
 	}
+
+	console.log(results);
 
 	return (
 		<>
