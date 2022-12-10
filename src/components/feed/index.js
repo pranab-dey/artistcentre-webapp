@@ -19,6 +19,7 @@ const normalise = (date) => {
 export default function Feed({ event }) {
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
+	const hasLiveUrl = event.event_livestream_url ?? '';
 
 	useEffect(() => {
 		const user = { token: '123' };
@@ -58,6 +59,7 @@ export default function Feed({ event }) {
 					type={event.ticket_price}
 					event={event}
 					userFav={userFav}
+					hasLiveUrl={hasLiveUrl}
 					handleHeartClick={handleHeartClick}
 				/>
 			</div>
@@ -123,7 +125,15 @@ const Description = ({ eventTitle, startTime, endTime }) => {
 	);
 };
 
-const EventType = ({ type, event, userFav, handleHeartClick }) => {
+const EventType = ({ type, event, userFav, hasLiveUrl, handleHeartClick }) => {
+	const router = useRouter();
+	const handlePlayIconClick = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log('called');
+		if (hasLiveUrl) router.push(hasLiveUrl);
+		return;
+	};
 	return (
 		<div className='d-flex '>
 			<div className={styles.playIconContainer}>
@@ -132,7 +142,12 @@ const EventType = ({ type, event, userFav, handleHeartClick }) => {
 					width={'100'}
 					height={'100'}
 					alt='First slide'
-					className={styles.playIcon}
+					className={
+						hasLiveUrl
+							? styles.playIconWithFullOpacity
+							: styles.playIconWithLessOpacity
+					}
+					onClick={handlePlayIconClick}
 				/>
 				{type ? (
 					<span className={styles.paidevent}>Paid Event</span>

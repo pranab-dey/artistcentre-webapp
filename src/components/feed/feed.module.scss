@@ -135,9 +135,14 @@
 	// text-align: justify;
 	// border: 1px solid red;
 }
-.playIcon {
+.playIconWithFullOpacity {
+	// padding-left: 30px;
+	opacity: 1;
 	object-fit: contain;
+}
+.playIconWithLessOpacity {
 	opacity: 0.3;
+	object-fit: contain;
 }
 .playIconContainer {
 	max-width: 40px;

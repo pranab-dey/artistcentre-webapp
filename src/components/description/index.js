@@ -17,6 +17,8 @@ export default function Description({ topEvent }) {
 	// 	.split(addressHead + ',')[1]
 	// 	.replace(/,\s*$/, '');
 
+	const hasLiveUrl = topEvent.event_livestream_url || '';
+
 	const eventType = !!topEvent.ticket_price;
 
 	return (
@@ -36,7 +38,7 @@ export default function Description({ topEvent }) {
 					/>
 				</Col>
 				<Col md={1} xs={3}>
-					<EventType type={eventType} />
+					<EventType type={eventType} hasLiveUrl={hasLiveUrl} />
 				</Col>
 			</Row>
 			<Row className='px-3'>
@@ -121,7 +123,15 @@ const Divider = () => {
 	return <hr className={styles.divider} />;
 };
 
-const EventType = ({ type }) => {
+const EventType = ({ type, hasLiveUrl }) => {
+	const router = useRouter();
+	const handlePlayIconClick = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log('called');
+		if (hasLiveUrl) router.push(hasLiveUrl);
+		return;
+	};
 	return (
 		<div className=''>
 			<div className={styles.playIconContainer}>
@@ -130,7 +140,12 @@ const EventType = ({ type }) => {
 					width={'90%'}
 					height={'70%'}
 					alt='First slide'
-					className={styles.playIcon}
+					className={
+						hasLiveUrl
+							? styles.playIconWithFullOpacity
+							: styles.playIconWithLessOpacity
+					}
+					onClick={handlePlayIconClick}
 				/>
 				{type ? (
 					<span className={styles.paid}>Paid Event</span>

@@ -54,8 +54,6 @@ export default function Search(props) {
 		);
 	}
 
-	console.log(results);
-
 	return (
 		<>
 			<Head>
