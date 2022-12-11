@@ -13,7 +13,9 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						maxHeight: `${loadMore ? `71vh` : `${height}`}`,
+						maxHeight: `${
+							loadMore ? `max(71vh, ${height})` : `${height}`
+						}`,
 						paddingRight: '4px',
 						boxSizing: 'content-box',
 					}}>

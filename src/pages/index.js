@@ -44,7 +44,7 @@ export default function HomePage(props) {
 							<FeedContainer
 								liveStreams={eventsList.data.slice(6)}
 								limit={4}
-								height={'79vh'}
+								height={'93vh'}
 							/>
 						</Col>
 						<Col
