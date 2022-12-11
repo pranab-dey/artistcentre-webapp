@@ -10,16 +10,11 @@ import { getData } from 'helpers/api-util';
 import { AsyncSpinner } from 'components';
 import styles from 'styles/Detail.module.scss';
 
-export default function GroupDetail(props) {
+export default function ArtistDetail(props) {
 	const { artistDetail } = props;
 
 	if (!artistDetail) {
-		return (
-			<AsyncSpinner />
-			// <Container className={styles.searchMain}>
-			// 	<p className={{}}>Loading...</p>
-			// </Container>
-		);
+		return <AsyncSpinner />;
 	}
 
 	return (
@@ -44,7 +39,7 @@ export default function GroupDetail(props) {
 						<Col xs={12} md={4} className='mt-3'>
 							<FeedContainer
 								liveStreams={artistDetail.artist_event}
-								height={'62vh'}
+								height={'67vh'}
 								limit={3}
 							/>
 						</Col>
@@ -56,7 +51,7 @@ export default function GroupDetail(props) {
 								slideContent={artistDetail.artist_group}
 							/>
 						</Col>
-						<Col xs={12} md={4} className='mb-3'>
+						<Col xs={12} md={4} className='mb-3 mt-2'>
 							<div
 								style={{
 									backgroundColor: 'White',

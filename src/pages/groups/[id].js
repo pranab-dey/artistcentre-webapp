@@ -45,7 +45,7 @@ export default function GroupDetail(props) {
 						<Col xs={12} md={4} className='mt-3'>
 							<FeedContainer
 								liveStreams={groupDetail.group_event}
-								height={'62vh'}
+								height={'67vh'}
 								limit={3}
 							/>
 						</Col>
@@ -57,7 +57,7 @@ export default function GroupDetail(props) {
 								slideContent={groupDetail.group_artist}
 							/>
 						</Col>
-						<Col xs={12} md={4} className='mb-3'>
+						<Col xs={12} md={4} className='mb-3 mt-2'>
 							<div
 								style={{
 									backgroundColor: 'White',

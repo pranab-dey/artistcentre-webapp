@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 
 import styles from './description.module.scss';
 
-export default function Description({ topEvent }) {
+export default function Description({ topEvent, user }) {
 	const router = useRouter();
 	// const addressHead = topEvent.event_location.split(',')[0].trim();
 	// const addressTitle = topEvent.event_location
@@ -38,7 +38,11 @@ export default function Description({ topEvent }) {
 					/>
 				</Col>
 				<Col md={1} xs={3}>
-					<EventType type={eventType} hasLiveUrl={hasLiveUrl} />
+					<EventType
+						type={eventType}
+						hasLiveUrl={hasLiveUrl}
+						user={user}
+					/>
 				</Col>
 			</Row>
 			<Row className='px-3'>
@@ -123,7 +127,7 @@ const Divider = () => {
 	return <hr className={styles.divider} />;
 };
 
-const EventType = ({ type, hasLiveUrl }) => {
+const EventType = ({ type, hasLiveUrl, user }) => {
 	const router = useRouter();
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();

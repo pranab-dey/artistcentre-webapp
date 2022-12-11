@@ -8,6 +8,7 @@ import { BsFillHeartFill } from 'react-icons/bs';
 import Image from 'next/image';
 import { favUrl } from 'constant/apiResources';
 import axiosInstance from 'constant/axios';
+import { useSearch } from 'appStore/context/search';
 
 import styles from './feed.module.scss';
 
@@ -18,13 +19,15 @@ const normalise = (date) => {
 
 export default function Feed({ event }) {
 	const router = useRouter();
+	const { user } = useSearch();
+
 	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
 	const hasLiveUrl = event.event_livestream_url ?? '';
 
-	useEffect(() => {
-		const user = { token: '123' };
-		localStorage.setItem('user', JSON.stringify(user));
-	}, []);
+	// useEffect(() => {
+	// 	const user = { token: '123' };
+	// 	localStorage.setItem('user', JSON.stringify(user));
+	// }, []);
 
 	const handleHeartClick = async (event) => {
 		const payload = { event_id: event.id };
@@ -39,8 +42,7 @@ export default function Feed({ event }) {
 			console.error(e);
 		}
 	};
-	// const user = localStorage.getItem('user');
-	// const user = JSON.parse(localstorage.getItem('user'))?.token || '';
+
 	return (
 		<Containter
 			className={styles.containter}
@@ -59,6 +61,7 @@ export default function Feed({ event }) {
 					type={event.ticket_price}
 					event={event}
 					userFav={userFav}
+					user={user}
 					hasLiveUrl={hasLiveUrl}
 					handleHeartClick={handleHeartClick}
 				/>
@@ -78,7 +81,7 @@ const Photo = ({ src }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
-				src={src}
+				src={src || '/assets/no-image.jpeg'}
 				alt=''
 				title=''
 				width={400}
@@ -125,8 +128,16 @@ const Description = ({ eventTitle, startTime, endTime }) => {
 	);
 };
 
-const EventType = ({ type, event, userFav, hasLiveUrl, handleHeartClick }) => {
+const EventType = ({
+	type,
+	event,
+	user,
+	userFav,
+	hasLiveUrl,
+	handleHeartClick,
+}) => {
 	const router = useRouter();
+
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
@@ -156,7 +167,7 @@ const EventType = ({ type, event, userFav, hasLiveUrl, handleHeartClick }) => {
 				)}
 			</div>
 
-			{/* {user ? isFavourite(event, userFav, handleHeartClick) : null} */}
+			{user ? isFavourite(event, userFav, handleHeartClick) : null}
 		</div>
 	);
 };

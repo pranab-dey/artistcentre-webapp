@@ -1,10 +1,12 @@
-import Col from 'react-bootstrap/Col';
 import { Description } from 'components';
+import { useSearch } from 'appStore/context/search';
 
 export default function DescriptionContainer({ topEvent }) {
+	const { user } = useSearch();
+
 	return (
 		<div style={padding}>
-			<Description topEvent={topEvent} />
+			<Description topEvent={topEvent} user={user} />
 		</div>
 	);
 }

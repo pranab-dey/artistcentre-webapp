@@ -41,7 +41,7 @@ export default function Dropdown(props) {
 
 			<NavDropdown.Divider />
 
-			<NavDropdown.Item onClick={() => router.push('/')}>
+			<NavDropdown.Item onClick={() => router.push('/preference')}>
 				<div className='d-flex justify-content-flex-start align-items-center gap-3'>
 					<div className={styles.iconWrapper}>
 						<BsFillHeartFill className={styles.personIcon} />

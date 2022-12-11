@@ -6,6 +6,7 @@ import {
 	useContext,
 	useMemo,
 	useState,
+	useEffect,
 } from 'react';
 
 const SearchContext = createContext();
@@ -14,7 +15,13 @@ export default function SearchProvider({ children }) {
 	const [error, setError] = useState(null);
 	const [searchLoading, setSearchLoading] = useState(false);
 	const [searchPayload, setSearchPayload] = useState();
+	const [user, setUser] = useState(null);
 	const [results, setResults] = useState([]);
+
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem('user')) || null;
+		setUser(user);
+	}, []);
 
 	const search = useCallback(async (payload) => {
 		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
@@ -49,8 +56,9 @@ export default function SearchProvider({ children }) {
 			searchPayload,
 			setSearchPayload,
 			search,
+			user,
 		};
-	}, [results, searchLoading, error]);
+	}, [results, searchLoading, error, user]);
 
 	return (
 		<SearchContext.Provider value={contextValue}>
