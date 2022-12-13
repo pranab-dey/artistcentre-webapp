@@ -39,7 +39,7 @@ export default function ArtistDetail(props) {
 						<Col xs={12} md={4} className='mt-3'>
 							<FeedContainer
 								liveStreams={artistDetail.artist_event}
-								height={'67vh'}
+								height={'61vh'}
 								limit={3}
 							/>
 						</Col>

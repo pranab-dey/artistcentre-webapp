@@ -45,7 +45,7 @@ export default function VenueDetail(props) {
 						<Col xs={12} md={4} className='mt-3'>
 							<FeedContainer
 								liveStreams={venueDetail.events}
-								height={'67vh'}
+								height={'61vh'}
 								limit={3}
 							/>
 						</Col>

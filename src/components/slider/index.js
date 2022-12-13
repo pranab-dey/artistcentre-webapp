@@ -74,7 +74,7 @@ export default function Slider(props) {
 							slide.artist_name ||
 							slide.venue_name ||
 							'Unknown',
-						artistName: slide.artist?.[0].artist_name ?? '',
+						artistName: slide.artist?.[0]?.artist_name ?? '',
 					})}
 				</SwiperSlide>
 			);

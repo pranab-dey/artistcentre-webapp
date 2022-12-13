@@ -5,6 +5,10 @@ import { useState } from 'react';
 export default function FeedContainer({ liveStreams, height, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
+	const getWidth = () => {
+		if (router.pathname === '/') return '760px';
+		return '565px';
+	};
 
 	return (
 		<div>
@@ -13,11 +17,11 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						maxHeight: `${
-							loadMore ? `max(71vh, ${height})` : `${height}`
-						}`,
+						maxHeight: `${loadMore ? `${getWidth()}` : `535px`}`,
+						// maxHeight: `max(78vh, ${height})`,
 						paddingRight: '4px',
 						boxSizing: 'content-box',
+						// border: '1px solid red',
 					}}>
 					{liveStreams.slice(0, limit).map((liveStream) => (
 						<Feed event={liveStream} key={liveStream.id} />
@@ -26,7 +30,9 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 					{loadMore &&
 						liveStreams
 							.slice(limit)
-							.map((liveStream) => <Feed event={liveStream} />)}
+							.map((liveStream) => (
+								<Feed event={liveStream} key={liveStream.id} />
+							))}
 				</div>
 			</div>
 			{liveStreams.length > limit && !loadMore ? (
