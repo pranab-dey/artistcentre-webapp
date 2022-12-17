@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'next/image';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { LoginWithEmail } from 'containers';
+// import { useFirebaseAuth } from 'appStore/context/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { firebaseAuth } from 'constant/firebase';
 
 import { FcGoogle } from 'react-icons/fc';
 import { FiFacebook } from 'react-icons/fi';
@@ -31,7 +36,11 @@ export default function AppModal(props) {
 					</Row>
 					<Row>
 						<Col xs={12} md={12}>
-							<OauthLogInGroup />
+							<OauthLogInGroup
+								onHide={onHide}
+								setSession={setSession}
+								// setUserData={setUser}
+							/>
 						</Col>
 					</Row>
 					<Row>
@@ -70,11 +79,60 @@ const LoginHeader = () => {
 		</div>
 	);
 };
-const OauthLogInGroup = () => {
+const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
+	const [user, setUser] = useAuthState(firebaseAuth);
+	const provider = new GoogleAuthProvider();
+
+	useEffect(() => {
+		console.log('user', user);
+		// user ? setUserData() : null;
+		// do
+	}, [user]);
+
+	const googleLogin = async () => {
+		console.log('login');
+		try {
+			const result = await signInWithPopup(firebaseAuth, provider);
+			console.log({ result });
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			const credential = GoogleAuthProvider.credentialFromResult(result);
+			const token = credential?.accessToken;
+
+			// The signed-in user info.
+			const user = result.user;
+			const userData = {
+				token,
+				user,
+			};
+			localStorage.setItem('user', JSON.stringify(userData));
+			setSession(token);
+			// setUserData?.(userData);
+
+			//setUser(true);
+			// console.log({ credential, token, user });
+		} catch (error) {
+			// Handle Errors here.
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			// The email of the user's account used.
+			const email = error.email;
+			// The AuthCredential type that was used.
+			const credential = GoogleAuthProvider.credentialFromError(error);
+			//setUser(false);
+			console.log({ errorCode, errorMessage, email, credential });
+		}
+	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.buttonGroup}>
-				<div className={styles.imgWrapper}>
+				<div
+					className={styles.imgWrapper}
+					onClick={() => {
+						console.log('login');
+						onHide();
+						googleLogin();
+					}}>
 					<FcGoogle className={styles.icon} />
 				</div>
 				<div className={styles.imgWrapper}>

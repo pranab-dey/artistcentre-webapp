@@ -76,6 +76,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	margin-right: 2px;
 }
 .date {
 	color: var(--color-primary-accent);
@@ -93,6 +94,16 @@
 	font-size: 15px;
 	margin-right: 7px;
 	color: var(--color-green);
+}
+
+.playIconWithFullOpacity {
+	// padding-left: 30px;
+	opacity: 1;
+	object-fit: contain;
+}
+.playIconWithLessOpacity {
+	opacity: 0.3;
+	object-fit: contain;
 }
 
 .timeFont {

@@ -7,7 +7,11 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 	const [loadMore, setLoadMore] = useState(false);
 	const getWidth = () => {
 		if (router.pathname === '/') return '760px';
-		return '565px';
+		return '570px';
+	};
+	const getNextWidth = () => {
+		if (router.pathname === '/') return '750px';
+		return '540px';
 	};
 
 	return (
@@ -17,7 +21,9 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 				<div
 					style={{
 						overflowY: 'scroll',
-						maxHeight: `${loadMore ? `${getWidth()}` : `535px`}`,
+						maxHeight: `${
+							loadMore ? `${getWidth()}` : `${getNextWidth()}`
+						}`,
 						// maxHeight: `max(78vh, ${height})`,
 						paddingRight: '4px',
 						boxSizing: 'content-box',

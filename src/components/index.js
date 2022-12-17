@@ -14,3 +14,4 @@ export { default as DisplayPicture } from './dp';
 export { default as Settings } from './settings';
 export { default as EditProfile } from './edit';
 export { default as AsyncSpinner } from './asyncSpinner';
+export { default as MapComponent } from './map';

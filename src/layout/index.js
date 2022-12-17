@@ -1,5 +1,6 @@
 import { MainHeader, Footer } from 'components';
 import { useThemeToggle } from 'hooks';
+
 import { useAtom } from 'jotai';
 import { themeAtom } from 'appStore';
 import { useHydrateAtoms } from 'jotai/utils';

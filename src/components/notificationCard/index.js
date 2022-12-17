@@ -18,18 +18,24 @@ const normalise = (date) => {
 	return date ?? '';
 };
 
-export default function NotificationCard({ event, type }) {
+export default function NotificationCard({ event, type, index }) {
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event?.is_favorite ?? false);
+	console.log('omg', event);
 
-	const handleHeartClick = async (event) => {
-		const payload = { event_id: event.id };
+	const hasLiveUrl = event.event_livestream_url || '';
+
+	const handleHeartClick = async (event, id) => {
+		const payload = { event_id: event.id }; // event.id
+		console.log({ payload });
 		setUserFav((prev) => !prev);
 		try {
 			if (userFav) {
 				const resp = await axiosInstance.delete(favUrl, payload);
+				console.log(resp);
 			} else {
 				const resp = await axiosInstance.post(favUrl, payload);
+				console.log(resp);
 			}
 		} catch (e) {
 			console.error(e);
@@ -42,14 +48,11 @@ export default function NotificationCard({ event, type }) {
 			className={styles.containter}
 			onClick={(e) => {
 				e.preventDefault();
-				e.s;
+				e.stopPropagation();
 				router.push(`/events/${event.id}`);
 			}}>
 			<div className={styles.layout}>
-				<Photo
-					src={event?.event_image_url ?? '/assets/no-image.jpeg'}
-					id={event?.id}
-				/>
+				<Photo src={event.event_image_url} id={event?.id} />
 				<div className={styles.group}>
 					<div className={styles.upper}>
 						<Description
@@ -66,6 +69,8 @@ export default function NotificationCard({ event, type }) {
 							componentType={type}
 							event={event}
 							userFav={userFav}
+							hasLiveUrl={hasLiveUrl}
+							index={index}
 							handleHeartClick={handleHeartClick}
 						/>
 					</div>
@@ -95,12 +100,12 @@ const Photo = ({ src, id }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
-				src={src || '/assets/no-image.jpeg'}
+				src={src ?? '/assets/no-image.jpeg'}
 				width={'300'}
 				height={'200'}
 				layout='responsive'
 				objectFit='cover'
-				alt={`image-for-${id}`}
+				alt={`image-${id}-error`}
 				style={{ borderRadius: '10px' }}
 			/>
 		</div>
@@ -114,9 +119,8 @@ const Location = ({ venue, startDate }) => {
 				<SlLocationPin className={styles.locationIcon} />
 			)}
 			<div className={styles.address}>
-				{venue ? <div className={styles.place}>{venue} - </div> : null}
-				{/* <span className={styles.hiphen}> - </span> */}
-				<div className={styles.date}>{startDate}</div>
+				{venue ? <div className={styles.place}>{venue} -</div> : null}
+				<div className={styles.date}> {startDate}</div>
 			</div>
 		</div>
 	);
@@ -173,7 +177,18 @@ const EventType = ({
 	event,
 	userFav,
 	handleHeartClick,
+	hasLiveUrl,
+	index,
 }) => {
+	const router = useRouter();
+
+	const handlePlayIconClick = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log('called');
+		if (hasLiveUrl) router.push(hasLiveUrl);
+		return;
+	};
 	return (
 		<div className='d-flex ' style={{ marginLeft: 'auto' }}>
 			{['Notifications'].includes(componentType) ? (
@@ -186,7 +201,12 @@ const EventType = ({
 							width={'50%'}
 							height={'50%'}
 							alt='First slide'
-							className={styles.playIcon}
+							className={
+								hasLiveUrl
+									? styles.playIconWithFullOpacity
+									: styles.playIconWithLessOpacity
+							}
+							onClick={handlePlayIconClick}
 						/>
 						{type ? (
 							<span className={styles.paidevent}>Paid Event</span>
@@ -201,7 +221,7 @@ const EventType = ({
 							/>
 						</div>
 					) : (
-						isFavourite(event, userFav, handleHeartClick)
+						isFavourite(event, userFav, handleHeartClick, index)
 					)}
 				</>
 			)}
@@ -209,7 +229,7 @@ const EventType = ({
 	);
 };
 
-const isFavourite = (event, userFav, handleHeartClick) => {
+const isFavourite = (event, userFav, handleHeartClick, index) => {
 	if (userFav)
 		return (
 			<div>
@@ -218,7 +238,7 @@ const isFavourite = (event, userFav, handleHeartClick) => {
 					onClick={async (e) => {
 						e.preventDefault();
 						e.stopPropagation();
-						await handleHeartClick(event);
+						await handleHeartClick(event, index);
 					}}
 				/>
 			</div>

@@ -76,7 +76,7 @@ const subtitle = {
 const container = {
 	marginTop: '10px',
 	overflowY: 'scroll',
-	// minHeight: `64vh`,
+
 	// maxHeight: `75vh`,
 	// boxSizing: 'content-box',
 };

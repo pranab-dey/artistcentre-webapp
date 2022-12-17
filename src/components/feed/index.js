@@ -19,15 +19,17 @@ const normalise = (date) => {
 
 export default function Feed({ event }) {
 	const router = useRouter();
-	const { user } = useSearch();
+	// const [user, setUser] = useState(localStorage.getItem('user'));
+	const { user = {} } = useSearch();
+
+	useEffect(() => {
+		// setUser();
+		// setUser(token);
+		// console.log('user search', user, token);
+	}, []);
 
 	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
 	const hasLiveUrl = event.event_livestream_url ?? '';
-
-	// useEffect(() => {
-	// 	const user = { token: '123' };
-	// 	localStorage.setItem('user', JSON.stringify(user));
-	// }, []);
 
 	const handleHeartClick = async (event) => {
 		const payload = { event_id: event.id };
@@ -61,7 +63,7 @@ export default function Feed({ event }) {
 					type={event.ticket_price}
 					event={event}
 					userFav={userFav}
-					user={user}
+					user={user?.token}
 					hasLiveUrl={hasLiveUrl}
 					handleHeartClick={handleHeartClick}
 				/>
@@ -106,8 +108,6 @@ const Location = ({ venue, startDate }) => {
 	);
 };
 
-/* <span className={styles.hiphen}> - </span> */
-
 const Description = ({ eventTitle, startTime, endTime }) => {
 	return (
 		<div style={{ flex: '1' }}>
@@ -141,7 +141,7 @@ const EventType = ({
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('called');
+
 		if (hasLiveUrl) router.push(hasLiveUrl);
 		return;
 	};
@@ -166,8 +166,8 @@ const EventType = ({
 					<span className={styles.freeevent}>Free Event</span>
 				)}
 			</div>
-
-			{user ? isFavourite(event, userFav, handleHeartClick) : null}
+			{isFavourite(event, userFav, handleHeartClick)}
+			{/* {user ? isFavourite(event, userFav, handleHeartClick) : null} */}
 		</div>
 	);
 };

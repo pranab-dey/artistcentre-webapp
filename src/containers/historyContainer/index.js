@@ -10,6 +10,7 @@ import styles from 'styles/Detail.module.scss';
 export default function HistoryContainer({ type, detail, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
+	console.log(detail);
 
 	return (
 		<Container className={styles.historyMain}>
@@ -27,6 +28,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 						<NotificationCard
 							event={liveStream.event}
 							key={liveStream.id}
+							index={liveStream.id}
 							type={type}
 						/>
 					))
@@ -38,6 +40,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 						<NotificationCard
 							event={liveStream.event}
 							key={liveStream.id}
+							index={liveStream.id}
 						/>
 					))}
 				{detail.length > limit ? (

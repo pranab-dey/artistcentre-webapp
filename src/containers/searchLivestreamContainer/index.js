@@ -49,9 +49,9 @@ const ArtistImage = ({ src }) => {
 	return (
 		<div style={imgContainer}>
 			<Image
-				src={src || '/assets/no-image.jpeg'}
-				alt=''
-				title=''
+				src={src ?? '/assets/no-image.jpeg'}
+				alt='error'
+				title='Search-results-image'
 				width={'140'}
 				height={'70'}
 				layout='responsive'

@@ -24,7 +24,7 @@ export default function Calender() {
 	const handleCalenderClicked = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('called');
+
 		setOpen(true);
 	};
 
@@ -34,6 +34,11 @@ export default function Calender() {
 		// event listeners
 		document.addEventListener('keydown', hideOnEscape, true);
 		document.addEventListener('click', hideOnClickOutside, true);
+
+		return () => {
+			document.removeEventListener('click', hideOnClickOutside);
+			document.removeEventListener('keydown', hideOnEscape);
+		};
 	}, []);
 
 	// hide dropdown on ESC press
@@ -57,7 +62,7 @@ export default function Calender() {
 	const handleSelect = (date) => {
 		// console.log(date)
 		// console.log(format(date, 'MM/dd/yyyy'))
-		const selectedDate = format(date, 'MM/dd/yyyy');
+		const selectedDate = format(date, 'yyyy-MM-dd');
 		setCalendar(selectedDate);
 
 		setOpen(false);

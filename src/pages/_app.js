@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
 		<RootLayout>
 			<Head>
 				<title>Artist Stream</title>
-				<meta name='description' content='Artist Stream' />
+				<meta name='Artist Stream' content='Artist Stream' />
 				<meta
 					name='viewport'
 					content='initial-scale=1.0, width=device-width'

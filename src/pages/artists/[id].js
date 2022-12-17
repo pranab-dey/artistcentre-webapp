@@ -7,7 +7,7 @@ import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 
 import { getData } from 'helpers/api-util';
-import { AsyncSpinner } from 'components';
+import { AsyncSpinner, MapComponent } from 'components';
 import styles from 'styles/Detail.module.scss';
 
 export default function ArtistDetail(props) {
@@ -62,7 +62,7 @@ export default function ArtistDetail(props) {
 									height: '35vh',
 									// marginBottom: ''
 								}}>
-								Google Location Marker
+								<MapComponent />
 							</div>
 						</Col>
 					</Row>
