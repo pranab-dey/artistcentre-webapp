@@ -100,8 +100,9 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 
 			// The signed-in user info.
 			const user = result.user;
+			const token = result?.user?.accessToken ?? credToken;
 			const userData = {
-				token: result?.user?.accessToken ?? credToken,
+				token,
 				user,
 			};
 			localStorage.setItem('user', JSON.stringify(userData));
