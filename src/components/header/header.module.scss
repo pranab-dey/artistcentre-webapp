@@ -3,7 +3,7 @@
 	// min-width: 1520px;
 	background-color: var(--color-bg-navbar);
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-	align-items: center;
+	// align-items: center;
 }
 .header {
 	// height: 100%;
@@ -14,6 +14,7 @@
 	// justify-content: center;
 	// margin-top: 20px;
 	// margin-top: 1px;
+	height: 90px;
 }
 .logo {
 	font-family: 'Poppins';
@@ -54,7 +55,9 @@
 .last {
 	display: flex;
 	justify-content: flex-end;
-	align-items: flex-start;
+	align-items: center;
+	// border: 1px solid green;
+	height: 100%;
 }
 
 .navigation a {
@@ -93,15 +96,24 @@
 	}
 }
 
+.displayNone {
+	display: none;
+	box-shadow: 0px 5px 10px rgba(196, 21, 21, 0.936);
+}
+
 .searchIcon {
 }
 .themeToggle {
-	font-size: 30px;
-	text-align: center;
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// border: 1px solid red;
+	// text-align: center;
 	cursor: pointer;
-	margin-right: 10px;
-	margin-left: 10px;
-	margin-top: 4px;
+	// margin-right: 10px;
+	// margin-left: 10px;
+	margin-top: -4px;
 	color: var(--color-icon);
 	font-weight: bold;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
@@ -132,6 +144,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	// border: 1px solid #74dacc;
 }
 
 .personIcon {
@@ -186,7 +199,7 @@
 	}
 	.searchIcon {
 		// margin-top: 7px;
-		font-size: 30px;
+		font-size: 18px;
 		// margin: 5px;
 	}
 	.figure {
@@ -200,20 +213,23 @@
 		display: none;
 	}
 	.calenderIcon {
-		width: 19px;
-		padding: 2px;
+		// width: 21px;
+		// padding: 2px;
 		// border-radius: 50%;
 		cursor: pointer;
+		padding-right: 3px;
+		margin-top: 4px;
+		// font-size: 28px;
 	}
 
 	.themeToggle {
-		font-size: 23px;
+		font-size: 25px;
 
-		text-align: center;
+		// text-align: center;
 		cursor: pointer;
-		margin-right: 2px;
-		margin-left: 0px;
-		margin-top: 6px;
+		margin-right: 12px;
+		// margin-left: 0px;
+		margin-top: -2px;
 	}
 
 	.searchInput:focus {

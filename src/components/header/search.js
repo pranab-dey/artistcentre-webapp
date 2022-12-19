@@ -9,6 +9,11 @@ import Calender from './calender';
 function Search(props) {
 	const router = useRouter();
 	const [searchText, setSearchText] = useState('');
+	const [showSearchInput, setSearchInput] = useState(false);
+
+	const handleSearchIconClick = () => {
+		setSearchInput((prev) => !prev);
+	};
 
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
@@ -24,17 +29,24 @@ function Search(props) {
 	};
 
 	return (
-		<div className={`${styles.search} mt-4`}>
+		<div className={`${styles.search} mt-0`}>
 			<div className={styles.searchInputWrapper}>
 				<input
-					className={`${styles.searchInput} `}
+					className={
+						showSearchInput
+							? `${styles.searchInput}`
+							: `${styles.displayNone}`
+					}
 					placeholder='search'
 					id='searchbar'
 					value={searchText}
 					onChange={(event) => setSearchText(event.target.value)}
 					onKeyDown={handleKeyDown}
 				/>
-				<BsSearch className={styles.searchIcon} />
+				<BsSearch
+					className={styles.searchIcon}
+					onClick={handleSearchIconClick}
+				/>
 			</div>
 			{/* <h6 className={styles.margin}>Select Date</h6>
 			<div

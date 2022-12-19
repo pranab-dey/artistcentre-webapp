@@ -31,9 +31,13 @@ function MainHeader(props) {
 		<Container fluid='xs' className={`${classes.mainHeader}`}>
 			<Container className={classes.header}>
 				<Row className={classes.headerRow}>
-					<Col xs={5} md={3}>
+					<Col
+						xs={5}
+						md={2}
+						style={{ height: '100%' }}
+						className='d-flex justify-content-flex-start align-items-center'>
 						<div
-							className={`${classes.logo} mt-4`}
+							className={`${classes.logo} mt-0`}
 							onClick={() => router.push('/')}>
 							<div className={classes.figure}>
 								<Image
@@ -52,24 +56,26 @@ function MainHeader(props) {
 							</div>
 						</div>
 					</Col>
-					<Col xs={5} md={4}>
+					<Col
+						xs={4}
+						md={5}
+						style={{ height: '100%' }}
+						className='d-flex justify-content-center align-items-center'>
 						<Search />
+						{darkTheme !== undefined && (
+							<label>
+								<input
+									type='checkbox'
+									checked={darkTheme}
+									onChange={themeToggle}
+									style={{ display: 'none' }}
+								/>
+								<MdDarkMode className={classes.themeToggle} />
+							</label>
+						)}
 					</Col>
-					<Col xs={2} md={5}>
-						<div className={`${classes.last} mt-4 `}>
-							{darkTheme !== undefined && (
-								<label>
-									<input
-										type='checkbox'
-										checked={darkTheme}
-										onChange={themeToggle}
-										style={{ display: 'none' }}
-									/>
-									<MdDarkMode
-										className={classes.themeToggle}
-									/>
-								</label>
-							)}
+					<Col xs={3} md={5} style={{ height: '100%' }}>
+						<div className={`${classes.last} mt-0`}>
 							{session ? (
 								<>
 									<div className={classes.profileContainer}>
