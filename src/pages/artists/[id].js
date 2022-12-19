@@ -62,7 +62,7 @@ export default function ArtistDetail(props) {
 									height: '35vh',
 									// marginBottom: ''
 								}}>
-								{/* <MapComponent /> */}
+								<MapComponent />
 							</div>
 						</Col>
 					</Row>

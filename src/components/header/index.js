@@ -128,8 +128,9 @@ function MainHeader(props) {
 
 const Title = () => {
 	const name =
-		JSON.parse(localStorage.getItem('user'))?.user.first_name ||
-		JSON.parse(localStorage.getItem('user'))?.user.displayName;
+		JSON.parse(localStorage.getItem('user'))?.user?.first_name ||
+		JSON.parse(localStorage.getItem('user'))?.user?.displayName ||
+		'Mr.';
 	const parsedName = name.split(' ')[0];
 	return (
 		<div style={{ fontSize: '14px', fontFamily: 'Poppins' }}>
