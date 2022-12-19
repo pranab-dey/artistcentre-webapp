@@ -12,7 +12,7 @@ export default function SearchContainer({ type, detail, limit }) {
 	const [loadMore, setLoadMore] = useState(false);
 
 	return (
-		<Container className={styles.searchMain}>
+		<Container>
 			<span style={title}>Search Results</span>
 
 			<div style={container}>

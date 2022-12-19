@@ -12,13 +12,22 @@
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	// Addition lines for 2 line or multiline ellipsis
+	display: -webkit-box !important;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}
+
 .searchMain {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	// max-height: 77.7vh;
 	// min-height: 83vh;
 	min-height: 65vh;
-
 	overflow: scroll;
 }
 

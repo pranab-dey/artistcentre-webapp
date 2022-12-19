@@ -65,7 +65,7 @@ export default function Search(props) {
 				<Container fluid='sm'>
 					<Row>
 						<Col
-							className=''
+							className='mt-3'
 							xs={{ span: 12, order: 1 }}
 							md={{ span: 8, order: 1 }}>
 							<SearchContainer detail={results} limit={4} />

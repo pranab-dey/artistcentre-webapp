@@ -49,7 +49,7 @@ const ArtistImage = ({ src }) => {
 	return (
 		<div style={imgContainer}>
 			<Image
-				src={src ?? '/assets/no-image.jpeg'}
+				src={src || '/assets/no-image.jpeg'}
 				alt='error'
 				title='Search-results-image'
 				width={'140'}
@@ -69,10 +69,21 @@ const ArtistImage = ({ src }) => {
 const Title = ({ eventName }) => {
 	return (
 		<div style={titleContainer}>
-			<span>{eventName}</span>
+			<span className={styles.ellipsis}>{eventName}</span>
 		</div>
 	);
 };
+const ellipsis = {
+	textOverflow: 'ellipsis',
+	overflow: 'hidden',
+	// Addition lines for 2 line or multiline ellipsis
+	display: '-webkit-box !important',
+	['-webkit-line-clamp']: '2',
+	['-webkit-box-orient']: 'vertical',
+	whiteSpace: 'normal',
+	border: '1px solid red',
+};
+
 const Description = ({ artistName }) => {
 	return (
 		<div style={descriptionContainer}>

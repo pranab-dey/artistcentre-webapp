@@ -21,7 +21,7 @@ const normalise = (date) => {
 export default function NotificationCard({ event, type, index }) {
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event?.is_favorite ?? false);
-	console.log('omg', event);
+	// console.log('omg', event);
 
 	const hasLiveUrl = event.event_livestream_url || '';
 
@@ -100,7 +100,7 @@ const Photo = ({ src, id }) => {
 	return (
 		<div className={styles.imageContainer}>
 			<Image
-				src={src ?? '/assets/no-image.jpeg'}
+				src={src || '/assets/no-image.jpeg'}
 				width={'300'}
 				height={'200'}
 				layout='responsive'
@@ -131,12 +131,14 @@ const Description = ({
 	startTime,
 	endTime,
 	type,
-	artistName = 'v',
+	artistName = '',
 	genre,
 }) => {
 	return (
 		<div style={{ flex: 1 }}>
-			<span className={styles.desc}>{eventTitle}</span>
+			<span className={`${styles.desc} ${styles.ellipsis}`}>
+				{eventTitle}
+			</span>
 			<div className='d-flex justify-content-flex-start align-items-center mt-1 m-1'>
 				{type === 'Notifications' ? (
 					<div className={styles.artistdetails}>
