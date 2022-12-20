@@ -7,6 +7,10 @@ const headers = async () => {
 			source: '/(.*)',
 			headers: [
 				{
+					key: 'Cache-Control',
+					value: 'no-store',
+				},
+				{
 					key: 'Access-Control-Allow-Origin',
 					value: '*',
 				},

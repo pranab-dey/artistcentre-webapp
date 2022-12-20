@@ -31,15 +31,17 @@ export default function NotificationCard({ event, type, index }) {
 
 	const handleHeartClick = async (event, id) => {
 		const payload = { event_id: event.id }; // event.id
-		console.log({ payload });
+		// console.log({ payload });
 		setUserFav((prev) => !prev);
 		try {
 			if (userFav) {
-				const resp = await axiosInstance.delete(favUrl, payload);
-				console.log(resp);
+				const resp = await axiosInstance.delete(favUrl, {
+					data: { ...payload },
+				});
+				// console.log(resp);
 			} else {
 				const resp = await axiosInstance.post(favUrl, payload);
-				console.log(resp);
+				// console.log(resp);
 			}
 		} catch (e) {
 			console.error(e);
@@ -187,14 +189,14 @@ const EventType = ({
 	index,
 }) => {
 	const router = useRouter();
-	console.log(event);
+	// console.log(event);
 
 	const isUser = JSON.parse(localStorage.getItem('user')) ?? undefined;
 
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('called', hasLiveUrl);
+		console.log('called iframe: ', hasLiveUrl);
 
 		try {
 			if (hasLiveUrl) {

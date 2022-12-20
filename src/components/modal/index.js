@@ -94,30 +94,37 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 	}, [user]);
 
 	const googleLogin = async () => {
-		console.log('login');
+		// console.log('login');
 		try {
 			const result = await signInWithPopup(firebaseAuth, provider);
-			console.log({ result });
+			// console.log({ result });
+
 			// This gives you a Google Access Token. You can use it to access the Google API.
 			const credential = GoogleAuthProvider.credentialFromResult(result);
 			const credToken = credential?.accessToken;
 
 			// The signed-in user info.
-			const user = result.user;
-			const token = result?.user?.accessToken ?? credToken;
+			const googleUser = result.user;
+			// const token = result?.user?.accessToken ?? credToken;
 
 			// send token to backend
-			const backResp = await axios.post(googleLoginUrl, {
-				access_token: token,
+			const {
+				data: { token, user: backendUser },
+				status,
+			} = await axios.post(googleLoginUrl, {
+				access_token: credToken,
 			});
-			console.log(backResp);
 
-			const userData = {
-				token,
-				user,
-			};
-			localStorage.setItem('user', JSON.stringify(userData));
-			setSession(token);
+			if (status === 200) {
+				const userData = {
+					token,
+					user: backendUser ?? googleUser,
+				};
+
+				localStorage.setItem('user', JSON.stringify(userData));
+				setSession(token);
+			}
+
 			// setUserData?.(userData);
 
 			//setUser(true);

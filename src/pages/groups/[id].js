@@ -113,6 +113,6 @@ export async function getStaticProps(context) {
 		props: {
 			groupDetail,
 		},
-		revalidate: 1,
+		revalidate: 60,
 	};
 }

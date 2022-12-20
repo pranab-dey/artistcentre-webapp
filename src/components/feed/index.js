@@ -36,7 +36,9 @@ export default function Feed({ event }) {
 		setUserFav((prev) => !prev);
 		try {
 			if (userFav) {
-				const resp = await axiosInstance.delete(favUrl, payload);
+				const resp = await axiosInstance.delete(favUrl, {
+					data: { ...payload },
+				});
 			} else {
 				const resp = await axiosInstance.post(favUrl, payload);
 			}
@@ -137,14 +139,35 @@ const EventType = ({
 	handleHeartClick,
 }) => {
 	const router = useRouter();
+	console.log(event);
 
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
+		console.log('called iframe: ', hasLiveUrl);
 
-		if (hasLiveUrl) router.push(hasLiveUrl);
-		return;
+		try {
+			if (hasLiveUrl) {
+				router.push(
+					{
+						pathname: '/details',
+						query: {
+							hasLiveUrl,
+						},
+					},
+					'/details'
+				);
+				const payload = { event_id: Number(event.id) };
+				user ? axiosInstance.post(userHistoryUrl, payload) : null;
+			}
+		} catch (e) {
+			console.error('error: Maybe unauthenticated user');
+			console.error(e);
+		}
+
+		// return;
 	};
+
 	return (
 		<div className='d-flex '>
 			<div className={styles.playIconContainer}>

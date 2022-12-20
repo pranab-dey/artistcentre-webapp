@@ -107,6 +107,6 @@ export const getStaticProps = async (context) => {
 		props: {
 			artistDetail,
 		},
-		revalidate: 1,
+		revalidate: 60,
 	};
 };

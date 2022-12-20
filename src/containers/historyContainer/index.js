@@ -10,7 +10,7 @@ import styles from 'styles/Detail.module.scss';
 export default function HistoryContainer({ type, detail, limit }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
-	console.log(detail);
+	// console.log(detail);
 
 	return (
 		<Container className={styles.historyMain}>
@@ -24,35 +24,54 @@ export default function HistoryContainer({ type, detail, limit }) {
 
 			<div style={container}>
 				{detail.length ? (
-					detail.map((liveStream) => (
-						<NotificationCard
-							event={liveStream}
-							key={liveStream.id}
-							index={liveStream.id}
-							type={type}
-						/>
-					))
+					detail
+						.slice(0, 4)
+						.map((liveStream) => (
+							<NotificationCard
+								event={liveStream.event ?? liveStream}
+								key={liveStream.id}
+								index={liveStream.id}
+								type={type}
+							/>
+						))
 				) : (
 					<span style={notFound}>No {type} Found</span>
 				)}
 				{loadMore &&
-					detail.map((liveStream) => (
-						<NotificationCard
-							event={liveStream}
-							key={liveStream.id}
-							index={liveStream.id}
-						/>
-					))}
-				{detail.length > limit ? (
-					<div style={buttonrad}>
+					detail
+						.slice(4)
+						.map((liveStream) => (
+							<NotificationCard
+								event={liveStream.event ?? liveStream}
+								key={liveStream.id}
+								index={liveStream.id}
+							/>
+						))}
+				{detail.length > 4 && !loadMore ? (
+					<div className={` ${styles.button} mt-2`}>
 						<CustomButton
 							variant='secondary'
 							btnText='Load More'
-							customStyle={button}
+							customStyle={{
+								color: 'var(--color-primary-accent)',
+								fontFamily: 'Poppins',
+								fontWeight: 'bold',
+								fontSize: 'small',
+								borderRadius: '12px',
+								border: '1px solid var(--color-primary-accent)',
+							}}
 							onClick={(e) => setLoadMore(true)}
 						/>
 					</div>
 				) : null}
+				{/* // <div style={buttonrad}>
+				// 	<CustomButton
+				// 		variant='secondary'
+				// 		btnText='Load More'
+				// 		customStyle={button}
+				// 		onClick={(e) => setLoadMore(true)}
+				// 	/>
+				// </div> */}
 			</div>
 		</Container>
 	);

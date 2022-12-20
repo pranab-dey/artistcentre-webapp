@@ -6,17 +6,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Iframe from 'react-iframe';
 
+import { AsyncSpinner } from 'components';
+
 import classes from 'styles/Home.module.scss';
 
 export default function Details(props) {
 	const router = useRouter();
 	const { hasLiveUrl } = router.query;
-	console.log(hasLiveUrl);
+	// console.log(hasLiveUrl);
 
 	return (
-		<main
-			className={classes.bgColor}
-			style={{ height: '100vh', width: '100vw' }}>
+		<main className={classes.bgColor}>
 			<Head>
 				<title>ArtistStream</title>
 				<meta
@@ -25,14 +25,18 @@ export default function Details(props) {
 				/>
 			</Head>
 
-			<Iframe
-				url={hasLiveUrl}
-				width='100%'
-				height='100%'
-				id=''
-				className=''
-				loading
-			/>
+			<div
+				className={classes.iframePlaceholder}
+				style={{ height: '100vh', width: '100vw' }}>
+				<Iframe
+					url={hasLiveUrl}
+					width='100%'
+					height='100%'
+					id=''
+					className=''
+					loading='true'
+				/>
+			</div>
 		</main>
 	);
 }

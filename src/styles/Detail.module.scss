@@ -46,9 +46,17 @@
 	text-align: start;
 }
 
+.button {
+	width: 75%;
+	margin: 0 auto;
+}
+
 @media only screen and (max-width: 600px) {
 	.historyMain {
 		padding: 30px 10px 10px 10px;
+	}
+	.button {
+		width: 100%;
 	}
 	.searchMain {
 		margin-bottom: 0px;

@@ -35,7 +35,7 @@ export default function Preference(props) {
 
 			// setData(fakedata);
 			setLoading(false);
-			console.log(data);
+			// console.log(data);
 		} catch (error) {
 			setLoading(false);
 			console.error(error);

@@ -42,6 +42,7 @@ export default function Description({ topEvent, user }) {
 						type={eventType}
 						hasLiveUrl={hasLiveUrl}
 						user={user}
+						event={topEvent}
 					/>
 				</Col>
 			</Row>
@@ -127,15 +128,36 @@ const Divider = () => {
 	return <hr className={styles.divider} />;
 };
 
-const EventType = ({ type, hasLiveUrl, user }) => {
+const EventType = ({ type, hasLiveUrl, user, event }) => {
 	const router = useRouter();
+
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('called');
-		if (hasLiveUrl) router.push(hasLiveUrl);
-		return;
+		console.log('called iframe: ', hasLiveUrl);
+
+		try {
+			if (hasLiveUrl) {
+				router.push(
+					{
+						pathname: '/details',
+						query: {
+							hasLiveUrl,
+						},
+					},
+					'/details'
+				);
+				const payload = { event_id: Number(event.id) };
+				user ? axiosInstance.post(userHistoryUrl, payload) : null;
+			}
+		} catch (e) {
+			console.error('error: Maybe unauthenticated user');
+			console.error(e);
+		}
+
+		// return;
 	};
+
 	return (
 		<div className=''>
 			<div className={styles.playIconContainer}>

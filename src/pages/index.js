@@ -2,6 +2,15 @@ import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useState, useEffect } from 'react';
+
+import { AsyncSpinner } from 'components';
+import {
+	allEventsUrl,
+	allGroupsUrl,
+	allArtistsUrl,
+	allVenueListUrl,
+} from 'constant/apiResources';
 
 import classes from 'styles/Home.module.scss';
 import { getData } from 'helpers/api-util';
@@ -14,9 +23,32 @@ import {
 } from 'containers';
 
 export default function HomePage(props) {
-	const { eventsList, groupList, artistList, venueList } = props;
+	const [eventsList, setEventList] = useState();
+	const [groupList, setGroupList] = useState();
+	const [artistList, setArtistList] = useState();
+	const [venueList, setVenueList] = useState();
 
-	console.log({ eventsList });
+	// const { eventsList, groupList, artistList, venueList } = props;
+
+	useEffect(() => {
+		const fetchdata = async () => {
+			const events = await getData(allEventsUrl);
+			const groups = await getData(allGroupsUrl);
+			const artists = await getData(allArtistsUrl);
+			const venues = await getData(allVenueListUrl);
+			setEventList(events);
+			setGroupList(groups);
+			setArtistList(artists);
+			setVenueList(venues);
+		};
+
+		fetchdata();
+	}, []);
+
+	console.log(eventsList);
+
+	if (!eventsList || !groupList || !artistList || !venueList)
+		return <AsyncSpinner />;
 
 	return (
 		<main className={classes.bgColor}>
@@ -77,28 +109,28 @@ export default function HomePage(props) {
 	);
 }
 
-export async function getStaticProps() {
-	const allEventsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/list/?type=home';
-	const allGroupsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
-	const allArtistsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
-	const allVenueListUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
+// export async function getStaticProps() {
+// 	const allEventsUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/list/?type=home';
+// 	const allGroupsUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
+// 	const allArtistsUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
+// 	const allVenueListUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
 
-	const eventsList = await getData(allEventsUrl);
-	const groupList = await getData(allGroupsUrl);
-	const artistList = await getData(allArtistsUrl);
-	const venueList = await getData(allVenueListUrl);
+// 	const eventsList = await getData(allEventsUrl);
+// 	const groupList = await getData(allGroupsUrl);
+// 	const artistList = await getData(allArtistsUrl);
+// 	const venueList = await getData(allVenueListUrl);
 
-	return {
-		props: {
-			eventsList,
-			groupList,
-			artistList,
-			venueList,
-		},
-		revalidate: 1,
-	};
-}
+// 	return {
+// 		props: {
+// 			eventsList,
+// 			groupList,
+// 			artistList,
+// 			venueList,
+// 		},
+// 		revalidate: 60,
+// 	};
+// }
