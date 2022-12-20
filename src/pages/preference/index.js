@@ -57,11 +57,13 @@ export default function Preference(props) {
 				<Container fluid='sm'>
 					<Row>
 						<Col xs={12} md={12} className=''>
-							<HistoryContainer
-								detail={data}
-								type={'Preference'}
-								limit={4}
-							/>
+							{data ? (
+								<HistoryContainer
+									detail={data}
+									type={'Preference'}
+									limit={4}
+								/>
+							) : null}
 						</Col>
 					</Row>
 				</Container>

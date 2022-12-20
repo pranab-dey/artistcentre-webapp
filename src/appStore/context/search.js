@@ -32,10 +32,10 @@ export default function SearchProvider({ children }) {
 				method: 'POST',
 				url: searchUrl,
 				data: payload,
-				headers: {
-					Authorization: `Bearer ${session}`,
-					'Content-Type': 'application/json',
-				},
+				// headers: {
+				// 	Authorization: `Bearer ${session}`,
+				// 	'Content-Type': 'application/json',
+				// },
 			});
 			// console.log(response);
 

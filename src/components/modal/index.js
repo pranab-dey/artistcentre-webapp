@@ -10,6 +10,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseAuth } from 'constant/firebase';
 
+import axiosInstance from 'constant/axios';
+import axios from 'axios';
+import { googleLoginUrl } from 'constant/apiResources';
+
 import { FcGoogle } from 'react-icons/fc';
 import { FiFacebook } from 'react-icons/fi';
 
@@ -101,6 +105,13 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 			// The signed-in user info.
 			const user = result.user;
 			const token = result?.user?.accessToken ?? credToken;
+
+			// send token to backend
+			const backResp = await axios.post(googleLoginUrl, {
+				access_token: token,
+			});
+			console.log(backResp);
+
 			const userData = {
 				token,
 				user,

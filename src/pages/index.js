@@ -16,6 +16,8 @@ import {
 export default function HomePage(props) {
 	const { eventsList, groupList, artistList, venueList } = props;
 
+	console.log({ eventsList });
+
 	return (
 		<main className={classes.bgColor}>
 			<Head>
@@ -97,6 +99,6 @@ export async function getStaticProps() {
 			artistList,
 			venueList,
 		},
-		revalidate: 10,
+		revalidate: 1,
 	};
 }

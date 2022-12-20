@@ -26,7 +26,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 				{detail.length ? (
 					detail.map((liveStream) => (
 						<NotificationCard
-							event={liveStream.event}
+							event={liveStream}
 							key={liveStream.id}
 							index={liveStream.id}
 							type={type}
@@ -38,7 +38,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 				{loadMore &&
 					detail.map((liveStream) => (
 						<NotificationCard
-							event={liveStream.event}
+							event={liveStream}
 							key={liveStream.id}
 							index={liveStream.id}
 						/>

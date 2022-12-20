@@ -8,9 +8,12 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { BiTrash } from 'react-icons/bi';
 
+import Link from 'next/link';
+
 import Image from 'next/image';
-import { favUrl } from 'constant/apiResources';
+import { favUrl, userHistoryUrl } from 'constant/apiResources';
 import axiosInstance from 'constant/axios';
+import axios from 'axios';
 import styles from './notification.module.scss';
 
 const normalise = (date) => {
@@ -19,11 +22,12 @@ const normalise = (date) => {
 };
 
 export default function NotificationCard({ event, type, index }) {
+	// console.log('notification');
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event?.is_favorite ?? false);
 	// console.log('omg', event);
 
-	const hasLiveUrl = event.event_livestream_url || '';
+	const hasLiveUrl = event?.event_livestream_url || '';
 
 	const handleHeartClick = async (event, id) => {
 		const payload = { event_id: event.id }; // event.id
@@ -183,14 +187,37 @@ const EventType = ({
 	index,
 }) => {
 	const router = useRouter();
+	console.log(event);
+
+	const isUser = JSON.parse(localStorage.getItem('user')) ?? undefined;
 
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log('called');
-		if (hasLiveUrl) router.push(hasLiveUrl);
-		return;
+		console.log('called', hasLiveUrl);
+
+		try {
+			if (hasLiveUrl) {
+				router.push(
+					{
+						pathname: '/details',
+						query: {
+							hasLiveUrl,
+						},
+					},
+					'/details'
+				);
+				const payload = { event_id: Number(event.id) };
+				isUser ? axiosInstance.post(userHistoryUrl, payload) : null;
+			}
+		} catch (e) {
+			console.error('error: Maybe unauthenticated user');
+			console.error(e);
+		}
+
+		// return;
 	};
+
 	return (
 		<div className='d-flex ' style={{ marginLeft: 'auto' }}>
 			{['Notifications'].includes(componentType) ? (
@@ -198,6 +225,7 @@ const EventType = ({
 			) : (
 				<>
 					<div className={styles.playIconContainer}>
+						{/* <a href={hasLiveUrl} target='iframe_a'> */}
 						<Image
 							src='/assets/playIcon.png'
 							width={'50%'}
@@ -210,6 +238,8 @@ const EventType = ({
 							}
 							onClick={handlePlayIconClick}
 						/>
+						{/* </a> */}
+
 						{type ? (
 							<span className={styles.paidevent}>Paid Event</span>
 						) : (

@@ -30,6 +30,7 @@
 		"react-firebase-hooks": "^5.1.1",
 		"react-hook-form": "^7.38.0",
 		"react-icons": "^4.6.0",
+		"react-iframe": "^1.8.5",
 		"swiper": "^8.4.4",
 		"yup": "^0.32.11"
 	},

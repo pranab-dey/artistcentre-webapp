@@ -114,6 +114,6 @@ export const getStaticProps = async (context) => {
 		props: {
 			venueDetail,
 		},
-		revalidate: 3600,
+		revalidate: 1,
 	};
 };
