@@ -150,6 +150,7 @@
 	// width: 70px;
 }
 .calenderIcon {
+	margin-top: 4px;
 	width: 20px;
 }
 
@@ -217,15 +218,13 @@
 		font-size: 7px;
 		width: 100%;
 	}
-	.searchInputWrapper {
-		// box-shadow: none;
-		border: none;
-		// border: 1px solid green;
-		max-width: 55px;
 
-		// display: none;
-		// border-radius: 50px;
+	.searchInputWrapper {
+		border: none;
+		max-width: 55px;
+		// border: 1px solid green;
 	}
+
 	.searchIcon {
 		// margin-top: 7px;
 		// font-size: 18px;

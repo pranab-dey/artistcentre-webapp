@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useDeviceSize } from 'hooks';
 
 import styles from './header.module.scss';
 import { useRouter } from 'next/router';
@@ -7,9 +8,11 @@ import { BsSearch } from 'react-icons/bs';
 import Calender from './calender';
 
 function Search(props) {
+	const [width] = useDeviceSize();
+	console.log(width);
 	const router = useRouter();
 	const [searchText, setSearchText] = useState('');
-	const [showSearchInput, setSearchInput] = useState(true);
+	const [showSearchInput, setSearchInput] = useState(!!(width <= 768));
 
 	const handleSearchIconClick = () => {
 		setSearchInput((prev) => !prev);
