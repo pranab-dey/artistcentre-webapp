@@ -9,7 +9,7 @@ import Calender from './calender';
 function Search(props) {
 	const router = useRouter();
 	const [searchText, setSearchText] = useState('');
-	const [showSearchInput, setSearchInput] = useState(false);
+	const [showSearchInput, setSearchInput] = useState(true);
 
 	const handleSearchIconClick = () => {
 		setSearchInput((prev) => !prev);
@@ -30,7 +30,12 @@ function Search(props) {
 
 	return (
 		<div className={`${styles.search} mt-0`}>
-			<div className={styles.searchInputWrapper}>
+			<div
+				className={
+					showSearchInput
+						? `${styles.searchInputWrapper}`
+						: `${styles.searchInputWrapperFalse}`
+				}>
 				<input
 					className={
 						showSearchInput

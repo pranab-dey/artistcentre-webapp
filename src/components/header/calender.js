@@ -77,7 +77,9 @@ export default function Calender() {
 
 	return (
 		<div className={styles.calendarWrap}>
-			<h6 className={classes.margin}>{calendar}</h6>
+			<h6 className={classes.margin} onClick={handleCalenderClicked}>
+				{calendar}
+			</h6>
 			<div
 				className={classes.calenderIcon}
 				onClick={handleCalenderClicked}>

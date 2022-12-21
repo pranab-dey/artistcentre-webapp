@@ -40,7 +40,7 @@ export default function SearchContainer({ type, detail, limit }) {
 
 				{detail.length > 7 && !loadMore ? (
 					<div style={buttonrad}>
-						<div
+						{/* <div
 							style={{
 								minWidth: '363px',
 							}}>
@@ -48,6 +48,21 @@ export default function SearchContainer({ type, detail, limit }) {
 								variant='secondary'
 								btnText='Load More'
 								customStyle={button}
+								onClick={(e) => setLoadMore(true)}
+							/>
+						</div> */}
+						<div className={` ${styles.button} mt-2`}>
+							<CustomButton
+								variant='secondary'
+								btnText='Load More'
+								customStyle={{
+									color: 'var(--color-primary-accent)',
+									fontFamily: 'Poppins',
+									fontWeight: 'bold',
+									fontSize: 'small',
+									borderRadius: '12px',
+									border: '1px solid var(--color-primary-accent)',
+								}}
 								onClick={(e) => setLoadMore(true)}
 							/>
 						</div>

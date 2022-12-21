@@ -93,8 +93,12 @@ function MainHeader(props) {
 										<div className={classes.iconWrapper}>
 											<BsPerson
 												className={classes.personIcon}
+												onClick={() =>
+													router.push('/profile')
+												}
 											/>
 										</div>
+
 										<div className={classes.profile}>
 											<Title />
 											<Dropdown setSession={setSession} />
