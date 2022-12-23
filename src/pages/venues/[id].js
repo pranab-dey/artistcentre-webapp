@@ -8,19 +8,16 @@ import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 import { AsyncSpinner } from 'components';
 
+import { getCookie, hasCookie } from 'cookies-next';
 import { getData } from 'helpers/api-util';
+
 import styles from 'styles/Detail.module.scss';
 
 export default function VenueDetail(props) {
 	const { venueDetail } = props;
 
 	if (!venueDetail) {
-		return (
-			<AsyncSpinner />
-			// <Container className={styles.searchMain}>
-			// 	<p className={{}}>Loading...</p>
-			// </Container>
-		);
+		return <AsyncSpinner />;
 	}
 
 	return (
@@ -86,34 +83,52 @@ export default function VenueDetail(props) {
 	);
 }
 
-export async function getStaticPaths() {
-	const allVenueListUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
-
-	const venueList = await getData(allVenueListUrl);
-
-	const paths = venueList.data.map((venue) => ({
-		params: { id: venue.id.toString() },
-	}));
-
-	return {
-		paths: paths,
-		fallback: 'blocking',
-	};
-}
-
-export const getStaticProps = async (context) => {
+export async function getServerSideProps(context) {
 	const venueId = Number(context.params.id);
+	const req = context.req;
+	const res = context.res;
+
+	const token = getCookie('token', { req, res });
 
 	const singleVenueUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues/${venueId}/`;
 
-	const result = await fetch(singleVenueUrl);
-	const venueDetail = await result.json();
+	const venueDetail = await getData(singleVenueUrl, token);
 
 	return {
 		props: {
 			venueDetail,
 		},
-		revalidate: 60,
 	};
-};
+}
+
+// export async function getStaticPaths() {
+// 	const allVenueListUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues-home-list';
+
+// 	const venueList = await getData(allVenueListUrl);
+
+// 	const paths = venueList.data.map((venue) => ({
+// 		params: { id: venue.id.toString() },
+// 	}));
+
+// 	return {
+// 		paths: paths,
+// 		fallback: 'blocking',
+// 	};
+// }
+
+// export const getStaticProps = async (context) => {
+// 	const venueId = Number(context.params.id);
+
+// 	const singleVenueUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/events/venues/${venueId}/`;
+
+// 	const result = await fetch(singleVenueUrl);
+// 	const venueDetail = await result.json();
+
+// 	return {
+// 		props: {
+// 			venueDetail,
+// 		},
+// 		revalidate: 60,
+// 	};
+// };

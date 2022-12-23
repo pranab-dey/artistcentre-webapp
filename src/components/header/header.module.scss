@@ -157,6 +157,9 @@
 .profile {
 	display: flex;
 	flex-direction: column;
+	padding-left: 2px;
+	align-items: center;
+	justify-content: center;
 }
 .profileContainer {
 	display: flex;
@@ -214,14 +217,15 @@
 	.searchInput {
 		// display: none;
 		// box-shadow: none;
-		padding: 4px;
-		font-size: 7px;
+
+		padding: 5px;
+		font-size: 10px;
 		width: 100%;
 	}
 
 	.searchInputWrapper {
 		border: none;
-		max-width: 55px;
+		max-width: 90px;
 		// border: 1px solid green;
 	}
 

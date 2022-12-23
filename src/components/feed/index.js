@@ -17,22 +17,25 @@ const normalise = (date) => {
 	return date ?? '';
 };
 
-export default function Feed({ event }) {
+export default function Feed({ event, refreshData }) {
 	const router = useRouter();
+	const [userFav, setUserFav] = useState(null);
 	// const [user, setUser] = useState(localStorage.getItem('user'));
 	const { user = {} } = useSearch();
 
 	useEffect(() => {
+		console.log({ event });
 		// setUser();
 		// setUser(token);
 		// console.log('user search', user, token);
-	}, []);
+		setUserFav(event.is_favorite);
+	}, [event.is_favorite]);
 
-	const [userFav, setUserFav] = useState(event.is_favorite ?? false);
 	const hasLiveUrl = event.event_livestream_url ?? '';
 
 	const handleHeartClick = async (event) => {
 		const payload = { event_id: event.id };
+		// console.log({ payload });
 		setUserFav((prev) => !prev);
 		try {
 			if (userFav) {
@@ -42,6 +45,7 @@ export default function Feed({ event }) {
 			} else {
 				const resp = await axiosInstance.post(favUrl, payload);
 			}
+			await refreshData();
 		} catch (e) {
 			console.error(e);
 		}
@@ -139,7 +143,7 @@ const EventType = ({
 	handleHeartClick,
 }) => {
 	const router = useRouter();
-	console.log(event);
+	// console.log(event);
 
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
@@ -196,10 +200,11 @@ const EventType = ({
 };
 
 const isFavourite = (event, userFav, handleHeartClick) => {
-	if (userFav)
+	// console.log('userFave', userFav);
+	if (!userFav)
 		return (
 			<div>
-				<BsFillHeartFill
+				<AiOutlineHeart
 					className={styles.heartIcon}
 					onClick={async (e) => {
 						e.preventDefault();
@@ -212,7 +217,7 @@ const isFavourite = (event, userFav, handleHeartClick) => {
 
 	return (
 		<div>
-			<AiOutlineHeart
+			<BsFillHeartFill
 				className={styles.heartIcon}
 				onClick={async (e) => {
 					e.preventDefault();

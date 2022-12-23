@@ -62,6 +62,8 @@ function MainHeader(props) {
 						style={{ height: '100%' }}
 						className='d-flex justify-content-center align-items-center'>
 						<Search />
+						{/* 					
+						// darkmode - disabled
 						{darkTheme !== undefined && (
 							<label>
 								<input
@@ -72,7 +74,7 @@ function MainHeader(props) {
 								/>
 								<MdDarkMode className={classes.themeToggle} />
 							</label>
-						)}
+						)} */}
 					</Col>
 					<Col xs={3} md={5} style={{ height: '100%' }}>
 						<div className={`${classes.last} mt-0`}>
@@ -143,9 +145,9 @@ const Title = () => {
 		'Mr.';
 	const parsedName = name.split(' ')[0];
 	return (
-		<div style={{ fontSize: '14px', fontFamily: 'Poppins' }}>
-			<span>{parsedName}</span>
-		</div>
+		<span style={{ fontSize: '14px', fontFamily: 'Poppins' }}>
+			{parsedName}
+		</span>
 	);
 };
 

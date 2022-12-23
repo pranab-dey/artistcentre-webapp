@@ -61,7 +61,7 @@ export default function Search(props) {
 				<meta name='search' content='' />
 			</Head>
 
-			<main className={classes.bgColor}>
+			<main className={classes.bgColor} style={{ minHeight: '100vh' }}>
 				<Container fluid='sm'>
 					<Row>
 						<Col

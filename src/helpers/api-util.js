@@ -16,11 +16,24 @@
 // 	return events;
 // }
 
-export async function getData(url) {
-	const response = await fetch(url);
-	const data = await response.json();
+import axiosServerInstance from 'pages/api/axios';
+import axios from 'axios';
 
-	return data;
+export async function getData(url, token) {
+	console.log(':: fetching data from :', url);
+
+	// query URL without using browser cache
+	const headers = {
+		'Cache-Control': 'no-cache',
+		Pragma: 'no-cache',
+		Expires: '0',
+	};
+
+	if (token) headers['Authorization'] = token;
+
+	const response = await axios.get(url, { headers });
+
+	return response.data;
 }
 
 // export async function getEventById(id) {

@@ -9,7 +9,7 @@ import Calender from './calender';
 
 function Search(props) {
 	const [width] = useDeviceSize();
-	console.log(width);
+	// console.log(width);
 	const router = useRouter();
 	const [searchText, setSearchText] = useState('');
 	const [showSearchInput, setSearchInput] = useState(!!(width <= 768));

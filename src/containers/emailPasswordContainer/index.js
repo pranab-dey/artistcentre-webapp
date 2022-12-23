@@ -5,7 +5,11 @@ import Row from 'react-bootstrap/Row';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
+// import AppLocalStorage from 'pages/api/appLocalStorage';
+// import { setCookie } from 'cookies-next';
+
 import axios from 'axios';
+import axiosInstance from 'constant/axios';
 
 import { Caption, CustomButton, CustomForm, Divider } from 'components';
 
@@ -54,8 +58,15 @@ function LoginWithEmail(props) {
 					headers: {},
 				});
 				localStorage.setItem('user', JSON.stringify(data));
+				const resp = await axiosInstance.get('/api/set-token');
+				// console.log(resp);
+				// AppLocalStorage.setItem('user', data);
+				// document.cookie = `token=${data.token}; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+
 				setState('');
 				hideModal();
+				setSession(data.token);
+				// setCookie('token', `${data.token}`);
 			} else {
 				const resJson = await axios.post(registerUrl, values);
 				setState('Registration Successful.');
@@ -71,7 +82,6 @@ function LoginWithEmail(props) {
 		}
 
 		setInitialValues(null);
-		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
 	};
 
 	const onError = (error) => {

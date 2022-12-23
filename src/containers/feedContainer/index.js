@@ -2,7 +2,12 @@ import { Feed, CustomButton } from 'components';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-export default function FeedContainer({ liveStreams, height, limit }) {
+export default function FeedContainer({
+	liveStreams,
+	height,
+	limit,
+	refreshData,
+}) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
 	const getWidth = () => {
@@ -30,14 +35,22 @@ export default function FeedContainer({ liveStreams, height, limit }) {
 						// border: '1px solid red',
 					}}>
 					{liveStreams.slice(0, limit).map((liveStream) => (
-						<Feed event={liveStream} key={liveStream.id} />
+						<Feed
+							event={liveStream}
+							key={liveStream.id}
+							refreshData={refreshData}
+						/>
 					))}
 
 					{loadMore &&
 						liveStreams
 							.slice(limit)
 							.map((liveStream) => (
-								<Feed event={liveStream} key={liveStream.id} />
+								<Feed
+									event={liveStream}
+									key={liveStream.id}
+									refreshData={refreshData}
+								/>
 							))}
 				</div>
 			</div>

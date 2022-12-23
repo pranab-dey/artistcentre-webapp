@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 
 import styles from 'styles/Detail.module.scss';
 
-export default function HistoryContainer({ type, detail, limit }) {
+export default function HistoryContainer({ type, detail, limit, refreshData }) {
 	const router = useRouter();
 	const [loadMore, setLoadMore] = useState(false);
 	// console.log(detail);
@@ -29,6 +29,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 						.map((liveStream) => (
 							<NotificationCard
 								event={liveStream.event ?? liveStream}
+								refreshData={refreshData}
 								key={liveStream.id}
 								index={liveStream.id}
 								type={type}
@@ -43,6 +44,7 @@ export default function HistoryContainer({ type, detail, limit }) {
 						.map((liveStream) => (
 							<NotificationCard
 								event={liveStream.event ?? liveStream}
+								refreshData={refreshData}
 								key={liveStream.id}
 								index={liveStream.id}
 							/>

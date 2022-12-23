@@ -7,6 +7,7 @@ import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 
 import { getData } from 'helpers/api-util';
+import { getCookie, hasCookie } from 'cookies-next';
 import { AsyncSpinner } from 'components';
 
 import styles from 'styles/Detail.module.scss';
@@ -86,33 +87,50 @@ export default function GroupDetail(props) {
 	);
 }
 
-export async function getStaticPaths() {
-	const allGroupsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
-	const groupsList = await getData(allGroupsUrl);
-
-	const paths = groupsList.data.map((group) => ({
-		params: { id: group.id.toString() },
-	}));
-
-	return {
-		paths: paths,
-		fallback: 'blocking',
-	};
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 	const groupId = Number(context.params.id);
+	const req = context.req;
+	const res = context.res;
+
+	const token = getCookie('token', { req, res });
 
 	const singleGroupUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group/${groupId}`;
 
-	const result = await fetch(singleGroupUrl);
-	const groupDetail = await result.json();
+	const groupDetail = await getData(singleGroupUrl, token);
 
 	return {
 		props: {
 			groupDetail,
 		},
-		revalidate: 60,
 	};
 }
+
+// export async function getStaticProps(context) {
+// 	const groupId = Number(context.params.id);
+
+// 	const singleGroupUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group/${groupId}`;
+
+// 	const result = await fetch(singleGroupUrl);
+// 	const groupDetail = await result.json();
+
+// 	return {
+// 		props: {
+// 			groupDetail,
+// 		},
+// 		revalidate: 60,
+// 	};
+// }
+// export async function getStaticPaths() {
+// 	const allGroupsUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/band-group-list/?type=home';
+// 	const groupsList = await getData(allGroupsUrl);
+
+// 	const paths = groupsList.data.map((group) => ({
+// 		params: { id: group.id.toString() },
+// 	}));
+
+// 	return {
+// 		paths: paths,
+// 		fallback: 'blocking',
+// 	};
+// }

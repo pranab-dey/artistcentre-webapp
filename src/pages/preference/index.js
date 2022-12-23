@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useRouter } from 'next/router';
 
 import classes from 'styles/Detail.module.scss';
 import { HistoryContainer } from 'containers';
@@ -13,6 +14,11 @@ import { AsyncSpinner } from 'components';
 export default function Preference(props) {
 	const [data, setData] = useState();
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
+
+	const refreshData = useCallback(() => {
+		router.replace(router.asPath);
+	}, []);
 
 	useEffect(() => {
 		getUserPreference();
@@ -60,6 +66,7 @@ export default function Preference(props) {
 							{data ? (
 								<HistoryContainer
 									detail={data}
+									refreshData={refreshData}
 									type={'Preference'}
 									limit={4}
 								/>

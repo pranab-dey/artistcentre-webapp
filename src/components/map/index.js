@@ -137,7 +137,7 @@ const MapComponent = () => {
 	const onIdle = (m) => {
 		console.log('onIdle');
 		setZoom(m.getZoom());
-		setCenter(m.getCenter().toJSON());
+		setCenter(m.getCenter()?.toJSON());
 	};
 
 	const render = (status) => {

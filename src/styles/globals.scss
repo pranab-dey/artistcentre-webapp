@@ -129,6 +129,10 @@ textarea::-webkit-scrollbar-thumb {
 	background-color: $app-primary;
 }
 
+.dropdown-toggle::after {
+	display: none !important;
+}
+
 .btn:focus {
 	outline: none;
 	outline-offset: none;

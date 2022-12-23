@@ -9,6 +9,8 @@ import { LoginWithEmail } from 'containers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseAuth } from 'constant/firebase';
+// import AppLocalStorage from 'pages/api/appLocalStorage';
+// import { setCookie } from 'cookies-next';
 
 import axiosInstance from 'constant/axios';
 import axios from 'axios';
@@ -123,6 +125,12 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 
 				localStorage.setItem('user', JSON.stringify(userData));
 				setSession(token);
+				// setCookie('token', token);
+				const res = await axiosInstance.get('api/set-token');
+				console.log(res);
+
+				// AppLocalStorage.setItem('user', userData);
+				// document.cookie = `token=${token}; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
 			}
 
 			// setUserData?.(userData);

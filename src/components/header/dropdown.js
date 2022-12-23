@@ -9,6 +9,8 @@ import {
 } from 'react-icons/bs';
 import { FiLogOut } from 'react-icons/fi';
 import { BiHistory } from 'react-icons/bi';
+import { IoIosArrowDropdownCircle } from 'react-icons/io';
+import { MdOutlineArrowDropDownCircle } from 'react-icons/md';
 
 import styles from './header.module.scss';
 import { Router } from 'next/router';
@@ -26,10 +28,16 @@ export default function Dropdown(props) {
 
 	return (
 		<NavDropdown
-			id='nav-dropdown-dark-example'
-			title='Starter'
+			// id='nav-dropdown-dark-example'
+			title={<MdOutlineArrowDropDownCircle />}
 			menuVariant='light'
-			style={{ fontSize: '13px', color: 'var(--color-primary-accent)' }}>
+			style={{
+				fontSize: '20px',
+				color: 'var(--color-primary-accent)',
+				display: 'flex',
+				justifyContent: 'space-around',
+				marginTop: '-7px',
+			}}>
 			<NavDropdown.Item onClick={() => router.push('/profile')}>
 				<div className='d-flex justify-content-flex-start align-items-center gap-3'>
 					<div className={styles.iconWrapper}>

@@ -91,9 +91,6 @@ const subtitle = {
 const container = {
 	marginTop: '10px',
 	overflowY: 'scroll',
-
-	// maxHeight: `75vh`,
-	// boxSizing: 'content-box',
 };
 const button = {
 	color: 'var(--color-primary-accent)',

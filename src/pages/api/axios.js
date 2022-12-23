@@ -1,17 +1,25 @@
 import axios from 'axios';
-// import AppLocalStorage from 'pages/api/appLocalStorage';
+import AppLocalStorage from 'pages/api/appLocalStorage';
 
-const axiosInstance = axios.create({
+const axiosServerInstance = axios.create({
 	headers: {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
 	},
 });
 
-axiosInstance.interceptors.request.use(
+axiosServerInstance.interceptors.request.use(
 	async (config) => {
-		const user = localStorage.getItem('user');
-		const session = user ? JSON.parse(user)?.token : undefined;
+		// let user;
+		// if (localStorage) {
+		// 	user = localStorage?.getItem('user');
+		// }
+		// const clientsession = user ? JSON.parse(user)?.token : {};
+		const serverSession = AppLocalStorage.getItem('user')?.token;
+
+		console.log(serverSession);
+
+		const session = serverSession;
 
 		if (session) {
 			config.headers = {
@@ -25,7 +33,7 @@ axiosInstance.interceptors.request.use(
 	(error) => Promise.reject(error)
 );
 
-axiosInstance.interceptors.response.use(
+axiosServerInstance.interceptors.response.use(
 	(response) => response,
 	async (error) => {
 		console.error(error);
@@ -43,10 +51,10 @@ axiosInstance.interceptors.response.use(
 			// 	};
 			// }
 
-			return axiosInstance(config);
+			return axiosServerInstance(config);
 		}
 		return Promise.reject(error);
 	}
 );
 
-export default axiosInstance;
+export default axiosServerInstance;

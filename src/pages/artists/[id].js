@@ -6,8 +6,11 @@ import Col from 'react-bootstrap/Col';
 import classes from 'styles/Detail.module.scss';
 import { DetailContainer, FeedContainer, SlideContainer } from 'containers';
 
-import { getData } from 'helpers/api-util';
 import { AsyncSpinner, MapComponent } from 'components';
+
+import { getCookie, hasCookie } from 'cookies-next';
+import { getData } from 'helpers/api-util';
+
 import styles from 'styles/Detail.module.scss';
 
 export default function ArtistDetail(props) {
@@ -80,33 +83,50 @@ export default function ArtistDetail(props) {
 	);
 }
 
-export async function getStaticPaths() {
-	const allArtistsUrl =
-		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
-	const artistsList = await getData(allArtistsUrl);
-
-	const paths = artistsList.data.map((artist) => ({
-		params: { id: artist.id.toString() },
-	}));
-
-	return {
-		paths: paths,
-		fallback: 'blocking',
-	};
-}
-
-export const getStaticProps = async (context) => {
+export async function getServerSideProps(context) {
 	const artistId = Number(context.params.id);
+	const req = context.req;
+	const res = context.res;
+
+	const token = getCookie('token', { req, res });
 
 	const singleArtistUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/${artistId}/`;
 
-	const result = await fetch(singleArtistUrl);
-	const artistDetail = await result.json();
+	const artistDetail = await getData(singleArtistUrl, token);
 
 	return {
 		props: {
 			artistDetail,
 		},
-		revalidate: 60,
 	};
-};
+}
+
+// export const getStaticProps = async (context) => {
+// 	const artistId = Number(context.params.id);
+
+// 	const singleArtistUrl = `https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/${artistId}/`;
+
+// 	const result = await fetch(singleArtistUrl);
+// 	const artistDetail = await result.json();
+
+// 	return {
+// 		props: {
+// 			artistDetail,
+// 		},
+// 		revalidate: 60,
+// 	};
+// };
+// export async function getStaticPaths() {
+// 	const allArtistsUrl =
+// 		'https://artistcentre.idlewilddigital.com/api/v1.0.0/users/artists/?type=home';
+// 	const artistsList = await getData(allArtistsUrl);
+
+// 	const paths = artistsList.data.map((artist) => ({
+// 		params: { id: artist.id.toString() },
+// 	}));
+
+// 	return {
+// 		paths: paths,
+// 		fallback: 'blocking',
+// 	};
+// }

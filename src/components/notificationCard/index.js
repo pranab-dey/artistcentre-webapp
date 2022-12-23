@@ -8,7 +8,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { BiTrash } from 'react-icons/bi';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import Image from 'next/image';
 import { favUrl, userHistoryUrl } from 'constant/apiResources';
@@ -21,7 +21,7 @@ const normalise = (date) => {
 	return date ?? '';
 };
 
-export default function NotificationCard({ event, type, index }) {
+export default function NotificationCard({ event, type, index, refreshData }) {
 	// console.log('notification');
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(event?.is_favorite ?? false);
@@ -43,6 +43,7 @@ export default function NotificationCard({ event, type, index }) {
 				const resp = await axiosInstance.post(favUrl, payload);
 				// console.log(resp);
 			}
+			await refreshData();
 		} catch (e) {
 			console.error(e);
 		}
