@@ -119,6 +119,7 @@ function MainHeader(props) {
 											'Poppins, Roboto, sans-serif',
 										width: '120px',
 										fontSize: '14px',
+										marginTop: '7px',
 									}}
 									onClick={() =>
 										setModalShow((prev) => !prev)
