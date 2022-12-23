@@ -26,7 +26,8 @@ function setInitialColorMode() {
 	root.style.setProperty('--initial-color-mode', colorMode);
 	// add HTML attribute if dark mode
 	if (colorMode === 'dark')
-		document.documentElement.setAttribute('data-theme', 'dark');
+		document.documentElement.setAttribute('data-theme', 'light');
+	// always show light mode as toggle button is off
 }
 // this function needs to be a string
 const blockingSetInitialColorMode = `(function() {
