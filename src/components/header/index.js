@@ -12,6 +12,7 @@ import { CustomButton, AppModal } from 'components';
 import Search from './search';
 import Dropdown from './dropdown';
 import { useRouter } from 'next/router';
+import { hasCookie } from 'cookies-next';
 
 import classes from './header.module.scss';
 import { Router } from 'next/router';
@@ -19,13 +20,16 @@ import { Router } from 'next/router';
 function MainHeader(props) {
 	const [modalShow, setModalShow] = useState(false);
 	const [session, setSession] = useState('');
+	const [isCookie, setIsCookie] = useState(null);
+	const has = hasCookie('token');
 
 	const { darkTheme, themeToggle } = props;
 	const router = useRouter();
 
 	useEffect(() => {
 		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
-	}, [session]);
+		setIsCookie(has);
+	}, [session, has]);
 
 	return (
 		<Container fluid='xs' className={`${classes.mainHeader}`}>
@@ -78,7 +82,7 @@ function MainHeader(props) {
 					</Col>
 					<Col xs={3} md={5} style={{ height: '100%' }}>
 						<div className={`${classes.last} mt-0`}>
-							{session ? (
+							{session && isCookie ? (
 								<>
 									<div className={classes.profileContainer}>
 										<div className={classes.iconWrapper}>

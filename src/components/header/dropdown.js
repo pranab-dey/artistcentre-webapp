@@ -11,6 +11,7 @@ import { FiLogOut } from 'react-icons/fi';
 import { BiHistory } from 'react-icons/bi';
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
 import { MdOutlineArrowDropDownCircle } from 'react-icons/md';
+import axiosInstance from 'constant/axios';
 
 import styles from './header.module.scss';
 import { Router } from 'next/router';
@@ -19,11 +20,13 @@ export default function Dropdown(props) {
 	const { setSession } = props;
 	const router = useRouter();
 
-	const handleLogout = (e) => {
+	const handleLogout = async (e) => {
 		e.preventDefault();
-		setSession('');
-		router.push('/');
+		setSession(null);
+		await axiosInstance.get('/api/remove-token');
 		localStorage.removeItem('user');
+
+		router.push('/');
 	};
 
 	return (

@@ -9,6 +9,7 @@ import { LoginWithEmail } from 'containers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseAuth } from 'constant/firebase';
+import { useRouter } from 'next/router';
 // import AppLocalStorage from 'pages/api/appLocalStorage';
 // import { setCookie } from 'cookies-next';
 
@@ -23,6 +24,7 @@ import styles from './modal.module.scss';
 
 export default function AppModal(props) {
 	const { modalShow, onHide, setSession } = props;
+	const router = useRouter();
 
 	return (
 		<Modal
@@ -128,6 +130,7 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 				// setCookie('token', token);
 				const res = await axiosInstance.get('api/set-token');
 				console.log(res);
+				router.replace(router.asPath);
 
 				// AppLocalStorage.setItem('user', userData);
 				// document.cookie = `token=${token}; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;

@@ -66,6 +66,8 @@ function LoginWithEmail(props) {
 				setState('');
 				hideModal();
 				setSession(data.token);
+				router.replace(router.asPath);
+
 				// setCookie('token', `${data.token}`);
 			} else {
 				const resJson = await axios.post(registerUrl, values);

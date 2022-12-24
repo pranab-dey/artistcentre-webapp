@@ -3,6 +3,9 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { firebaseAuth } from 'constant/firebase';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
+import axiosInstance from 'constant/axios';
+import { useRouter } from 'next/router';
+
 const authContextDefaultValues = {
 	user: null,
 	login: () => {},
@@ -16,6 +19,7 @@ export default function FirebaseAuthProvider({ children }) {
 	const [user, setUser] = useAuthState(firebaseAuth);
 	const provider = new GoogleAuthProvider();
 	const [loading, setLoading] = useState(true);
+	const router = useRouter();
 	// const auth = initFirebase();
 	// const auth = getAuth();
 	// console.log(firebaseAuth);
@@ -82,8 +86,11 @@ export default function FirebaseAuthProvider({ children }) {
 		}
 	};
 
-	const logout = () => {
+	const logout = async () => {
 		firebaseAuth.signOut();
+		localStorage.removeItem('user');
+		await axiosInstance.get('/api/remove-token');
+		router.push('/');
 		//setUser(false);
 		// console.log('logout');
 	};
