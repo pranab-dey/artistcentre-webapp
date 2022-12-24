@@ -23,7 +23,7 @@ function MainHeader(props) {
 	const [isCookie, setIsCookie] = useState(null);
 	const has = hasCookie('token');
 
-	const { darkTheme, themeToggle } = props;
+	// const { darkTheme, themeToggle } = props;
 	const router = useRouter();
 
 	useEffect(() => {

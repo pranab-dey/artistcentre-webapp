@@ -42,8 +42,8 @@
 	font-weight: 600;
 	margin-top: 5px;
 
-	overflow: hidden;
 	max-width: 300px;
+	overflow: hidden;
 	white-space: nowrap; /* don't break the line */
 	text-overflow: ellipsis;
 	text-align: justify;
@@ -58,6 +58,11 @@
 	margin-bottom: 40px;
 	opacity: 0.8;
 	margin-top: 2px;
+
+	overflow: hidden;
+	white-space: nowrap; /* don't break the line */
+	text-overflow: ellipsis;
+	text-align: justify;
 }
 .groupTitle {
 	margin-bottom: 50px;
@@ -91,5 +96,13 @@
 @media only screen and (max-width: 600px) {
 	.imgWrapper {
 		min-height: 80px;
+	}
+	.imageTitle,
+	.groupTitle,
+	.venue {
+		width: 136px;
+	}
+	.subTitle {
+		width: 140px;
 	}
 }

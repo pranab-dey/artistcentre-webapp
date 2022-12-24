@@ -9,6 +9,8 @@ import Image from 'next/image';
 import { favUrl } from 'constant/apiResources';
 import axiosInstance from 'constant/axios';
 import { useSearch } from 'appStore/context/search';
+import { AppModal } from 'components';
+import { hasCookie } from 'cookies-next';
 
 import styles from './feed.module.scss';
 
@@ -20,14 +22,16 @@ const normalise = (date) => {
 export default function Feed({ event, refreshData }) {
 	const router = useRouter();
 	const [userFav, setUserFav] = useState(null);
-	// const [user, setUser] = useState(localStorage.getItem('user'));
+	const [isCookie, setIsCookie] = useState(null);
+	const has = hasCookie('token');
 	const { user = {} } = useSearch();
 
 	useEffect(() => {
+		setIsCookie(has);
+	}, [has]);
+
+	useEffect(() => {
 		console.log({ event });
-		// setUser();
-		// setUser(token);
-		// console.log('user search', user, token);
 		setUserFav(event.is_favorite);
 	}, [event.is_favorite]);
 
@@ -35,7 +39,6 @@ export default function Feed({ event, refreshData }) {
 
 	const handleHeartClick = async (event) => {
 		const payload = { event_id: event.id };
-		// console.log({ payload });
 		setUserFav((prev) => !prev);
 		try {
 			if (userFav) {
@@ -72,6 +75,7 @@ export default function Feed({ event, refreshData }) {
 					user={user?.token}
 					hasLiveUrl={hasLiveUrl}
 					handleHeartClick={handleHeartClick}
+					hasServerToken={has}
 				/>
 			</div>
 			<Divider />
@@ -141,9 +145,9 @@ const EventType = ({
 	userFav,
 	hasLiveUrl,
 	handleHeartClick,
+	hasServerToken,
 }) => {
 	const router = useRouter();
-	// console.log(event);
 
 	const handlePlayIconClick = (e) => {
 		e.preventDefault();
@@ -193,14 +197,14 @@ const EventType = ({
 					<span className={styles.freeevent}>Free Event</span>
 				)}
 			</div>
-			{isFavourite(event, userFav, handleHeartClick)}
-			{/* {user ? isFavourite(event, userFav, handleHeartClick) : null} */}
+			{hasServerToken
+				? isFavourite(user, event, userFav, handleHeartClick)
+				: null}
 		</div>
 	);
 };
 
-const isFavourite = (event, userFav, handleHeartClick) => {
-	// console.log('userFave', userFav);
+const isFavourite = (user, event, userFav, handleHeartClick) => {
 	if (!userFav)
 		return (
 			<div>

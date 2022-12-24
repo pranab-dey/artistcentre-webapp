@@ -15,12 +15,12 @@ export default function Slider(props) {
 		switch (type) {
 			case 'Featured Livestreams':
 				return (
-					<div>
+					<>
 						<div className={styles.imageTitle}>
 							<span>{title}</span>
 						</div>
 						<div className={styles.subTitle}>{artistName}</div>
-					</div>
+					</>
 				);
 
 			case 'Groups':
