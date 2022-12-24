@@ -5,20 +5,24 @@ import { FaRegEdit } from 'react-icons/fa';
 import { ImMobile } from 'react-icons/im';
 
 import { CustomButton } from 'components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import styles from './edit.module.scss';
 
 export default function EditProfile(props) {
 	const { data, handleProfileEditSubmit } = props;
 
+	useEffect(() => {
+		setUserEditedData(initialData);
+	}, [data]);
+
 	const initialData = {
 		first_name: data.first_name ?? undefined,
 		email: data.email ?? undefined,
-		mobileV1: data.artist_mobile?.slice(0, 4) ?? undefined,
-		mobileV2: data.artist_mobile?.slice(4) ?? undefined,
+		mobileV1: data.artist_mobile?.slice(0, 4) ?? '+880',
+		mobileV2: data.artist_mobile?.slice(4) ?? '123456789',
 	};
-	const [userEditedData, setUserEditedData] = useState(initialData);
+	const [userEditedData, setUserEditedData] = useState({});
 
 	const handleInputChange = (e) => {
 		e.preventDefault();

@@ -44,6 +44,7 @@ export default function Profile(props) {
 	const updateUserData = useCallback(async (payload) => {
 		const session = JSON.parse(localStorage.getItem('user'))?.token || '';
 		setLoading(true);
+		console.log(payload);
 		try {
 			const response = await axios({
 				method: 'PUT',
