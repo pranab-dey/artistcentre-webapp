@@ -8,11 +8,12 @@ import { useHydrateAtoms } from 'jotai/utils';
 import { useMemo } from 'react';
 
 function Layout(props) {
-	const [darkTheme, themeToggle] = useThemeToggle();
+	// const [darkTheme, themeToggle] = useThemeToggle();
 
 	return (
 		<>
-			<MainHeader {...{ darkTheme, themeToggle }} />
+			{/* <MainHeader {...{ darkTheme, themeToggle }} /> */}
+			<MainHeader />
 			<main>{props.children}</main>
 			<Footer />
 		</>
