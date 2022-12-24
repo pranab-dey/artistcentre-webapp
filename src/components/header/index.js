@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -25,9 +25,10 @@ function MainHeader(props) {
 
 	// const { darkTheme, themeToggle } = props;
 	const router = useRouter();
+	const { refreshData } = props;
 
 	useEffect(() => {
-		setSession(JSON.parse(localStorage.getItem('user'))?.token || '');
+		setSession(JSON.parse(localStorage.getItem('user'))?.token);
 		setIsCookie(has);
 	}, [session, has]);
 
@@ -82,7 +83,7 @@ function MainHeader(props) {
 					</Col>
 					<Col xs={3} md={5} style={{ height: '100%' }}>
 						<div className={`${classes.last} mt-0`}>
-							{session && isCookie ? (
+							{session ? (
 								<>
 									<div className={classes.profileContainer}>
 										<div className={classes.iconWrapper}>
@@ -134,6 +135,7 @@ function MainHeader(props) {
 								modalShow={modalShow}
 								onHide={() => setModalShow(false)}
 								setSession={setSession}
+								refreshData={refreshData}
 							/>
 						</div>
 					</Col>

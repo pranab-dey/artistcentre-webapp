@@ -28,7 +28,7 @@ export default function Feed({ event, refreshData }) {
 
 	useEffect(() => {
 		setIsCookie(has);
-	}, [has]);
+	}, [has, isCookie]);
 
 	useEffect(() => {
 		console.log({ event });
@@ -175,7 +175,7 @@ const EventType = ({
 
 		// return;
 	};
-
+	console.log(hasServerToken);
 	return (
 		<div className='d-flex '>
 			<div className={styles.playIconContainer}>

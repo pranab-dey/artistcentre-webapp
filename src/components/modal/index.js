@@ -11,7 +11,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseAuth } from 'constant/firebase';
 import { useRouter } from 'next/router';
 // import AppLocalStorage from 'pages/api/appLocalStorage';
-// import { setCookie } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 
 import axiosInstance from 'constant/axios';
 import axios from 'axios';
@@ -23,8 +23,7 @@ import { FiFacebook } from 'react-icons/fi';
 import styles from './modal.module.scss';
 
 export default function AppModal(props) {
-	const { modalShow, onHide, setSession } = props;
-	const router = useRouter();
+	const { modalShow, onHide, setSession, refreshData } = props;
 
 	return (
 		<Modal
@@ -47,6 +46,7 @@ export default function AppModal(props) {
 							<OauthLogInGroup
 								onHide={onHide}
 								setSession={setSession}
+								refreshData={refreshData}
 								// setUserData={setUser}
 							/>
 						</Col>
@@ -87,8 +87,9 @@ const LoginHeader = () => {
 		</div>
 	);
 };
-const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
+const OauthLogInGroup = ({ setSession, setUserData, onHide, refreshData }) => {
 	const [user, setUser] = useAuthState(firebaseAuth);
+	const router = useRouter();
 	const provider = new GoogleAuthProvider();
 
 	useEffect(() => {
@@ -119,22 +120,23 @@ const OauthLogInGroup = ({ setSession, setUserData, onHide }) => {
 				access_token: credToken,
 			});
 
-			if (status === 200) {
-				const userData = {
-					token,
-					user: backendUser ?? googleUser,
-				};
+			// if (status === 200) {
+			const userData = {
+				token,
+				user: backendUser,
+			};
 
-				localStorage.setItem('user', JSON.stringify(userData));
-				setSession(token);
-				// setCookie('token', token);
-				const res = await axiosInstance.get('api/set-token');
-				console.log(res);
-				router.replace(router.asPath);
+			localStorage.setItem('user', JSON.stringify(userData));
+			setSession(token);
+			setCookie('token', token);
+			const res = await axiosInstance.get('api/set-token');
+			console.log(res);
+			router.replace(router.asPath);
+			// await refreshData();
 
-				// AppLocalStorage.setItem('user', userData);
-				// document.cookie = `token=${token}; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
-			}
+			// AppLocalStorage.setItem('user', userData);
+			// document.cookie = `token=${token}; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+			// }
 
 			// setUserData?.(userData);
 
