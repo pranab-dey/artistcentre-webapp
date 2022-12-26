@@ -22,6 +22,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	// border: 1px solid red;
+	// padding-right: 10px;
+	// width: 145px;
+	// height: 60px;
 }
 .trashIcon {
 	color: rgba(255, 0, 0, 0.842);
@@ -73,10 +77,17 @@
 .place {
 	color: var(--color-primary-accent);
 	max-height: 15px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	margin-right: 2px;
+	// border: 1px solid red;
+
+	overflow: hidden;
+	white-space: nowrap; /* don't break the line */
+	text-overflow: ellipsis;
+	text-align: justify;
+	max-width: 95px;
+	// overflow: hidden;
+	// white-space: nowrap;
+	// text-overflow: ellipsis;
 }
 .date {
 	color: var(--color-primary-accent);
@@ -220,6 +231,9 @@
 	}
 	.imageContainer {
 		width: 125px;
+		min-width: 125px;
+		// border: 1px solid red;
+		// height: 200px;
 		// object-fit: contain;
 	}
 	.desc {

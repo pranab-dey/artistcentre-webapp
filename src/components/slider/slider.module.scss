@@ -25,6 +25,7 @@
 .imgWrapper {
 	min-width: 140px;
 	min-height: 200px;
+	// border: 1px solid red;
 	// max-width: 312px;
 	// max-width: 480px;
 
@@ -96,13 +97,20 @@
 @media only screen and (max-width: 600px) {
 	.imgWrapper {
 		min-height: 80px;
+		padding-right: 15px;
 	}
 	.imageTitle,
 	.groupTitle,
 	.venue {
-		width: 136px;
+		width: 127px;
+		// padding-right: 25px;
+		// border: 1px solid green;
 	}
 	.subTitle {
-		width: 140px;
+		// border: 1px solid green;
+		width: 127px;
+		// margin-right: 25px;
+
+		// width: 140px;
 	}
 }

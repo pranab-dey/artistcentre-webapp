@@ -113,7 +113,7 @@ const Photo = ({ src, id }) => {
 				layout='responsive'
 				objectFit='cover'
 				alt={`image-${id}-error`}
-				style={{ borderRadius: '10px' }}
+				style={{ borderRadius: '10px', border: '20px solid red' }}
 			/>
 		</div>
 	);
@@ -126,7 +126,7 @@ const Location = ({ venue, startDate }) => {
 				<SlLocationPin className={styles.locationIcon} />
 			)}
 			<div className={styles.address}>
-				{venue ? <div className={styles.place}>{venue} -</div> : null}
+				{venue ? <span className={styles.place}>{venue} -</span> : null}
 				<div className={styles.date}> {startDate}</div>
 			</div>
 		</div>
