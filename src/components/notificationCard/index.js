@@ -68,8 +68,8 @@ export default function NotificationCard({ event, type, index, refreshData }) {
 								event?.start_time ?? event?.event_start_time
 							}
 							type={type}
-							artistName={event?.artist[0]?.artist_name}
-							genre={event?.artist[0]?.artist_genre}
+							artistName={event?.artist?.[0]?.artist_name}
+							genre={event?.artist?.[0]?.artist_genre}
 						/>
 						<EventType
 							type={event?.ticket_price}

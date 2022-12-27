@@ -35,6 +35,7 @@ export default function Notification(props) {
 				},
 			});
 			const { data } = response.data;
+			console.log({ data });
 			setData(data);
 			setLoading(false);
 		} catch (error) {

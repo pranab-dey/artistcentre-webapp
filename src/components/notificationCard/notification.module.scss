@@ -84,7 +84,6 @@
 	white-space: nowrap; /* don't break the line */
 	text-overflow: ellipsis;
 	text-align: justify;
-	max-width: 95px;
 	// overflow: hidden;
 	// white-space: nowrap;
 	// text-overflow: ellipsis;
@@ -269,6 +268,9 @@
 	.place,
 	.date {
 		font-size: xx-small;
+	}
+	.place {
+		max-width: 95px;
 	}
 	.artistdetails {
 		gap: 5px;
