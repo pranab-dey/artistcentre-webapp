@@ -66,6 +66,7 @@ export default function HomePage(props) {
 	// 	return <AsyncSpinner />;
 
 	// if (!eventsList) return <AsyncSpinner />;
+	// console.log(eventsList);
 
 	return (
 		<main className={classes.bgColor}>
@@ -77,53 +78,55 @@ export default function HomePage(props) {
 				/>
 			</Head>
 
-			<div>
-				<Container fluid='sm'>
-					<Row>
-						<Col
-							xs={12}
-							md={9}
-							className={`mt-4 ${classes.mainImageContainer}`}>
-							<VideoContainer topEvent={eventsList.data[0]} />
-							<DescriptionContainer
-								topEvent={eventsList.data[0]}
-							/>
-						</Col>
-						<Col
-							className={`mt-3 ${classes.mainFeedContainer}`}
-							xs={12}
-							md={3}>
-							<FeedContainer
-								liveStreams={eventsList.data.slice(6)}
-								refreshData={refreshData}
-								limit={4}
-								height={'93vh'}
-							/>
-						</Col>
-						<Col
-							xs={12}
-							md={9}
-							className={`mb-5 ${classes.mainImageContainer}`}>
-							<SlideContainer
-								type={'Featured Livestreams'}
-								slideContent={eventsList.data.slice(1, 6)}
-							/>
-							<SlideContainer
-								type={'Groups'}
-								slideContent={groupList.data}
-							/>
-							<SlideContainer
-								type={'Artists'}
-								slideContent={artistList.data}
-							/>
-							<SlideContainer
-								type={'Venues'}
-								slideContent={venueList.data}
-							/>
-						</Col>
-					</Row>
-				</Container>
-			</div>
+			{eventsList.data ? (
+				<div>
+					<Container fluid='sm'>
+						<Row>
+							<Col
+								xs={12}
+								md={9}
+								className={`mt-4 ${classes.mainImageContainer}`}>
+								<VideoContainer topEvent={eventsList.data[0]} />
+								<DescriptionContainer
+									topEvent={eventsList.data[0]}
+								/>
+							</Col>
+							<Col
+								className={`mt-3 ${classes.mainFeedContainer}`}
+								xs={12}
+								md={3}>
+								<FeedContainer
+									liveStreams={eventsList.data.slice(6)}
+									refreshData={refreshData}
+									limit={4}
+									height={'93vh'}
+								/>
+							</Col>
+							<Col
+								xs={12}
+								md={9}
+								className={`mb-5 ${classes.mainImageContainer}`}>
+								<SlideContainer
+									type={'Featured Livestreams'}
+									slideContent={eventsList.data.slice(1, 6)}
+								/>
+								<SlideContainer
+									type={'Groups'}
+									slideContent={groupList.data}
+								/>
+								<SlideContainer
+									type={'Artists'}
+									slideContent={artistList.data}
+								/>
+								<SlideContainer
+									type={'Venues'}
+									slideContent={venueList.data}
+								/>
+							</Col>
+						</Row>
+					</Container>
+				</div>
+			) : null}
 		</main>
 	);
 }

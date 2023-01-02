@@ -17,9 +17,9 @@ export default function Description({ topEvent, user }) {
 	// 	.split(addressHead + ',')[1]
 	// 	.replace(/,\s*$/, '');
 
-	const hasLiveUrl = topEvent.event_livestream_url || '';
+	const hasLiveUrl = topEvent?.event_livestream_url || '';
 
-	const eventType = !!topEvent.ticket_price;
+	const eventType = !!topEvent?.ticket_price;
 
 	return (
 		<Containter
@@ -28,13 +28,13 @@ export default function Description({ topEvent, user }) {
 			<Row className='p-2'>
 				<Col className='px-4' md={11} xs={9}>
 					<Title
-						eventTitle={topEvent.event_name}
-						artistName={topEvent.artist[0]?.artist_name}
-						artistGenre={topEvent.artist[0]?.artist_genre}
+						eventTitle={topEvent?.event_name}
+						artistName={topEvent?.artist[0]?.artist_name}
+						artistGenre={topEvent?.artist[0]?.artist_genre}
 					/>
 					<Location
-						eventAddressHead={topEvent.venue.venue_name}
-						eventAddressTail={topEvent.venue.venue_address}
+						eventAddressHead={topEvent?.venue.venue_name}
+						eventAddressTail={topEvent?.venue.venue_address}
 					/>
 				</Col>
 				<Col md={1} xs={3}>
@@ -49,8 +49,8 @@ export default function Description({ topEvent, user }) {
 			<Row className='px-3'>
 				<Divider />
 				<Duration
-					startDate={topEvent.start_date}
-					startTime={topEvent.start_time}
+					startDate={topEvent?.start_date}
+					startTime={topEvent?.start_time}
 				/>
 			</Row>
 		</Containter>

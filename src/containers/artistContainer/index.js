@@ -15,10 +15,10 @@ export default function ArtistContainer(props) {
 					/>
 				</Col>
 				<Col md={12} xs={12}>
-					<Title group={topEvent.group?.[0]} />
+					<Title group={topEvent?.group?.[0]} />
 				</Col>
 				<Col md={12} xs={12}>
-					<Description group={topEvent.group?.[0]} />
+					<Description group={topEvent?.group?.[0]} />
 				</Col>
 			</Row>
 		</Container>
